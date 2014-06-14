@@ -1,0 +1,362 @@
+/**************** Template ***************/
+
+body, html{
+    height:100%;
+    width:100%;
+    margin:0;
+    padding:0;
+    background-color: #ecf0f1;
+    font-family: sans-serif;
+}
+
+pre {
+    white-space: pre-wrap;       /* css-3 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+    font-family: sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color:#000;
+}
+
+a:hover{
+    color:#858535;
+}
+
+hr{
+    margin-top: 10px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+fieldset {
+    border:none;
+}
+
+nav{
+    z-index: 1;
+    height: 60px;
+    width: 100%;
+    top: 0;
+    border-bottom: 1px solid grey;
+    position: fixed;
+    margin-bottom: 10px;
+    background: #C7B43B;
+    background: -webkit-linear-gradient(center center, rgb(179, 155, 58) 30%, rgb(181, 170, 53) 49%, rgb(199, 180, 59) 70%);
+    background: -moz-linear-gradient(center center, rgb(179, 155, 58) 30%, rgb(181, 170, 53) 49%, rgb(199, 180, 59) 70%);
+    background: -o-linear-gradient(center center, rgb(179, 155, 58) 30%, rgb(181, 170, 53) 49%, rgb(199, 180, 59) 70%);
+    background: -ms-linear-gradient(center center, rgb(179, 155, 58) 30%, rgb(181, 170, 53) 49%, rgb(199, 180, 59) 70%);
+    background: -linear-gradient(center center, rgb(179, 155, 58) 30%, rgb(181, 170, 53) 49%, rgb(199, 180, 59) 70%);
+
+}
+
+.navLinks{
+    min-width:800px;
+    width:900px;
+    margin: auto auto auto auto;
+    padding-left: 20px;
+    padding-top: 25px;
+    font-size: 30px;
+}
+
+.navLinks a{
+    color:#000;
+    margin-right:10px;
+}
+
+.navLinks a:hover{
+    color:#6b6b6b;
+}
+
+.container{
+    min-width: 800px;
+    width: 1000px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+}
+}
+
+.holder{
+    height:auto;
+    width:auto;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.hrGap{
+    margin-top: 20px;
+}
+
+.footer{
+    font-size:13px;
+    font-color:grey;
+    padding-bottom:10px;
+}
+
+
+
+/****************** Home Page ******************/
+
+.title{
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 15px;
+}
+
+.articlePreview{
+    width:800px;
+    min-width: 800px;
+    margin:auto auto auto auto;
+    min-height: 300px;
+    height:auto;
+    border: 1px solid #000;
+    border-radius: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    background-color: white;
+}
+
+.articleTime{
+    font-style: italic;
+    font-size: 12px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    font-color:#bdbdbd;
+}
+
+.articleTitle{
+    margin-left: 20px;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    float:left;
+}
+
+.articlePhoto{
+    float:left;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 20px;
+}
+
+.articleDesc{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.readMore{
+
+}
+
+.type{
+    padding-right: 135px;
+    font-size: 20px;
+    padding-left: 20px;
+    padding-top: 15px;
+}
+
+/***************** Article Page ****************/
+
+.articleHolder{
+    width:800px;
+    min-width: 800px;
+    height:auto;
+    margin: auto auto auto auto;
+    border-left: 1px solid rgba(186, 186, 186, 0.59);
+    border-right: 1px solid rgba(186, 186, 186, 0.59);
+    background-color: #f7f7f7;
+}
+
+.articleContainer{
+    width:auto;
+    height:auto;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.blogTitle{
+    font-size:20px;
+    font-weight: bold;
+    padding-top: 20px;
+    padding-bottom: 2px;
+
+}
+
+.blogType{
+    font-style: italic;
+    font-size: 15px;
+    padding-bottom: 2px;
+
+}
+.blogTime{
+    font-style: italic;
+    font-size: 15px;
+    padding-bottom: 2px;
+}
+
+.blogDesc{
+    font-style: italic;
+    color: #818181;
+    font-size:15px;
+}
+
+.blogArticle{
+    font-size: 18px;
+    font-family: sans-serif;
+}
+
+.blogPhoto{
+    width: 600px;
+    height: 338px;
+    border: 1px solid rgba(1, 1, 1, 0.33);
+    margin-left: 75px;
+    margin-top: 15px;
+}
+
+.picDesc{
+    font-size: 15px;
+    text-align: center;
+
+}
+
+.sources{
+    margin-top: 20px;
+    font-size: 10px;
+    font-style: italic;
+    padding-bottom:10px;
+}
+
+.hrGapArticle{
+    margin-top: -10px;
+}
+
+
+/***************** About Page ******************/
+
+.aboutContainer{
+    width:1000px;
+    height:auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+
+/**************** Contact Page ****************/
+
+.formContact{
+    width:500px;
+    height:auto;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: -20px;
+}
+
+.formContact input[type="text"], textarea{
+    float:left;
+    overflow: hidden;
+    width:500px;
+    margin-top: 5px;
+    display: block;
+    position: relative;
+    box-shadow: inset 0 1px 3px #ddd;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #3c3c3c;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    border-radius: 0;
+    line-height: 22px;
+    background-color: #fbfbfb;
+    padding: 13px 13px 13px 54px;
+    margin-bottom: 10px;
+    border: 3px solid rgba(0,0,0,0);
+}
+
+.formGroup{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    width:auto;
+    height:auto;
+    display:block;
+}
+
+.formEmail{
+    background-image: url(http://electricathletics.com/images/email.svg);
+    background-size: 30px 30px;
+    background-position: 11px 8px;
+    background-repeat: no-repeat;
+}
+
+.formName{
+    background-image: url(http://electricathletics.com/images/name.svg);
+    background-size: 30px 30px;
+    background-position: 11px 8px;
+    background-repeat: no-repeat;
+}
+
+.formBody{
+    background-image: url(http://electricathletics.com/images/comment.svg);
+    background-size: 30px 30px;
+    background-position: 11px 8px;
+    background-repeat: no-repeat;
+    height:200px;
+
+}
+
+.formSend{
+    float:left;
+    overflow: hidden;
+    width: 500px;
+    height:40px;
+    font-family: inherit;
+    font-size: 100%;
+    padding: .5em 1em;
+    color: #000000;
+    border: 0 rgba(0,0,0,0);
+    background-color: #C7B43B;
+    text-decoration: none;
+    border-radius: 2px;
+    display: inline-block;
+    zoom: 1;
+    line-height: normal;
+    white-space: nowrap;
+    vertical-align: baseline;
+    text-align: center;
+    cursor: pointer;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.formSend:hover {
+    color: #C7B43B;
+    background-color: #000000;
+}
+
+
+/********************* Thanks Page ********************/
+
+.thanks{
+    height: auto;
+    width: auto;
+    margin-top: 10px;
+    padding-bottom: 15px;
+}
+
+/****************** Add Post **********************/
