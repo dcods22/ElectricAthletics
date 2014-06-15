@@ -360,3 +360,23 @@ nav{
 }
 
 /****************** Add Post **********************/
+
+.addPostForm{
+    margin:auto auto auto auto;
+    overflow:hidden;
+    width:500px;
+    height:auto;
+}
+
+.addPostForm input[type="text"], textarea{
+    overflow:hidden;
+    width:500px;
+}
+
+.addPostForm input[type="text"]{
+    height:50px;
+}
+
+.addArticle{
+    height:600px;
+}

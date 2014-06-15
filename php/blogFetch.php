@@ -54,6 +54,22 @@
 			$entry = $stmt->fetchAll(PDO::FETCH_ASSOC);
 			return($entry);
 		}
+
+        function addPost($typeID, $title, $desc, $article, $pic, $picDesc, $picSrc){
+            // build INSERT query string
+            $sql = 'INSERT INTO ' . $this->tablename . ' (typeID, title, desc, article, pic, picDesc, picSrc)
+					VALUES ( :typeID, :title, :desc, :article, :pic, :picDesc, :picSrc )';
+
+            $stmt = $this->dbconn->prepare( $sql );
+            $stmt->bindValue(':typeID', $typeID);
+            $stmt->bindValue(':title', $title);
+            $stmt->bindValue(':desc', $desc);
+            $stmt->bindValue(':article', $article);
+            $stmt->bindValue(':pic', $pic);
+            $stmt->bindValue(':picDesc', $picDesc);
+            $stmt->bindValue(':picSrc', $picSrc);
+            $stmt->execute();
+        }
 	
 	}
 ?>
