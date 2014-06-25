@@ -7,15 +7,21 @@
 <body>
 
 <nav>
-    <div class="navLinks">
-        <a href="index.php">LOGO</a>
-        <a href="index.php">Home</a>
-        <a href="sports.php">Sports</a>
-        <a href="technology.php">Technology</a>
-        <a href="about.html">About</a>
-        <a href="contact.php">Contact</a>
+    <div class="navHolder">
+        <div class="LR">
+            <a href="signuporin.php" class="LRLink">Login / Register</a>
+        </div>
+        <div class="navlinks">
+            <a href="index.php">LOGO</a>
+            <a href="index.php">Home</a>
+            <a href="sports.php">Sports</a>
+            <a href="technology.php">Technology</a>
+            <a href="about.html">About</a>
+            <a href="contact.php">Contact</a>
+        </div>
     </div>
 </nav>
+
 
 <div class="container">
     <div class="holder">
@@ -27,20 +33,23 @@
 
     If you have any questions or concerns they will be responded too very shortly.
                 </pre>
-                <form method="POST" action="php/sendEmail.php" class="formContact" name="formEmail">
-                    <fieldset class="formGroup">
-                        <p><input type="text" placeholder="Name" class="formName" name="formName" required/></p>
-                        <p></p><input type="text" placeholder="Email" class="formEmail" name="formEmail" required/></p>
-                        <p><textarea placeholder="Email Body" class="formBody" name="formBody" required></textarea></p>
-                        <input type="submit" class="formSend" name="formSend" value="Send!"/>
-                    </fieldset>
-                </form>
+
+                <div class="contactDiv">
+                    <form method="POST" action="php/sendEmail.php" class="formContact" name="formEmail">
+                        <fieldset class="formGroup">
+                            <p><input type="text" placeholder="Name" class="formName" name="formName" required/></p>
+                            <p><input type="text" placeholder="Email" class="formEmail" name="formEmail" required/></p>
+                            <p><textarea placeholder="Email Body" class="formBody" name="formBody" required></textarea></p>
+                            <input type="submit" class="formSend" name="formSend" value="Send!"/>
+                        </fieldset>
+                    </form>
+                </div>
 
             </div>
         </div>
 
 
-        <div class="hrGapArticle"></div>
+        <div class="contactHRGap"></div>
         <hr/>
 
         <div class="footer">

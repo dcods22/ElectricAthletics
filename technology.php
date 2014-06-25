@@ -14,13 +14,18 @@
     ?>
 
     <nav>
-        <div class="navLinks">
-            <a href="index.php">LOGO</a>
-            <a href="index.php">Home</a>
-            <a href="sports.php">Sports</a>
-            <a href="technology.php">Technology</a>
-            <a href="about.html">About</a>
-            <a href="contact.php">Contact</a>
+        <div class="navHolder">
+            <div class="LR">
+                <a href="signuporin.php" class="LRLink">Login / Register</a>
+            </div>
+            <div class="navlinks">
+                <a href="index.php">LOGO</a>
+                <a href="index.php">Home</a>
+                <a href="sports.php">Sports</a>
+                <a href="technology.php">Technology</a>
+                <a href="about.html">About</a>
+                <a href="contact.php">Contact</a>
+            </div>
         </div>
     </nav>
 

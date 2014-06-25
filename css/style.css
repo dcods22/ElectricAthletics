@@ -6,7 +6,7 @@ body, html{
     margin:0;
     padding:0;
     background-color: #ecf0f1;
-    font-family: sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
 }
 
 pre {
@@ -53,21 +53,25 @@ nav{
     background: -o-linear-gradient(center center, rgb(179, 155, 58) 30%, rgb(181, 170, 53) 49%, rgb(199, 180, 59) 70%);
     background: -ms-linear-gradient(center center, rgb(179, 155, 58) 30%, rgb(181, 170, 53) 49%, rgb(199, 180, 59) 70%);
     background: -linear-gradient(center center, rgb(179, 155, 58) 30%, rgb(181, 170, 53) 49%, rgb(199, 180, 59) 70%);
-
 }
 
-.navLinks{
+.navHolder{
     min-width:800px;
     width:900px;
     margin: auto auto auto auto;
     padding-left: 20px;
-    padding-top: 25px;
     font-size: 30px;
+}
+
+.navLinks {
+    padding-top: 25px;
+    height:auto;
+    width:auto;
 }
 
 .navLinks a{
     color:#000;
-    margin-right:10px;
+    margin-right:7px;
 }
 
 .navLinks a:hover{
@@ -89,6 +93,21 @@ nav{
     width:auto;
     margin-left: 5px;
     margin-right: 5px;
+}
+
+.LR{
+    float: right;
+    font-size:20px;
+    margin-top: 35px;
+    margin-right: 50px;
+}
+
+.LR a{
+    font-size:20px;
+}
+
+.LR a:hover{
+    color:#6b6b6b;
 }
 
 .hrGap{
@@ -259,9 +278,34 @@ nav{
     margin-right: auto;
     margin-left: auto;
     margin-top: -20px;
+    padding-bottom: 20px;
 }
 
-.formContact input[type="text"], textarea{
+.formName, .formEmail{
+    float:left;
+    overflow: hidden;
+    width:500px;
+    margin-top: 5px;
+    display: block;
+    position: relative;
+    box-shadow: inset 0 1px 3px #ddd;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #3c3c3c;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    border-radius: 0;
+    line-height: 22px;
+    background-color: #fbfbfb;
+    padding: 13px 13px 13px 54px;
+    margin-bottom: 10px;
+    border: 3px solid rgba(0,0,0,0);
+}
+
+.formBody{
     float:left;
     overflow: hidden;
     width:500px;
@@ -349,6 +393,9 @@ nav{
     background-color: #000000;
 }
 
+.contactHRGap{
+    margin-top: -15px;
+}
 
 /********************* Thanks Page ********************/
 
@@ -357,26 +404,248 @@ nav{
     width: auto;
     margin-top: 10px;
     padding-bottom: 15px;
+    font-size: 18px;
 }
 
 /****************** Add Post **********************/
 
 .addPostForm{
-    margin:auto auto auto auto;
+    margin-left:auto;
+    margin-right: auto;
+    margin-top: 20px;
     overflow:hidden;
     width:500px;
     height:auto;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    font-size: 18px;
 }
 
-.addPostForm input[type="text"], textarea{
+.addPostDiv input[type="text"]{
     overflow:hidden;
     width:500px;
+    height:50px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    font-size: 18px;
 }
 
-.addPostForm input[type="text"]{
-    height:50px;
+.addPostDiv textarea{
+    overflow:hidden;
+    width:500px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+
+}
+
+.addDesc{
+    height:100px
 }
 
 .addArticle{
     height:600px;
+}
+
+.sendArticle{
+    float:left;
+    overflow: hidden;
+    width: 500px;
+    height:40px;
+    font-family: inherit;
+    font-size: 100%;
+    padding: .5em 1em;
+    color: #000000;
+    border: 0 rgba(0,0,0,0);
+    background-color: #C7B43B;
+    text-decoration: none;
+    border-radius: 2px;
+    display: inline-block;
+    zoom: 1;
+    line-height: normal;
+    white-space: nowrap;
+    vertical-align: baseline;
+    text-align: center;
+    cursor: pointer;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.sendArticle:hover {
+    color: #C7B43B;
+    background-color: #000000;
+}
+
+
+/*********************** Login Page ********************/
+
+.loginForm{
+    width:500px;
+    height:auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.loginForm input[type="text"], .loginForm input[type="password"]{
+    overflow: hidden;
+    width:500px;
+    display: block;
+    position: relative;
+    box-shadow: inset 0 1px 3px #ddd;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #3c3c3c;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    border-radius: 0;
+    line-height: 22px;
+    background-color: #fbfbfb;
+    padding: 13px 13px 13px 54px;
+    border: 3px solid rgba(0,0,0,0);
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.loginUsername{
+    background-image: url(http://electricathletics.com/images/name.svg);
+    background-size: 30px 30px;
+    background-position: 11px 8px;
+    background-repeat: no-repeat;
+}
+
+.loginPassword{
+    background-image: url(http://electricathletics.com/images/password.png);
+    background-size: 30px 30px;
+    background-position: 11px 8px;
+    background-repeat: no-repeat;
+}
+
+.loginSend{
+    overflow: hidden;
+    width: 500px;
+    height:40px;
+    font-family: inherit;
+    font-size: 100%;
+    padding: .5em 1em;
+    color: #000000;
+    border: 0 rgba(0,0,0,0);
+    background-color: #C7B43B;
+    text-decoration: none;
+    border-radius: 2px;
+    display: inline-block;
+    zoom: 1;
+    line-height: normal;
+    white-space: nowrap;
+    vertical-align: baseline;
+    text-align: center;
+    cursor: pointer;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.loginSend:hover {
+    color: #C7B43B;
+    background-color: #000000;
+}
+
+/******************** Register Page **********************/
+
+.registerForm{
+    width:500px;
+    height:auto;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 20px;
+}
+
+.registerForm input[type="text"], .registerForm input[type="password"]{
+    overflow: hidden;
+    width:500px;
+    display: block;
+    position: relative;
+    box-shadow: inset 0 1px 3px #ddd;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #3c3c3c;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    border-radius: 0;
+    line-height: 22px;
+    background-color: #fbfbfb;
+    padding: 13px 13px 13px 54px;
+    border: 3px solid rgba(0,0,0,0);
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.registerUsername{
+    background-image: url(http://electricathletics.com/images/name.svg);
+    background-size: 30px 30px;
+    background-position: 11px 8px;
+    background-repeat: no-repeat;
+}
+
+.registerPassword, .registerPassword2{
+    background-image: url(http://electricathletics.com/images/password.png);
+    background-size: 30px 30px;
+    background-position: 11px 8px;
+    background-repeat: no-repeat;
+}
+
+.registerEmail{
+    background-image: url(http://electricathletics.com/images/email.svg);
+    background-size: 30px 30px;
+    background-position: 11px 8px;
+    background-repeat: no-repeat;
+}
+
+.registerSend{
+    overflow: hidden;
+    width: 500px;
+    height:40px;
+    font-family: inherit;
+    font-size: 100%;
+    padding: .5em 1em;
+    color: #000000;
+    border: 0 rgba(0,0,0,0);
+    background-color: #C7B43B;
+    text-decoration: none;
+    border-radius: 2px;
+    display: inline-block;
+    zoom: 1;
+    line-height: normal;
+    white-space: nowrap;
+    vertical-align: baseline;
+    text-align: center;
+    cursor: pointer;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.registerSend:hover {
+    color: #C7B43B;
+    background-color: #000000;
 }
