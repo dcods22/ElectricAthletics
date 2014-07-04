@@ -9,21 +9,59 @@
     <?php
         include("php/blogFetch.php");
 
+        session_save_path("/home/users/web/b2834/ipg.electricathleticscom/sessions");
+        session_start();
+
         $blogFetch = new BlogController("blogs");
         $blogs = $blogFetch->getAllPosts();
+
+        if(isset($_SESSION['loggedin'])){
+            if($_SESSION['loggedin'] = "yes")
+                $signedin = true;
+            else
+                $signedin = false;
+        }
+
+        if(isset($_SESSION['username'])){
+            $username = $_SESSION['username'];
+        }
+
+        if(isset($_COOKIE['remember_me'])){
+            session_id($_COOKIE['remember_me']);
+            $signedin = true;
+        }else
+            $signedin = false;
+
+        include("php/userInfo.php");
+
+        $userController = new UserController("Users");
+        $info = $userController->getUserInfo($username);
+        $ID = $info[id];
+        $email = $info[email];
+        $avatar = $info[avatar];
+
     ?>
+
     <nav>
         <div class="navHolder">
             <div class="LR">
-                <a href="signuporin.php" class="LRLink">Login / Register</a>
+                <?php
+                if($_SESSION['loggedin'] == "yes"):
+                    echo  "<div class='usernameholder'><a href='profile.php?id=" . $ID . "'><img src='" . $avatar . "' alt='Avatar' class='signinAvatar'/> <div class='nameuser'>" . $username . "</div></a></div>";
+                else:
+                    echo "<a href='signuporin.php' class='LRLink'>Login / Register</a>";
+                endif;
+                ?>
             </div>
             <div class="navlinks">
-                <a href="index.php">LOGO</a>
-                <a href="index.php">Home</a>
-                <a href="sports.php">Sports</a>
-                <a href="technology.php">Technology</a>
-                <a href="about.html">About</a>
-                <a href="contact.php">Contact</a>
+                <div class="logo"><a href="index.php">LOGO</a></div>
+                <div class="rNav">
+                    <a href="index.php">Home</a>
+                    <a href="sports.php">Sports</a>
+                    <a href="technology.php">Technology</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.php">Contact</a>
+                </div>
             </div>
         </div>
     </nav>
@@ -37,6 +75,7 @@
                 foreach($blogs as $blog):
                 $strDate = strtotime($blog[time]);
                 $theDate = date( 'F j, Y g:i A', $strDate );
+                $desc = substr($blog[article], 0, 497) . "...";
             ?>
 
                 <div class="articlePreview">
@@ -44,7 +83,7 @@
                     <a href="<?php if($blog[typeID] == 2){ echo "sports.php";} elseif($blog[typeID] == 1){ echo "technology.php"; }?>"><div class="type"><?php if($blog[typeID] == 1){ echo "Technology";} elseif($blog[typeID] == 2){ echo "Sports"; }?></div></a>
                     <div class="articleTime"><?php echo $theDate; ?></div>
                     <img src="<?php echo $blog[pic]; ?>" alt="Article Photo" class="articlePhoto" height="200px" width="300px"/>
-                    <div class="articleDesc"><?php echo $blog[desc]; ?></div>
+                    <div class="articleDesc"><?php echo $desc; ?></div>
                     <a href="article.php?id=<?php echo $blog[id]; ?>" class="readMore">Read More...</a>
                 </div>
 

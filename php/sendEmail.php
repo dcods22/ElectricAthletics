@@ -6,5 +6,5 @@
     $email = $_POST['formEmail'];
     $headers = "From: $email \r\n";
     mail($to, $subject, $message, $headers);
-    header('Location: http://www.electricathletics.com/thanks.html');
+    header('Location: http://www.electricathletics.com/thanks.php');
 ?>

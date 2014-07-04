@@ -4,8 +4,9 @@
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
 </head>
 
-<?php
+<body>
 
+<?php
     session_save_path("/home/users/web/b2834/ipg.electricathleticscom/sessions");
     session_start();
 
@@ -32,8 +33,6 @@
     $avatar = $info[avatar];
 ?>
 
-<body>
-
 <nav>
     <div class="navHolder">
         <div class="LR">
@@ -59,36 +58,38 @@
 </nav>
 
 
+
 <div class="container">
     <div class="holder">
         <div class="articleHolder">
             <div class="articleContainer">
-                <div class="title">Validate</div>
+                <div class="title">About</div>
 
-                <?php
+        <pre>
+            This blog is written for the readers, from a reader of many other blogs.  Our purpose here is to spread the word about current topics in both sports and technology, two of my favorite things in the world.  None of the photos on this site are original and all of them have sources at the bottom of the aricle.  As well, none of my opinions are facts, or are on behalf of anyone besides myself.
 
-                    $ID = $_GET['id'];
+            I would love to have you comment or argue against any of my opinions, prove me right and you'll get a mention in the next article or in the edit.  If you are interested in writing an article for the blog feel free to contact me via the <a href="contact.php">contact</a> page and we can get in touch. If you have any concerns about what I have talked about also contact me at anytime.
 
-                ?>
-                <br>
-                A validation email has been sent.
-                <br/><br/>
-                If you need to be resent please <a href="resendValidation.php?id=<?php echo $ID;?>">click here</a>
-                <br/>
-                <div class="HRGap"></div>
-                <hr/>
-
-                <div class="footer">
-                    No pictures used on this website are original, they are all obtained from the source listed at the bottom of the
-                    page. <br/>
-                    All information found on this blog are original ideas written by our writers. For any questions feel free to contact
-                    us by the contact page
-                    <br/>All rights reserved, &copy; 2014
-
-                </div>
-
+            This website is coded in house, by the writers of the blogs.  Please feel free to contact us if you find any bugs or have any comments about the website.  I would love to change something based on a reccomendation.  Also if you would like to do some development for the website do not hesitate to contact us.
+        </pre>
             </div>
         </div>
+
+
+        <div class="contactHRGap"></div>
+        <hr/>
+
+        <div class="footer">
+            No pictures used on this website are original, they are all obtained from the source listed at the bottom of the
+            page. <br/>
+            All information found on this blog are original ideas written by our writers. For any questions feel free to contact
+            us by the contact page
+            <br/>All rights reserved, &copy; 2014
+
+        </div>
+
+    </div>
+</div>
 
 
 </body>

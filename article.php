@@ -1,5 +1,32 @@
 <html>
+
     <?php
+
+        session_save_path("/home/users/web/b2834/ipg.electricathleticscom/sessions");
+        session_start();
+
+        if(isset($_SESSION['loggedin'])){
+            if($_SESSION['loggedin'] = "yes")
+                $signedin = true;
+        }
+
+        if(isset($_SESSION['username'])){
+            $username = $_SESSION['username'];
+        }
+
+        if(isset($_COOKIE['remember_me'])){
+            session_id($_COOKIE['remember_me']);
+            $signedin = true;
+        }
+
+        include("php/userInfo.php");
+
+        $userController = new UserController("Users");
+        $info = $userController->getUserInfo($username);
+        $ID = $info[id];
+        $email = $info[email];
+        $avatar = $info[avatar];
+
         include("php/blogFetch.php");
 
         $articleID = $_GET['id'];
@@ -7,7 +34,16 @@
         $blog = $blogFetch->getPostInfo($articleID);
         $strDate = strtotime($blog[time]);
         $theDate = date( 'F j, Y g:i A', $strDate );
+
+        if(isset($_SESSION['loggedin'])){
+            $signedin = true;
+        }
+
+        include("php/commentController.php");
+        $commentController = new CommentController("comments");
+        $comments = $commentController->getArticleComments($articleID);
     ?>
+
     <head>
         <title><?php echo $blog[title];?></title>
         <link rel="stylesheet" type="text/css" href="css/style.css" />
@@ -18,15 +54,23 @@
     <nav>
         <div class="navHolder">
             <div class="LR">
-                <a href="signuporin.html" class="LRLink">Login / Register</a>
+                <?php
+                if($_SESSION['loggedin'] == "yes"):
+                    echo  "<div class='usernameholder'><a href='profile.php?id=" . $ID . "'><img src='" . $avatar . "' alt='Avatar' class='signinAvatar'/> <div class='nameuser'>" . $username . "</div></a></div>";
+                else:
+                    echo "<a href='signuporin.php' class='LRLink'>Login / Register</a>";
+                endif;
+                ?>
             </div>
             <div class="navlinks">
-                <a href="index.php">LOGO</a>
-                <a href="index.php">Home</a>
-                <a href="sports.php">Sports</a>
-                <a href="technology.php">Technology</a>
-                <a href="about.html">About</a>
-                <a href="contact.php">Contact</a>
+                <div class="logo"><a href="index.php">LOGO</a></div>
+                <div class="rNav">
+                    <a href="index.php">Home</a>
+                    <a href="sports.php">Sports</a>
+                    <a href="technology.php">Technology</a>
+                    <a href="about.php">About</a>
+                    <a href="contact.php">Contact</a>
+                </div>
             </div>
         </div>
     </nav>
@@ -43,6 +87,41 @@
                     <div class="picDesc"><?php echo $blog[picDesc]; ?></div>
                     <div class="blogArticle">
                         <pre><?php echo $blog[article]; ?></pre>
+                    </div>
+
+                    <div class="commentFormDiv">
+                        <form method="POST" action="php/postComment.php" class="commentForm">
+                            <input type="hidden" name="userID" value="<?php echo $ID; ?>"/>
+                            <input type="hidden" name="articleID" value="<?php echo $articleID; ?>"/>
+                            <textarea class="commentText" name="commentText" ></textarea>
+                            <input type="submit" value="Post Comment"/>
+                        </form>
+                    </div>
+                    <div class="comments">
+                        <?php
+                            if(count($comments) == 0):
+                                echo "<span class='noComments'>There are no comments</span>";
+                            else:
+                            foreach($comments as $comment):
+                        ?>
+
+                           <div class="commentTitle">Comments:</div>
+                           <div class="comment">
+                               <?php
+                                    $commenterInfo = $commentController->getUserInfo($comment[userID]);
+                                    $commDate = date( 'F j, Y g:i A', $comment[time] );
+                               ?>
+
+                               <a href="electricathletics.com/profile.php?id=<?php echo $comment[userID]; ?>" class="commUser"><?php echo $commenterInfo[username]; ?>:</a>
+                               <div class="commTime"><?php echo $commDate;?></div>
+                               <div class="commText"><?php echo $comment[comment]; ?></div>
+                           </div>
+
+
+                        <?php
+                            endforeach;
+                            endif;
+                        ?>
                     </div>
 
                     <div class="sources">

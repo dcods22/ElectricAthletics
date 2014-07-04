@@ -4,23 +4,24 @@
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
 </head>
 
-<?php
+<body>
 
+<?php
     session_save_path("/home/users/web/b2834/ipg.electricathleticscom/sessions");
     session_start();
 
     if(isset($_SESSION['loggedin'])){
-        if($_SESSION['loggedin'] = "yes")
-            $signedin = true;
+    if($_SESSION['loggedin'] = "yes")
+    $signedin = true;
     }
 
     if(isset($_SESSION['username'])){
-        $username = $_SESSION['username'];
+    $username = $_SESSION['username'];
     }
 
     if(isset($_COOKIE['remember_me'])){
-        session_id($_COOKIE['remember_me']);
-        $signedin = true;
+    session_id($_COOKIE['remember_me']);
+    $signedin = true;
     }
 
     include("php/userInfo.php");
@@ -31,8 +32,6 @@
     $email = $info[email];
     $avatar = $info[avatar];
 ?>
-
-<body>
 
 <nav>
     <div class="navHolder">
@@ -63,32 +62,32 @@
     <div class="holder">
         <div class="articleHolder">
             <div class="articleContainer">
-                <div class="title">Validate</div>
+                <div class="title">Thanks!</div>
 
-                <?php
-
-                    $ID = $_GET['id'];
-
-                ?>
-                <br>
-                A validation email has been sent.
-                <br/><br/>
-                If you need to be resent please <a href="resendValidation.php?id=<?php echo $ID;?>">click here</a>
-                <br/>
-                <div class="HRGap"></div>
-                <hr/>
-
-                <div class="footer">
-                    No pictures used on this website are original, they are all obtained from the source listed at the bottom of the
-                    page. <br/>
-                    All information found on this blog are original ideas written by our writers. For any questions feel free to contact
-                    us by the contact page
-                    <br/>All rights reserved, &copy; 2014
-
+                <div class="thanks">
+                    Thanks for reaching out to us.  We will reply no matter what, once we have received your message.
+                    <br/>
+                    <br/>
+                    We really appreciate the correspondence and hopefully you continue to read our blog.
                 </div>
-
             </div>
         </div>
+
+
+        <div class="contactHRGap"></div>
+        <hr/>
+
+        <div class="footer">
+            No pictures used on this website are original, they are all obtained from the source listed at the bottom of the
+            page. <br/>
+            All information found on this blog are original ideas written by our writers. For any questions feel free to contact
+            us by the contact page
+            <br/>All rights reserved, &copy; 2014
+
+        </div>
+
+    </div>
+</div>
 
 
 </body>

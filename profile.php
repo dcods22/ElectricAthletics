@@ -1,11 +1,12 @@
 <html>
 <head>
-    <title>Electric Athletics - About</title>
+    <title>Electric Athletics - Profile</title>
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
 </head>
 
-<?php
+<body>
 
+<?php
     session_save_path("/home/users/web/b2834/ipg.electricathleticscom/sessions");
     session_start();
 
@@ -30,9 +31,17 @@
     $ID = $info[id];
     $email = $info[email];
     $avatar = $info[avatar];
-?>
 
-<body>
+    $profileID = $_GET['id'];
+
+    include("php/profileController.php");
+    include("php/commentController.php");
+
+    $profileInfo = new ProfileController("Users");
+    $pInfo = $profileInfo->getProfileInfo($profileID);
+    $commentController = new CommentController("comments");
+    $comments = $commentController->getUserComments($profileID);
+?>
 
 <nav>
     <div class="navHolder">
@@ -58,24 +67,41 @@
     </div>
 </nav>
 
-
 <div class="container">
     <div class="holder">
         <div class="articleHolder">
             <div class="articleContainer">
-                <div class="title">Validate</div>
+                <div class="title"><?php echo $pInfo[username]; ?></div>
 
-                <?php
 
-                    $ID = $_GET['id'];
-
-                ?>
-                <br>
-                A validation email has been sent.
-                <br/><br/>
-                If you need to be resent please <a href="resendValidation.php?id=<?php echo $ID;?>">click here</a>
                 <br/>
-                <div class="HRGap"></div>
+                Email: <?php echo "<a href='mailto:" . $pInfo[email] . "'>" . $pInfo[email] . "</a>"; ?>
+                <br/>
+                <?php
+                    if($profileID == 11){
+                        echo "<a href='addPost.php'>Add Post</a><br/>";
+                    }
+                    if($profileID == $ID) {
+                        echo "<a href='changePass.php'>Change Password</a><br/>";
+                        echo "<a href='logout.php'>Logout</a>";
+                    }
+                ?>
+
+                <div class="profileRecentComments">
+                    <div class="commentTitle">Recent Comments:</div>
+                    <?php
+                        foreach($comments as $comment):
+                        $articleTitle = $commentController->getArticleTitle($comment[articleID]);
+                    ?>
+                        <div class="profileComment">
+                            <a href="article.php?id=<?php echo $comment[articleID];?>" class="commentArticleTitle"><?php echo $articleTitle[title]; ?></a>
+                            <br/><?php echo $comment[comment]; ?>
+                        </div>
+                    <?php
+                        endforeach;
+                    ?>
+                </div>
+                <div class="contactHRGap"></div>
                 <hr/>
 
                 <div class="footer">

@@ -4,41 +4,40 @@
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
 </head>
 
-<?php
-
-    session_save_path("/home/users/web/b2834/ipg.electricathleticscom/sessions");
-    session_start();
-
-    if(isset($_SESSION['loggedin'])){
-        if($_SESSION['loggedin'] = "yes")
-            $signedin = true;
-    }
-
-    if(isset($_SESSION['username'])){
-        $username = $_SESSION['username'];
-    }
-
-    if(isset($_COOKIE['remember_me'])){
-        session_id($_COOKIE['remember_me']);
-        $signedin = true;
-    }
-
-    include("php/userInfo.php");
-
-    $userController = new UserController("Users");
-    $info = $userController->getUserInfo($username);
-    $ID = $info[id];
-    $email = $info[email];
-    $avatar = $info[avatar];
-?>
-
 <body>
+
+<?php
+session_save_path("/home/users/web/b2834/ipg.electricathleticscom/sessions");
+session_start();
+
+if(isset($_SESSION['loggedin'])){
+    if($_SESSION['loggedin'] = "yes")
+        $signedin = true;
+}
+
+if(isset($_SESSION['username'])){
+    $username = $_SESSION['username'];
+}
+
+if(isset($_COOKIE['remember_me'])){
+    session_id($_COOKIE['remember_me']);
+    $signedin = true;
+}
+
+include("php/userInfo.php");
+
+$userController = new UserController("Users");
+$info = $userController->getUserInfo($username);
+$ID = $info[id];
+$email = $info[email];
+$avatar = $info[avatar];
+?>
 
 <nav>
     <div class="navHolder">
         <div class="LR">
             <?php
-            if($_SESSION['loggedin'] == "yes"):
+            if($singedin = 1):
                 echo  "<div class='usernameholder'><a href='profile.php?id=" . $ID . "'><img src='" . $avatar . "' alt='Avatar' class='signinAvatar'/> <div class='nameuser'>" . $username . "</div></a></div>";
             else:
                 echo "<a href='signuporin.php' class='LRLink'>Login / Register</a>";
@@ -58,24 +57,14 @@
     </div>
 </nav>
 
-
 <div class="container">
     <div class="holder">
         <div class="articleHolder">
             <div class="articleContainer">
-                <div class="title">Validate</div>
+                <div class="title">Template</div>
 
-                <?php
 
-                    $ID = $_GET['id'];
-
-                ?>
-                <br>
-                A validation email has been sent.
-                <br/><br/>
-                If you need to be resent please <a href="resendValidation.php?id=<?php echo $ID;?>">click here</a>
-                <br/>
-                <div class="HRGap"></div>
+                <div class="contactHRGap"></div>
                 <hr/>
 
                 <div class="footer">

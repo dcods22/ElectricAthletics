@@ -24,7 +24,7 @@
 
 		function getAllPosts(){
 			// build query string
-	    	$sql = 'SELECT `id`,`typeID`,`title`,`time`,`desc`,`pic` FROM ' . $this->tablename . ' ORDER BY time DESC';
+	    	$sql = 'SELECT `id`,`typeID`,`title`,`time`,`desc`,`article`,`pic` FROM ' . $this->tablename . ' ORDER BY time DESC';
 
 	    	// submit database query
 	    	$stmt = $this->dbconn->prepare( $sql );
@@ -35,7 +35,7 @@
 
 		function getSportPosts(){
             // build query string
-            $sql = 'SELECT `id`,`typeID`,`title`,`time`,`desc`,`pic` FROM ' . $this->tablename . ' WHERE typeID=2';
+            $sql = 'SELECT `id`,`typeID`,`title`,`time`,`desc`,`article`,`pic` FROM ' . $this->tablename . ' WHERE typeID=2 ORDER BY time DESC';
 
             // submit database query
             $stmt = $this->dbconn->prepare( $sql );
@@ -46,7 +46,7 @@
 
 		function getTechPosts(){
 			// build query string
-	    	$sql = 'SELECT `id`,`typeID`,`title`,`time`,`desc`,`pic` FROM ' . $this->tablename . ' WHERE typeID=1';
+	    	$sql = 'SELECT `id`,`typeID`,`title`,`time`,`desc`,`article`,`pic` FROM ' . $this->tablename . ' WHERE typeID=1 ORDER BY time DESC';
 
 	    	// submit database query
 	    	$stmt = $this->dbconn->prepare( $sql );

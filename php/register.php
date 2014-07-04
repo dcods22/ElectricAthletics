@@ -25,33 +25,29 @@ class Register
 
     function addUser($email, $username, $password){
         // build INSERT query string
-        $sql = 'INSERT INTO Users (email, username, password, avatar, validated)
-					VALUES ( :username, :email , :password, :avatar, :validated )';
+        $sql = 'INSERT INTO `Users` (`email`,  `username`,  `password`,  `avatar`,  `validated`) VALUES (:email, :username, :password, :avatar, :validated)';
         $validated = 0;
         $avatar = "http://electricathletics.com/images/no_avatar.png";
-
         $stmt = $this->dbconn->prepare( $sql );
-        $stmt->bindValue( ':usernameName', $username );
-        $stmt->bindValue( ':email', $email );
-        $stmt->bindValue( ':password', $password );
-        $stmt->bindValue( ':avatar', $avatar );
-        $stmt->bindValue( ':validated', $validated );
+        $stmt->bindValue(':email', $email);
+        $stmt->bindValue(':username', $username);
+        $stmt->bindValue(':password', $password);
+        $stmt->bindValue(':avatar', $avatar);
+        $stmt->bindValue(':validated', $validated);
         $stmt->execute();
-        echo $sql;
-        
     }
 
     function getUserID($email)
     {
         //sql SELECT statement
-        $sql = 'SELECT userId FROM Users WHERE email=:email;';
+        $sql = 'SELECT ID FROM Users WHERE email=:email;';
 
         // submit database query
         $stmt = $this->dbconn->prepare( $sql );
         $stmt->bindValue( ':email', $email );
         $stmt->execute();
         $entry = $stmt->fetch(PDO::FETCH_ASSOC);
-        return($entry[userId]);
+        return($entry[ID]);
     }
 }
 
@@ -63,13 +59,14 @@ class Register
     $password = $_POST['registerPassword'];
 
     $email = trim($email);
+    $username = trim($username);
+    $password = trim($password);
 
     $register = new Register('Users');
-    $password1 = crypt($password, $register->make_salt_key());
-    $register->addUser($username, $email, $password1);
+    $password1 = crypt($password);
+    $registerScript = $register->addUser($email, $username, $password1);
     $newID = $register->getUserID($email);
     $emailMessage = 'Click on the link to validate your Electric Athletics account.  <html><head></head><body><a href="http://electricathletics.com/validation.php?id=' . $newID .'">Click Here</a></body></html>';
-    //mail($email, $subject, $emailMessage, $headers);
+    mail($email, $subject, $emailMessage, $headers);
     header('Location: http://electricathletics.com/validate.php?id=' . $newID);
-
 ?>

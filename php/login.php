@@ -15,9 +15,10 @@ class Login
     function validate_login($username, $password)
     {
         // SQL Query gets the user's password via there email
-        $sql = 'SELECT email,password FROM Users WHERE email=:username OR username=:username';
+        $sql = 'SELECT password FROM Users WHERE email=:username OR username=:username1';
         $result = $this->dbconn->prepare($sql);
         $result->bindValue(':username', $username);
+        $result->bindValue(':username1', $username);
         $result->execute();
         $entry = $result->fetch();
 
@@ -32,23 +33,22 @@ class Login
 
     function checkActive($email)
     {
-        $sql = 'SELECT activated FROM Users WHERE email=:email';
+        $sql = 'SELECT validated FROM Users WHERE email=:email OR username=:email1';
         $result = $this->dbconn->prepare($sql);
         $result->bindValue(':email', $email);
+        $result->bindValue(':email1', $email);
         $result->execute();
         $entry = $result->fetch();
-        return $entry;
-
+        return ($entry[validated] == 1);
     }
 }
     $username = $_POST['loginUsername'];
     $password = $_POST['loginPassword'];
     $login = new Login('Users');
-
-    if(validate_login($username, $password)){
-        if(checkActive($email)){
+    if($login->validate_login($username, $password)){
+        if($login->checkActive($username)){
             // starts the user's session
-            session_save_path("/home/users/web/b2942/ipg.electricathletics/sessions");
+            session_save_path("/home/users/web/b2834/ipg.electricathleticscom/sessions");
             session_start();
             $_SESSION['loggedin'] = "yes";
             $_SESSION['username'] = $username;
@@ -62,8 +62,8 @@ class Login
             header('Location: http://electricathletics.com/');
         }
         else
-            header('Location: http://electricathletics.com/singuporin.php?error=2');
+            header('Location: http://electricathletics.com/signuporin.php?error=2');
     }else
-        header('Location: http://electricathletics.com/singuporin.php?error=1');
+        header('Location: http://electricathletics.com/signuporin.php?error=1');
 
 ?>

@@ -6,18 +6,54 @@
 
 <body>
 
+<?php
+
+    session_save_path("/home/users/web/b2834/ipg.electricathleticscom/sessions");
+    session_start();
+
+    if(isset($_SESSION['loggedin'])){
+    if($_SESSION['loggedin'] = "yes")
+    $signedin = true;
+    }
+
+    if(isset($_SESSION['username'])){
+    $username = $_SESSION['username'];
+    }
+
+    if(isset($_COOKIE['remember_me'])){
+    session_id($_COOKIE['remember_me']);
+    $signedin = true;
+    }
+
+    include("php/userInfo.php");
+
+    $userController = new UserController("Users");
+    $info = $userController->getUserInfo($username);
+    $ID = $info[id];
+    $email = $info[email];
+    $avatar = $info[avatar];
+
+?>
 <nav>
     <div class="navHolder">
         <div class="LR">
-            <a href="signuporin.php" class="LRLink">Login / Register</a>
+            <?php
+            if($_SESSION['loggedin'] == "yes"):
+                echo  "<div class='usernameholder'><a href='profile.php?id=" . $ID . "'><img src='" . $avatar . "' alt='Avatar' class='signinAvatar'/> <div class='nameuser'>" . $username . "</div></a></div>";
+            else:
+                echo "<a href='signuporin.php' class='LRLink'>Login / Register</a>";
+            endif;
+            ?>
         </div>
         <div class="navlinks">
-            <a href="index.php">LOGO</a>
-            <a href="index.php">Home</a>
-            <a href="sports.php">Sports</a>
-            <a href="technology.php">Technology</a>
-            <a href="about.html">About</a>
-            <a href="contact.php">Contact</a>
+            <div class="logo"><a href="index.php">LOGO</a></div>
+            <div class="rNav">
+                <a href="index.php">Home</a>
+                <a href="sports.php">Sports</a>
+                <a href="technology.php">Technology</a>
+                <a href="about.php">About</a>
+                <a href="contact.php">Contact</a>
+            </div>
         </div>
     </div>
 </nav>
