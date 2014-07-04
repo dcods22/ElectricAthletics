@@ -28,7 +28,8 @@
 
         if(isset($_COOKIE['remember_me'])){
             session_id($_COOKIE['remember_me']);
-            $signedin = true;
+            $_SESSION['loggedin'] = "yes";
+            $username = $_COOKIE['username'];
         }else
             $signedin = false;
 
@@ -44,17 +45,26 @@
 
     <nav>
         <div class="navHolder">
-            <div class="LR">
-                <?php
-                if($_SESSION['loggedin'] == "yes"):
-                    echo  "<div class='usernameholder'><a href='profile.php?id=" . $ID . "'><img src='" . $avatar . "' alt='Avatar' class='signinAvatar'/> <div class='nameuser'>" . $username . "</div></a></div>";
-                else:
-                    echo "<a href='signuporin.php' class='LRLink'>Login / Register</a>";
-                endif;
-                ?>
+            <div class="searchUsername">
+                <div class="search">
+                    <form method="POST" action="php/search.php" class="searchForm">
+                        <input type="submit" value="Search" style="display: none; float:left;" />
+                        <input type="text" placeholder="Search..." name="search" class="searchBar"/>
+                    </form>
+                </div>
+                <div class="LR">
+                    <?php
+                    if($_SESSION['loggedin'] == "yes"):
+                        echo  "<div class='usernameholder'><a href='profile.php?id=" . $ID . "'><img src='" . $avatar . "' alt='Avatar' class='signinAvatar'/> <div class='nameuser'>" . $username . "</div></a></div>";
+                    else:
+                        echo "<a href='signuporin.php' class='LRLink'>Login / Register</a>";
+                    endif;
+                    ?>
+                </div>
             </div>
             <div class="navlinks">
                 <div class="logo"><a href="index.php">LOGO</a></div>
+
                 <div class="rNav">
                     <a href="index.php">Home</a>
                     <a href="sports.php">Sports</a>

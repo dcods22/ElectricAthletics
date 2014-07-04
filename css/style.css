@@ -63,8 +63,15 @@ nav{
     font-size: 30px;
 }
 
+.searchUsername{
+    width:300px;
+    float:right;
+    overflow: hidden;
+}
+
 .rNav {
     padding-top: 55px;
+    width:600px;
 }
 
 .navLinks {
@@ -89,6 +96,37 @@ nav{
     float:left
 }
 
+.search{
+    float:right;
+    overflow:hidden;
+    height:30px;
+    width:300px;
+    margin-top: 10px;
+    margin-right: 60px;
+}
+
+.searchForm{
+    margin: 0 0 0 0;
+    float:right;
+}
+
+.searchBar{
+    width:90px;
+    border-radius: 10px;
+    //background:rgba(50, 50, 50, 0.2);
+    font-weight:bold;
+    background-image: url(http://electricathletics.com/images/search.png);
+    background-size: 12px 10px;
+    background-position: 6px 8px;
+    background-repeat: no-repeat;
+    padding: 6px 4px 4px 23px;
+
+}
+
+.searchBar:focus{
+    width:230px;
+}
+
 .container{
     min-width: 800px;
     width: 1000px;
@@ -109,7 +147,7 @@ nav{
 .LR{
     float: right;
     font-size:20px;
-    margin-top: 65px;
+    margin-top: 25px;
 }
 
 .LR a{
@@ -663,6 +701,10 @@ nav{
     background-size: 30px 30px;
     background-position: 11px 8px;
     background-repeat: no-repeat;
+}
+
+.remember{
+    margin-bottom: 10px;
 }
 
 .loginSend{

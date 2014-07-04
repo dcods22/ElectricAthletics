@@ -57,6 +57,7 @@ class Login
             if(isset($_POST['remember'])){
                 $timeLength = 86400 * 365;
                 setcookie('remember_me', session_id(), time()+$timeLength, '/', 'electricathletics.com');
+                setcookie('username', $username, time()+$timeLength, '/', 'electricathletics.com');
             }
 
             header('Location: http://electricathletics.com/');
