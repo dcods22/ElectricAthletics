@@ -124,7 +124,7 @@ nav{
 }
 
 .searchBar:focus{
-    width:230px;
+    width:240px;
 }
 
 .container{
@@ -304,6 +304,7 @@ nav{
 .blogArticle{
     font-size: 18px;
     font-family: sans-serif;
+    line-height: 30px;
 }
 
 .blogPhoto{
@@ -350,7 +351,7 @@ nav{
     margin-left: auto;
     margin-right: auto;
     margin-top: 10px;
-
+    font-size:13px;
 }
 
 .commentFormDiv input[type="submit"]{
@@ -652,6 +653,16 @@ nav{
 .sendArticle:hover {
     color: #C7B43B;
     background-color: #000000;
+}
+
+.tagList{
+    width:200px;
+    float:left;
+
+}
+
+.tags{
+    font-size:15px;
 }
 
 

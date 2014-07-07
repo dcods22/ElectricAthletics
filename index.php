@@ -85,7 +85,11 @@
                 foreach($blogs as $blog):
                 $strDate = strtotime($blog[time]);
                 $theDate = date( 'F j, Y g:i A', $strDate );
-                $desc = substr($blog[article], 0, 497) . "...";
+                $desc1 = substr($blog[article], 0, 500);
+                $words = explode(' ', $desc1);
+                $last_word = array_pop($words);
+                $desc2 = implode(' ', $words);
+                $desc = trim($desc1) . "...";
             ?>
 
                 <div class="articlePreview">

@@ -27,6 +27,44 @@
             $stmt->execute();
         }
 
+        function addTagList($tag){
+            // build INSERT query string
+            $sql = 'INSERT INTO `tagList` ( `tag` ) VALUES ( :tag )';
+            $stmt = $this->dbconn->prepare( $sql );
+            $stmt->bindValue(':tag', $tag);
+            $stmt->execute();
+        }
+
+
+        function addTags($tagID, $articleID){
+            // build INSERT query string
+            $sql = 'INSERT INTO `tags` ( `tagID`, `articleID`) VALUES ( :tagID, :articleID )';
+            $stmt = $this->dbconn->prepare( $sql );
+            $stmt->bindValue(':tagID', $tagID);
+            $stmt->bindValue(':articleID', $articleID);
+            $stmt->execute();
+
+        }
+
+        function getTagID($tag){
+            $sql = 'SELECT `tagID` FROM tagList WHERE tag=:tag';
+
+            $stmt = $this->dbconn->prepare( $sql );
+            $stmt->bindValue(':tag', $tag);
+            $stmt->execute();
+            $entry =  $stmt->fetch(PDO::FETCH_ASSOC);
+            return ($entry[tagID]);
+        }
+
+        function getArticleID($title){
+            $sql = 'SELECT `id` FROM blogs WHERE title=:title';
+
+            $stmt = $this->dbconn->prepare( $sql );
+            $stmt->bindValue(':title', $title);
+            $stmt->execute();
+            $entry =  $stmt->fetch(PDO::FETCH_ASSOC);
+            return ($entry[id]);
+        }
     }
 
     $blogAdd = new BlogAdd("blogs");
@@ -39,7 +77,28 @@
     $picDesc = $_POST['addPicDesc'];
     $picSrc = $_POST['addPicSrc'];
 
-    $blogAdd->addPost($typeID, $title, $desc, $article, $pic, $picDesc, $picSrc);
+    $addPost = $blogAdd->addPost($typeID, $title, $desc, $article, $pic, $picDesc, $picSrc);
+    $articleID = $blogAdd->getArticleID($title);
+
+    if(!empty($_POST['tags'])) {
+        foreach ($_POST['tags'] as $tag):
+            $blogAdd->addTags($tag, $articleID);
+        endforeach;
+    }
+
+    //parse string and add to tag list then add tag
+    if(!empty($_POST['tagOther'])) {
+        $newTags = $_POST['tagOther'];
+        $newTagList = explode(",", $newTags);
+
+        foreach ($newTagList as $newTagPre):
+            $newTag = trim($newTagPre);
+            $blogAdd->addTagList($newTag);
+            $newTagID = $blogAdd->getTagID($newTag);
+            $blogAdd->addTags($newTagID, $articleID);
+        endforeach;
+    }
+
     header('Location: http://www.electricathletics.com/');
 
 ?>

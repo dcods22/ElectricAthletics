@@ -99,7 +99,7 @@
                         <form method="POST" action="php/postComment.php" class="commentForm">
                             <input type="hidden" name="userID" value="<?php echo $ID; ?>"/>
                             <input type="hidden" name="articleID" value="<?php echo $articleID; ?>"/>
-                            <textarea class="commentText" name="commentText" ></textarea>
+                            <textarea class="commentText" name="commentText" placeholder="Comment Here..."></textarea>
                             <input type="submit" value="Post Comment"/>
                         </form>
                     </div>
@@ -115,7 +115,8 @@
                            <div class="comment">
                                <?php
                                     $commenterInfo = $commentController->getUserInfo($comment[userID]);
-                                    $commDate = date( 'F j, Y g:i A', $comment[time] );
+                                    $strDate = strtotime($comment[time]);
+                                    $commDate = date( 'F j, Y g:i A', $strDate );
                                ?>
 
                                <a href="electricathletics.com/profile.php?id=<?php echo $comment[userID]; ?>" class="commUser"><?php echo $commenterInfo[username]; ?>:</a>

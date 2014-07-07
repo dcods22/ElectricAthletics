@@ -12,18 +12,20 @@
     session_start();
 
     if(isset($_SESSION['loggedin'])){
-    if($_SESSION['loggedin'] = "yes")
-    $signedin = true;
+        if($_SESSION['loggedin'] = "yes")
+            $signedin = true;
     }
 
     if(isset($_SESSION['username'])){
-    $username = $_SESSION['username'];
+        $username = $_SESSION['username'];
     }
 
     if(isset($_COOKIE['remember_me'])){
-    session_id($_COOKIE['remember_me']);
-    $signedin = true;
-    }
+        session_id($_COOKIE['remember_me']);
+        $_SESSION['loggedin'] = "yes";
+        $username = $_COOKIE['username'];
+    }else
+        $signedin = false;
 
     include("php/userInfo.php");
 
@@ -33,6 +35,9 @@
     $email = $info[email];
     $avatar = $info[avatar];
 
+    include("php/tagController.php");
+    $tagController = new TagController("tagList");
+    $tags = $tagController->getTagList();
 ?>
 <nav>
     <div class="navHolder">
@@ -84,6 +89,16 @@
                             <input type="text" name="addPicDesc" id="addPicDesc" class="addPicDesc" placeholder="Picture Description"/><br/>
                             <input type="text" name="addPicSrc" id="addPicSrc" class="addPicSrc" placeholder="Picture Source"/><br/>
                             <textarea placeholder="Article" name="addArticle" id="addArticle" class="addArticle"></textarea>
+                            <select multiple="multiple" size="5" name="tags[]" class="tagList">
+                                <?php
+                                    foreach($tags as $tag):
+                                ?>
+                                    <option value="<?php echo $tag[tagID]; ?>" class="tags" name="tags[]"><?php echo $tag[tag]; ?></option>
+                                <?php
+                                    endforeach;
+                                ?>
+                            </select>
+                            <input type="text" name="tagOther" id="tagOther" class="tagOther" placeholder="Other Tags seperated by ,"/><br/>
                             <input type="submit" name="sendArticle" class="sendArticle" id="sendArticle" >
                         </formset>
                     </form>

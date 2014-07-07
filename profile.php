@@ -93,7 +93,7 @@
                         echo "<a href='addPost.php'>Add Post</a><br/>";
                     }
                     if($profileID == $ID) {
-                        echo "<a href='changePass.php'>Change Password</a><br/>";
+                        echo "<a href='changePassword.php'>Change Password</a><br/>";
                         echo "<a href='logout.php'>Logout</a>";
                     }
                 ?>

@@ -82,6 +82,11 @@
             foreach($blogs as $blog):
                 $strDate = strtotime($blog[time]);
                 $theDate = date( 'F j, Y g:i A', $strDate );
+                $desc1 = substr($blog[article], 0, 500);
+                $words = explode(' ', $desc1);
+                $last_word = array_pop($words);
+                $desc2 = implode(' ', $words);
+                $desc = trim($desc1) . "...";
             ?>
 
                 <div class="articlePreview">
@@ -89,7 +94,7 @@
                     <a href="<?php if($blog[typeID] == 2){ echo "sports.php";} elseif($blog[typeID] == 1){ echo "technology.php"; }?>"><div class="type"><?php if($blog[typeID] == 1){ echo "Technology";} elseif($blog[typeID] == 2){ echo "Sports"; }?></div></a>
                     <div class="articleTime"><?php echo $theDate; ?></div>
                     <img src="<?php echo $blog[pic]; ?>" alt="Article Photo" class="articlePhoto" height="200px" width="300px"/>
-                    <div class="articleDesc"><?php echo $blog[desc]; ?></div>
+                    <div class="articleDesc"><?php echo $desc; ?></div>
                     <a href="article.php?id=<?php echo $blog[id]; ?>" class="readMore">Read More...</a>
                 </div>
 
