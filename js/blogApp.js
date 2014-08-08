@@ -1,18 +1,45 @@
-var blogApp = new angular.module('blogApp', []);
+var blogApp = new angular.module('blogApp', ['ngRoute']);
 
 blogApp.config(['$routeProvider',
     function($routeProvider){
         $routeProvider.
-            when('/home', {
-                templateUrl: 'home.php',
-                controller: 'aboutController'
-            }).when('/about', {
-                templateUrl: 'about.php',
-                controller: 'aboutController'
+            when('/articles', {
+                templateUrl: 'articles.html',
+                controller: 'articlesController'
+            }).
+            when('/articles/:type', {
+                templateUrl: 'articles.html',
+                controller: 'articlesController'
+            }).
+            when('/articles/id/:id', {
+                templateUrl: 'article.html',
+                controller: 'articleController'
+            }).
+            when('/type/:type', {
+                templateUrl: 'type.html',
+                controller: 'typeController'
+            }).
+            when('/user/:id', {
+                templateUrl: 'profile.html',
+                controller: 'userController'
+            }).
+            when('/signuporin', {
+                templateUrl: 'signuporin.html',
+                controller: 'signinController'
+            }).
+            when('/about', {
+                templateUrl: 'about.html'
+            }).
+            when('/contact', {
+                templateUrl: 'contact.html'
+            }).
+            when('/thanks', {
+                templateUrl: 'thanks.html'
             }).
             otherwise({
-                redirectTo: '/home'
-            })
-
+                redirectTo: '/articles'
+            });
 
 }]);
+
+

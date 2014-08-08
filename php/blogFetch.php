@@ -19,40 +19,40 @@
 			$stmt->bindValue(':postID', $postID);
 	    	$stmt->execute();
 			$entry = $stmt->fetch(PDO::FETCH_ASSOC);
-			return($entry);
+			echo json_encode($entry);
 		}
 
 		function getAllPosts(){
 			// build query string
-	    	$sql = 'SELECT `id`,`typeID`,`title`,`time`,`desc`,`article`,`pic` FROM ' . $this->tablename . ' ORDER BY time DESC';
+	    	$sql = 'SELECT * FROM ' . $this->tablename . ' ORDER BY time DESC';
 
 	    	// submit database query
 	    	$stmt = $this->dbconn->prepare( $sql );
 	    	$stmt->execute();
 			$entry = $stmt->fetchAll(PDO::FETCH_ASSOC);
-			return($entry);
+			echo json_encode($entry);
 		}
 
 		function getSportPosts(){
             // build query string
-            $sql = 'SELECT `id`,`typeID`,`title`,`time`,`desc`,`article`,`pic` FROM ' . $this->tablename . ' WHERE typeID=2 ORDER BY time DESC';
+            $sql = 'SELECT * FROM ' . $this->tablename . ' WHERE typeID=2 ORDER BY time DESC';
 
             // submit database query
             $stmt = $this->dbconn->prepare( $sql );
             $stmt->execute();
             $entry = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            return($entry);
+            echo json_encode($entry);
 		}
 
 		function getTechPosts(){
 			// build query string
-	    	$sql = 'SELECT `id`,`typeID`,`title`,`time`,`desc`,`article`,`pic` FROM ' . $this->tablename . ' WHERE typeID=1 ORDER BY time DESC';
+	    	$sql = 'SELECT * FROM ' . $this->tablename . ' WHERE typeID=1 ORDER BY time DESC';
 
 	    	// submit database query
 	    	$stmt = $this->dbconn->prepare( $sql );
 	    	$stmt->execute();
 			$entry = $stmt->fetchAll(PDO::FETCH_ASSOC);
-			return($entry);
+			echo json_encode($entry);
 		}
 
 		function getArticleTags($articleID){
@@ -61,7 +61,7 @@
 			$stmt->bindValue(':articleID', $articleID);
 	    	$stmt->execute();
 			$entry = $stmt->fetchall(PDO::FETCH_ASSOC);
-			return($entry);
+			echo json_encode($entry);
 		}
 
 		function getTagName($tagID){
@@ -70,9 +70,26 @@
 			$stmt->bindValue(':tagID', $tagID);
 	    	$stmt->execute();
 			$entry = $stmt->fetch(PDO::FETCH_ASSOC);
-			return($entry[tag]);
+			echo json_encode($entry[tag]);
 		}
 	
+	}
+
+    $blogController = new BlogController('blogs');
+	$type = $_GET['type'];
+
+	if($type == "all"){
+        $blogController->getAllPosts();
+
+	}elseif($type == "sports"){
+	    $blogController->getSportPosts();
+
+	}elseif($type == "technology"){
+	    $blogController->getTechPosts();
+
+	}else if($type == "article"){
+	    $ID = $_GET['id'];
+	    $blogController->getPostInfo($ID);
 	}
 ?>
 

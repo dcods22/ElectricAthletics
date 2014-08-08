@@ -122,7 +122,5 @@
     </div>
 
 
-    <scipt src="js/angular.min.js"></script>
-
     </body>
 </html>

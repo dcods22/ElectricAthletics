@@ -1,0 +1,46 @@
+<div class="articleHolder">
+    <div class="articleContainer">
+        <div class="blogTitle">{{article.title}}</div>
+        <a href=""></a>
+        <div class="blogTime">{{article.time}}</div>
+        <div class="blogDesc">{{article.desc}}</div>
+        <div class="tagHolder">
+            <span style="float:left;">Tags:</span>
+
+            <div class="tag" ng-repeat="tag in tags"><a href="/#/tags/{{tag.id}}">{{tag.tag}}</a></div>
+        </div>
+        <br/> <div class="editLink"><a href="editArticle.php?id=<?php echo $articleID; ?>">Edit Article</a></div>
+
+        <img src="{{article.photo}}" alt="Blog Photo" class="blogPhoto"/>
+        <div class="picDesc">{{article.picDesc}}</div>
+        <div class="blogArticle">
+            <pre>{{article.article}}</pre>
+        </div>
+
+        <div class="commentFormDiv">
+            <form method="POST" action="php/postComment.php" class="commentForm">
+                <input type="hidden" name="userID" value="<?php echo $ID; ?>"/>
+                <input type="hidden" name="articleID" value="<?php echo $articleID; ?>"/>
+                <textarea class="commentText" name="commentText" placeholder="Comment Here..."></textarea>
+                <input type="submit" value="Post Comment"/>
+            </form>
+        </div>
+        <div class="comments">
+
+
+            <div class="commentTitle">Comments:</div>
+            <div class="comment" ng-repeat="comment in comments">
+
+
+                <a href="/#/user/{{comment.userID}}" class="commUser">{{comment.userID}}:</a>
+                <div class="commTime">{{comment.time}}</div>
+                <div class="commText">{{comment.comment}}</div>
+            </div>
+
+        </div>
+
+        <div class="sources">
+            Picture source is from: {{article.picSrc}}
+        </div>
+    </div>
+</div>

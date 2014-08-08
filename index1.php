@@ -3,21 +3,22 @@
     <?php
         include("php/blogFetch.php");
 
-        $blogFetch = new BlogController("blogs");
-        $blogs = $blogFetch->getTechPosts();
-
         session_save_path("/home/users/web/b2834/ipg.electricathleticscom/sessions");
         session_start();
+
+        $blogFetch = new BlogController("blogs");
+        $blogs = $blogFetch->getAllPosts();
 
         if(isset($_SESSION['loggedin'])){
             if($_SESSION['loggedin'] = "yes")
                 $signedin = true;
+            else
+                $signedin = false;
         }
 
         if(isset($_SESSION['username'])){
             $username = $_SESSION['username'];
         }
-
 
         if(isset($_COOKIE['remember_me'])){
             session_id($_COOKIE['remember_me']);
@@ -33,10 +34,11 @@
         $ID = $info[id];
         $email = $info[email];
         $avatar = $info[avatar];
+
     ?>
 
     <head>
-        <title>Electric Athletics - Technology</title>
+        <title>Electric Athletics - Home</title>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <meta name="Description" CONTENT="Sports and Technology blog">
         <meta name="keywords" context="Sports, Technology" >
@@ -44,7 +46,6 @@
     </head>
 
     <body>
-
     <nav>
         <div class="navHolder">
             <div class="searchUsername">
@@ -66,11 +67,12 @@
             </div>
             <div class="navlinks">
                 <div class="logo"><a href="index.php">LOGO</a></div>
+
                 <div class="rNav">
                     <a href="index.php">Home</a>
                     <a href="sports.php">Sports</a>
                     <a href="technology.php">Technology</a>
-                    <a href="about.php">About</a>
+                    <a href="about.html">About</a>
                     <a href="contact.php">Contact</a>
                 </div>
             </div>
@@ -80,10 +82,10 @@
     <div class="container">
         <div class="holder">
 
-            <div class="title">Technology</div>
+            <div class="title">Sports & Technology</div>
 
             <?php
-            foreach($blogs as $blog):
+                foreach($blogs as $blog):
                 $strDate = strtotime($blog[time]);
                 $theDate = date( 'F j, Y g:i A', $strDate );
                 $desc1 = substr($blog[article], 0, 500);
@@ -119,6 +121,8 @@
         </div>
     </div>
 
+
+    <scipt src="js/angular.min.js"></script>
 
     </body>
 </html>

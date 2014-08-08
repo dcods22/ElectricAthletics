@@ -17,7 +17,7 @@ class tagController
         $stmt->bindValue(':tagID', $tagID);
         $stmt->execute();
         $entry =  $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return ($entry);
+        echo json_encode($entry);
     }
 
     function getAllTags(){
@@ -25,7 +25,7 @@ class tagController
         $stmt = $this->dbconn->prepare( $sql );
         $stmt->execute();
         $entry =  $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return ($entry);
+        echo json_encode($entry);
     }
 
     function getArticleTag($articleID){
@@ -34,7 +34,7 @@ class tagController
         $stmt->bindValue(':articleID', $articleID);
         $stmt->execute();
         $entry =  $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return ($entry);
+        echo json_encode($entry);
     }
 
     function getTagList(){
@@ -42,8 +42,12 @@ class tagController
         $stmt = $this->dbconn->prepare( $sql );
         $stmt->execute();
         $entry =  $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return ($entry);
+        echo json_encode($entry);
     }
 }
+
+$ID = $_GET['id'];
+
+$TagController = new TagController('tag');
 
 ?>
