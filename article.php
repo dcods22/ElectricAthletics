@@ -21,19 +21,24 @@
         }else
             $signedin = false;
 
+        if($_SESSION['loggedin'] == "yes"):    
+
         include("php/userInfo.php");
 
-        $userController = new UserController("Users");
-        $info = $userController->getUserInfo($username);
-        $ID = $info[id];
-        $email = $info[email];
-        $avatar = $info[avatar];
+            $userController = new UserController("Users");
+            $info = $userController->getUserInfo($username);
+            $ID = $info[id];
+            $email = $info[email];
+            $avatar = $info[avatar];
+
+        endif;
 
         include("php/blogFetch.php");
 
         $articleID = $_GET['id'];
         $blogFetch = new BlogController("blogs");
         $blog = $blogFetch->getPostInfo($articleID);
+        $tagList = $blogFetch->getArticleTags($articleID);
         $strDate = strtotime($blog[time]);
         $theDate = date( 'F j, Y g:i A', $strDate );
 
@@ -44,6 +49,9 @@
 
     <head>
         <title><?php echo $blog[title];?></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <meta name="Description" CONTENT="Sports and Technology blog">
+        <meta name="keywords" context="Sports, Technology, <?php foreach($tagList as $tag):$tagName = $blogFetch->getTagName($tag[tagID]);echo $tagName . ', ';endforeach;?>" >
         <link rel="stylesheet" type="text/css" href="css/style.css" />
     </head>
 
@@ -53,7 +61,7 @@
         <div class="navHolder">
             <div class="searchUsername">
                 <div class="search">
-                    <form method="POST" action="php/search.php" class="searchForm">
+                    <form method="POST" action="search.php" class="searchForm">
                         <input type="submit" value="Search" style="display: none; float:left;" />
                         <input type="text" placeholder="Search..." name="search" class="searchBar"/>
                     </form>
@@ -85,10 +93,29 @@
         <div class="holder">
             <div class="articleHolder">
                 <div class="articleContainer">
+                    
                     <div class="blogTitle"><?php echo $blog[title]; ?></div>
                     <a href="<?php if($blog[typeID] == 2){ echo "sports.php";} elseif($blog[typeID] == 1){ echo "technology.php"; }?>"><div class="blogType"><?php if($blog[typeID] == 1){ echo "Technology";} elseif($blog[typeID] == 2){ echo "Sports"; }?></div></a>
                     <div class="blogTime"><?php echo $theDate; ?></div>
                     <div class="blogDesc"><?php echo $blog[desc]; ?></div>
+                    <div class="tagHolder">
+                        <span style="float:left;">Tags:</span> 
+                        <?php
+                            foreach($tagList as $tag):
+                            $tagName = $blogFetch->getTagName($tag[tagID]);
+                        ?>
+                            <div class="tag"><a href="tags.php?id=<?php echo $tag[tagID] ?>"><?php echo $tagName; ?></a></div>
+                        <?php
+                            endforeach;
+                        ?>
+                    </div>  
+                    <?php
+                        if($ID == 11):
+                    ?>
+                       <br/> <div class="editLink"><a href="editArticle.php?id=<?php echo $articleID; ?>">Edit Article</a></div>
+                    <?php
+                        endif;        
+                    ?>
                     <img src="<?php echo $blog[pic]; ?>" alt="Blog Photo" class="blogPhoto"/>
                     <div class="picDesc"><?php echo $blog[picDesc]; ?></div>
                     <div class="blogArticle">

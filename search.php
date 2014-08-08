@@ -27,10 +27,18 @@
     $ID = $info[id];
     $email = $info[email];
     $avatar = $info[avatar];
+
+    include("php/search.php");
+    $searchController = new SearchController("blogs");
+    $search = $_POST['search'];
+    $search = trim($search);
+    $articles = $searchController->searchArticles($search);
+    $tags = $searchController->searchTags($search);
+    $users = $searchController->searchUsers($search);    
 ?>
 
     <head>
-        <title>Electric Athletics - About</title>
+        <title>Electric Athletics - Search Results</title>
        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <meta name="Description" CONTENT="Sports and Technology blog">
         <meta name="keywords" context="Sports, Technology" >
@@ -75,8 +83,13 @@
         <div class="holder">
             <div class="articleHolder">
                 <div class="articleContainer">
-                    <div class="title">Template</div>
+                    <div class="title">Search Results</div>
 
+                    <?php
+                        //print_r($tags);
+                        print_r($articles); 
+                        //print_r($users);
+                    ?>
 
                     <div class="contactHRGap"></div>
                     <hr/>

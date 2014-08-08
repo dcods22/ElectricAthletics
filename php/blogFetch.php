@@ -54,6 +54,24 @@
 			$entry = $stmt->fetchAll(PDO::FETCH_ASSOC);
 			return($entry);
 		}
+
+		function getArticleTags($articleID){
+			$sql = 'SELECT tagID FROM tags WHERE articleID=:articleID';
+			$stmt = $this->dbconn->prepare( $sql );
+			$stmt->bindValue(':articleID', $articleID);
+	    	$stmt->execute();
+			$entry = $stmt->fetchall(PDO::FETCH_ASSOC);
+			return($entry);
+		}
+
+		function getTagName($tagID){
+			$sql = 'SELECT tag FROM tagList WHERE tagID=:tagID';
+			$stmt = $this->dbconn->prepare( $sql );
+			$stmt->bindValue(':tagID', $tagID);
+	    	$stmt->execute();
+			$entry = $stmt->fetch(PDO::FETCH_ASSOC);
+			return($entry[tag]);
+		}
 	
 	}
 ?>

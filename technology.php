@@ -1,10 +1,4 @@
 <html>
-    <head>
-        <title>Electric Athletics - Technology</title>
-        <link rel="stylesheet" type="text/css" href="css/style.css" />
-    </head>
-
-    <body>
 
     <?php
         include("php/blogFetch.php");
@@ -41,11 +35,21 @@
         $avatar = $info[avatar];
     ?>
 
+    <head>
+        <title>Electric Athletics - Technology</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <meta name="Description" CONTENT="Sports and Technology blog">
+        <meta name="keywords" context="Sports, Technology" >
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+    </head>
+
+    <body>
+
     <nav>
         <div class="navHolder">
             <div class="searchUsername">
                 <div class="search">
-                    <form method="POST" action="php/search.php" class="searchForm">
+                    <form method="POST" action="search.php" class="searchForm">
                         <input type="submit" value="Search" style="display: none; float:left;" />
                         <input type="text" placeholder="Search..." name="search" class="searchBar"/>
                     </form>
@@ -87,7 +91,7 @@
                 $last_word = array_pop($words);
                 $desc2 = implode(' ', $words);
                 $desc = trim($desc1) . "...";
-                ?>
+            ?>
 
                 <div class="articlePreview">
                     <a href="article.php?id=<?php echo $blog[id]; ?>"><div class="articleTitle"><?php echo $blog[title]; ?></div></a><br/>

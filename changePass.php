@@ -1,36 +1,37 @@
 <html>
 
 <?php
-    session_save_path("/home/users/web/b2834/ipg.electricathleticscom/sessions");
-    session_start();
+session_save_path("/home/users/web/b2834/ipg.electricathleticscom/sessions");
+session_start();
 
-    if(isset($_SESSION['loggedin'])){
+if(isset($_SESSION['loggedin'])){
     if($_SESSION['loggedin'] = "yes")
-    $signedin = true;
-    }
+        $signedin = true;
+}
 
-    if(isset($_SESSION['username'])){
+if(isset($_SESSION['username'])){
     $username = $_SESSION['username'];
-    }
+}
 
-    if(isset($_COOKIE['remember_me'])){
-        session_id($_COOKIE['remember_me']);
-        $_SESSION['loggedin'] = "yes";
-        $username = $_COOKIE['username'];
-    }else
-        $signedin = false;
+if(isset($_COOKIE['remember_me'])){
+    session_id($_COOKIE['remember_me']);
+    $_SESSION['loggedin'] = "yes";
+    $username = $_COOKIE['username'];
+}else
+    $signedin = false;
 
-    include("php/userInfo.php");
+include("php/userInfo.php");
 
-    $userController = new UserController("Users");
-    $info = $userController->getUserInfo($username);
-    $ID = $info[id];
-    $email = $info[email];
-    $avatar = $info[avatar];
+$userController = new UserController("Users");
+$info = $userController->getUserInfo($username);
+$email = $info[email];
+$avatar = $info[avatar];
+$number = $_GET['id'];
+$id = $number - 1234567;
 ?>
 
 <head>
-    <title>Electric Athletics - About</title>
+    <title>Electric Athletics - Change Password</title>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <meta name="Description" CONTENT="Sports and Technology blog">
     <meta name="keywords" context="Sports, Technology" >
@@ -38,7 +39,6 @@
 </head>
 
 <body>
-
 
 <nav>
     <div class="navHolder">
@@ -72,37 +72,34 @@
     </div>
 </nav>
 
-
 <div class="container">
     <div class="holder">
         <div class="articleHolder">
             <div class="articleContainer">
-                <div class="title">Thanks!</div>
+                <div class="title">Template</div>
 
-                <div class="thanks">
-                    Thanks for reaching out to us.  We will reply no matter what, once we have received your message.
-                    <br/>
-                    <br/>
-                    We really appreciate the correspondence and hopefully you continue to read our blog.
+                <form action="php/changePassword.php" method="POST" class="changeForm">
+                    <input type="hidden" name="id" value="<?php echo $id; ?>"/>
+                    <input type="password" name="cpassword1" id="changePass" class="loginpassword" placeholder="New Password"/>
+                    <input type="password" name="cpassword" id="changePass" class="loginpassword" placeholder="Re-Enter Password"/>
+                    <input type="submit" name="csubmit" class="submit" value="Change Password"/>
+                </form>
+
+
+                <div class="contactHRGap"></div>
+                <hr/>
+
+                <div class="footer">
+                    No pictures used on this website are original, they are all obtained from the source listed at the bottom of the
+                    page. <br/>
+                    All information found on this blog are original ideas written by our writers. For any questions feel free to contact
+                    us by the contact page
+                    <br/>All rights reserved, &copy; 2014
+
                 </div>
+
             </div>
         </div>
-
-
-        <div class="contactHRGap"></div>
-        <hr/>
-
-        <div class="footer">
-            No pictures used on this website are original, they are all obtained from the source listed at the bottom of the
-            page. <br/>
-            All information found on this blog are original ideas written by our writers. For any questions feel free to contact
-            us by the contact page
-            <br/>All rights reserved, &copy; 2014
-
-        </div>
-
-    </div>
-</div>
 
 
 </body>

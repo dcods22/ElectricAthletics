@@ -1,4 +1,4 @@
-<?php //Code by Dan Cody
+<?php 
 
 class Login
 {
@@ -31,6 +31,17 @@ class Login
         return (crypt($password, $entry[password]) == $entry[password]);
     }
 
+    function getUserName($username){
+        // SQL Query gets the user's password via there email
+        $sql = 'SELECT username FROM Users WHERE email=:username OR username=:username1';
+        $result = $this->dbconn->prepare($sql);
+        $result->bindValue(':username', $username);
+        $result->bindValue(':username1', $username);
+        $result->execute();
+        $entry = $result->fetch();
+        return $entry[username];
+    }
+
     function checkActive($email)
     {
         $sql = 'SELECT validated FROM Users WHERE email=:email OR username=:email1';
@@ -50,8 +61,9 @@ class Login
             // starts the user's session
             session_save_path("/home/users/web/b2834/ipg.electricathleticscom/sessions");
             session_start();
+            $UN = $login->getUserName($username);
             $_SESSION['loggedin'] = "yes";
-            $_SESSION['username'] = $username;
+            $_SESSION['username'] = $UN;
 
             // if the user checked the remember me, this adds a cookie to save the user's session id
             if(isset($_POST['remember'])){

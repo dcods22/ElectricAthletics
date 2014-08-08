@@ -1,10 +1,4 @@
 <html>
-<head>
-    <title>Electric Athletics - About</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css"/>
-</head>
-
-<body>
 
 <?php
     session_save_path("/home/users/web/b2834/ipg.electricathleticscom/sessions");
@@ -34,12 +28,20 @@
     $email = $info[email];
     $avatar = $info[avatar];
 ?>
+<head>
+    <title>Electric Athletics - About</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="Description" CONTENT="Sports and Technology blog">
+    <meta name="keywords" context="Sports, Technology" >
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+</head>
 
+<body>
 <nav>
     <div class="navHolder">
         <div class="searchUsername">
             <div class="search">
-                <form method="POST" action="php/search.php" class="searchForm">
+                <form method="POST" action="search.php" class="searchForm">
                     <input type="submit" value="Search" style="display: none; float:left;" />
                     <input type="text" placeholder="Search..." name="search" class="searchBar"/>
                 </form>

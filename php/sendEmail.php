@@ -5,6 +5,8 @@
     $name = $_POST['formName'];
     $email = $_POST['formEmail'];
     $headers = "From: $email \r\n";
-    mail($to, $subject, $message, $headers);
+    if(!empty($email)){
+    	mail($to, $subject, $message, $headers);
+	}
     header('Location: http://www.electricathletics.com/thanks.php');
 ?>

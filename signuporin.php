@@ -1,10 +1,4 @@
 <html>
-<head>
-    <title>Electric Athletics - Sign In/Register</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css"/>
-</head>
-
-<body>
 
 <?php
     session_save_path("/home/users/web/b2834/ipg.electricathleticscom/sessions");
@@ -36,11 +30,21 @@
 
 ?>
 
+<head>
+    <title>Electric Athletics - Sign In/Register</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="Description" CONTENT="Sports and Technology blog">
+    <meta name="keywords" context="Sports, Technology" >
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+</head>
+
+<body>
+
 <nav>
     <div class="navHolder">
         <div class="searchUsername">
             <div class="search">
-                <form method="POST" action="php/search.php" class="searchForm">
+                <form method="POST" action="search.php" class="searchForm">
                     <input type="submit" value="Search" style="display: none; float:left;" />
                     <input type="text" placeholder="Search..." name="search" class="searchBar"/>
                 </form>
@@ -99,10 +103,10 @@
                 <div class="title">Register</div>
                 <form method="POST" action="php/register.php" class="registerForm">
                     <formset>
-                        <input type="text" name="registerUsername" class="registerUsername" id="registerUsername" placeholder="Username"/>
-                        <input type="text" name="registerEmail" class="registerEmail" id="registerEmail" placeholder="Email"/>
-                        <input type="password" name="registerPassword" class="registerPassword" id="registerPassword" placeholder="Password"/>
-                        <input type="password" name="registerPassword2" class="registerPassword2" id="registerPassword2" placeholder="Re-type Password"/>
+                        <input type="text" name="registerUsername" class="registerUsername" id="registerUsername" placeholder="Username" !required/>
+                        <input type="text" name="registerEmail" class="registerEmail" id="registerEmail" placeholder="Email" !required/>
+                        <input type="password" name="registerPassword" class="registerPassword" id="registerPassword" placeholder="Password" !required/>
+                        <input type="password" name="registerPassword2" class="registerPassword2" id="registerPassword2" placeholder="Re-type Password" !required/>
                         <input type="submit" value="Register!" name="regiterSend" class="registerSend" id="registerSend"/>
                     </formset>
                 </form>

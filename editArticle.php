@@ -1,10 +1,4 @@
 <html>
-<head>
-    <title>Electric Athletics - Add Post</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css"/>
-</head>
-
-<body>
 
 <?php
 
@@ -38,14 +32,26 @@ include("php/blogFetch.php");
 $articleID = $_GET['id'];
 $blogFetch = new BlogController("blogs");
 $blog = $blogFetch->getPostInfo($articleID);
+$tagList = $blogFetch->getArticleTags($articleID);
+
+include("php/tagController.php");
+$tagController = new TagController("tagList");
+$tags = $tagController->getTagList();
 
 ?>
+
+<head>
+    <title>Electric Athletics - Edit Article</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+</head>
+
+<body>
 
 <nav>
     <div class="navHolder">
         <div class="searchUsername">
             <div class="search">
-                <form method="POST" action="php/search.php" class="searchForm">
+                <form method="POST" action="search.php" class="searchForm">
                     <input type="submit" value="Search" style="display: none; float:left;" />
                     <input type="text" placeholder="Search..." name="search" class="searchBar"/>
                 </form>
@@ -78,7 +84,7 @@ $blog = $blogFetch->getPostInfo($articleID);
     <div class="holder">
         <div class="articleHolder">
             <div class="articleContainer">
-                <div class="title">Add Post</div>
+                <div class="title">Update Article</div>
 
                 <div class="addPostDiv">
                     <form method="POST" action="php/updatePost.php" class="addPostForm">
@@ -92,6 +98,16 @@ $blog = $blogFetch->getPostInfo($articleID);
                             <input type="text" name="addPicDesc" id="addPicDesc" class="addPicDesc" placeholder="Picture Description" value="<?php echo $blog[picDesc]; ?>"/><br/>
                             <input type="text" name="addPicSrc" id="addPicSrc" class="addPicSrc" placeholder="Picture Source" value="<?php echo $blog[picSrc]; ?>"/><br/>
                             <textarea placeholder="Article" name="addArticle" id="addArticle" class="addArticle"><?php echo $blog[article]; ?></textarea>
+                            <select multiple="multiple" size="5" name="tags[]" class="tagList">
+                                <?php
+                                    foreach($tags as $tag):
+                                ?>
+                                    <option value="<?php echo $tag[tagID];?>" <?php foreach($tagList as $tagNum) if(in_array($tag[tagID], $tagNum)){ echo 'SELECTED'; } ?> class="tags" name="tags[]"><?php echo $tag[tag]; ?></option>
+                                <?php
+                                    endforeach;
+                                ?>
+                            </select> 
+                            <input type="text" name="tagOther" id="tagOther" class="tagOther" placeholder="Other Tags seperated by ,"/><br/>        
                             <input type="submit" name="sendArticle" class="sendArticle" id="sendArticle" value="Update"/>
                         </formset>
                     </form>

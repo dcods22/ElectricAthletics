@@ -28,16 +28,17 @@
     $email = $info[email];
     $avatar = $info[avatar];
 ?>
-
+    
     <head>
-        <title>Electric Athletics - About</title>
-       <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <title>Electric Athletics - Change Password</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <meta name="Description" CONTENT="Sports and Technology blog">
         <meta name="keywords" context="Sports, Technology" >
         <link rel="stylesheet" type="text/css" href="css/style.css"/>
     </head>
 
     <body>
+
 
     <nav>
         <div class="navHolder">
@@ -75,8 +76,24 @@
         <div class="holder">
             <div class="articleHolder">
                 <div class="articleContainer">
-                    <div class="title">Template</div>
+                    <div class="title">Changed Password</div>
 
+                    <?php
+                        $page = $_GET['page'];
+                        if($page == 1):
+                    ?>
+                    <br/>
+                    An email has been sent with a link to change your password.<br/><br/>
+                    If you need it resent <a href="changePassword.php">click here</a><br/><br/>
+                    <?php
+                        elseif($page == 2):
+                    ?>
+                    <br/>
+                    Your Password has been successfully changed.
+                    <br/><br/>
+                    <?php
+                        endif;
+                    ?>
 
                     <div class="contactHRGap"></div>
                     <hr/>
