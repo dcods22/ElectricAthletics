@@ -18,7 +18,7 @@ class CommentController
         $stmt->bindValue(':ID', $userID);
         $stmt->execute();
         $entry =  $stmt->fetch(PDO::FETCH_ASSOC);
-        return ($entry);
+        echo json_encode($entry);
     }
 
     function addComment($userID, $articleID, $comment){
@@ -37,7 +37,7 @@ class CommentController
         $stmt->bindValue(':articleID', $articleID);
         $stmt->execute();
         $entry =  $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return ($entry);
+        echo json_encode($entry);
     }
 
     function getUserComments($userID){
@@ -46,7 +46,7 @@ class CommentController
         $stmt->bindValue(':userID', $userID);
         $stmt->execute();
         $entry =  $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return ($entry);
+        echo json_encode($entry);
     }
 
     function getArticleTitle($ID){
@@ -56,8 +56,12 @@ class CommentController
         $stmt->bindValue(':ID', $ID);
         $stmt->execute();
         $entry =  $stmt->fetch(PDO::FETCH_ASSOC);
-        return ($entry);
+        echo json_encode($entry);
     }
 }
+
+$ID = $_GET['id'];
+$commentController = new CommentController('comments');
+$commentController->getArticleComments($ID);
 
 ?>

@@ -7,6 +7,6 @@
 
     $commentController = new CommentController("comments");
     $commentController->addComment($userID,$articleID,$comment);
-    header('Location: http://electricathletics.com/article.php?id=' . $articleID);
+    header('Location: http://electricathletics.com/#/articles/id/' . $articleID);
 
 ?>

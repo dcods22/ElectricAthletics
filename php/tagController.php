@@ -36,18 +36,11 @@ class tagController
         $entry =  $stmt->fetchAll(PDO::FETCH_ASSOC);
         echo json_encode($entry);
     }
-
-    function getTagList(){
-        $sql = 'SELECT * FROM tagList';
-        $stmt = $this->dbconn->prepare( $sql );
-        $stmt->execute();
-        $entry =  $stmt->fetchAll(PDO::FETCH_ASSOC);
-        echo json_encode($entry);
-    }
 }
 
 $ID = $_GET['id'];
 
-$TagController = new TagController('tag');
+$tagController = new TagController('tag');
+$tagController->getArticleTag($ID);
 
 ?>

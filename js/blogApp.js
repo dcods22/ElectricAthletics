@@ -3,6 +3,10 @@ var blogApp = new angular.module('blogApp', ['ngRoute']);
 blogApp.config(['$routeProvider',
     function($routeProvider){
         $routeProvider.
+            when('/', {
+                templateUrl: 'articles.html',
+                controller: 'articlesController'
+            }).
             when('/articles', {
                 templateUrl: 'articles.html',
                 controller: 'articlesController'
@@ -37,9 +41,26 @@ blogApp.config(['$routeProvider',
                 templateUrl: 'thanks.html'
             }).
             otherwise({
-                redirectTo: '/articles'
+                redirectTo: '/'
             });
 
 }]);
+
+blogApp.filter('dateToISO', function() {
+    return function(input) {
+        input = new Date(input).toISOString();
+        return input;
+    };
+});
+
+blogApp.filter('getType', function(){
+    return function(input){
+        if(input == "1"){
+            return "technology";
+        }else if(input == "2"){
+            return "Sports";
+        }
+    }
+})
 
 

@@ -161,7 +161,7 @@ nav{
 }
 
 .hrGap{
-    margin-top: 20px;
+    margin-top: -10px;
 }
 
 .footer{
@@ -298,17 +298,10 @@ nav{
     height:auto;
     margin: auto auto auto auto;
     line-height: 20px;
-    padding-top: 10px;
+    padding: 10px 30px 0px 30px;
     border-left: 1px solid rgba(186, 186, 186, 0.59);
     border-right: 1px solid rgba(186, 186, 186, 0.59);
     background-color: #f7f7f7;
-}
-
-.articleContainer{
-    width:auto;
-    height:auto;
-    padding-left: 30px;
-    padding-right: 30px;
 }
 
 .blogTitle{
@@ -383,10 +376,6 @@ nav{
     font-size: 10px;
     font-style: italic;
     padding-bottom:10px;
-}
-
-.hrGapArticle{
-    margin-top: -10px;
 }
 
 .commentForm{
@@ -624,10 +613,6 @@ nav{
 .formSend:hover {
     color: #C7B43B;
     background-color: #000000;
-}
-
-.contactHRGap{
-    margin-top: -15px;
 }
 
 /********************* Thanks Page ********************/

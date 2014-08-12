@@ -1,17 +1,16 @@
 <div class="articleHolder">
-    <div class="articleContainer">
         <div class="blogTitle">{{article.title}}</div>
-        <a href=""></a>
-        <div class="blogTime">{{article.time}}</div>
+        <div class="blogType"><a href="/#/type/{{article.typeID}}">{{article.typeID | getType}}</a></div>
+        <div class="blogTime">{{article.time | dateToISO | date:'MMM-d-yyyy h:m a'}}</div>
         <div class="blogDesc">{{article.desc}}</div>
         <div class="tagHolder">
             <span style="float:left;">Tags:</span>
 
-            <div class="tag" ng-repeat="tag in tags"><a href="/#/tags/{{tag.id}}">{{tag.tag}}</a></div>
+            <div class="tag" ng-repeat="tag in tags"><a href="/#/tags/{{tag.tagID}}">{{tag.tagID}}</a></div>
         </div>
-        <br/> <div class="editLink"><a href="editArticle.php?id=<?php echo $articleID; ?>">Edit Article</a></div>
+        <br/> <div class="editLink"><a href="">Edit Article</a></div>
 
-        <img src="{{article.photo}}" alt="Blog Photo" class="blogPhoto"/>
+        <img src="{{article.pic}}" alt="Blog Photo" class="blogPhoto"/>
         <div class="picDesc">{{article.picDesc}}</div>
         <div class="blogArticle">
             <pre>{{article.article}}</pre>
@@ -19,8 +18,8 @@
 
         <div class="commentFormDiv">
             <form method="POST" action="php/postComment.php" class="commentForm">
-                <input type="hidden" name="userID" value="<?php echo $ID; ?>"/>
-                <input type="hidden" name="articleID" value="<?php echo $articleID; ?>"/>
+                <input type="hidden" name="userID" value="{{userID}}"/>
+                <input type="hidden" name="articleID" value="{{id}}"/>
                 <textarea class="commentText" name="commentText" placeholder="Comment Here..."></textarea>
                 <input type="submit" value="Post Comment"/>
             </form>
@@ -33,7 +32,7 @@
 
 
                 <a href="/#/user/{{comment.userID}}" class="commUser">{{comment.userID}}:</a>
-                <div class="commTime">{{comment.time}}</div>
+                <div class="commTime">{{comment.time | dateToISO | date:'MMM-d-yyyy h:m a'}}</div>
                 <div class="commText">{{comment.comment}}</div>
             </div>
 
@@ -42,5 +41,4 @@
         <div class="sources">
             Picture source is from: {{article.picSrc}}
         </div>
-    </div>
 </div>
