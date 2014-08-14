@@ -23,9 +23,9 @@ blogApp.config(['$routeProvider',
                 templateUrl: 'type.html',
                 controller: 'typeController'
             }).
-            when('/user/:id', {
+            when('/profile/:id', {
                 templateUrl: 'profile.html',
-                controller: 'userController'
+                controller: 'profileController'
             }).
             when('/signuporin', {
                 templateUrl: 'signuporin.html',
@@ -48,7 +48,7 @@ blogApp.config(['$routeProvider',
 
 blogApp.filter('dateToISO', function() {
     return function(input) {
-        input = new Date(input).toISOString();
+        input = new Date(input);
         return input;
     };
 });
@@ -61,6 +61,6 @@ blogApp.filter('getType', function(){
             return "Sports";
         }
     }
-})
+});
 
 

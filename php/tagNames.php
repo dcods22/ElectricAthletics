@@ -1,4 +1,5 @@
 <?php
+
 	class TagNameController
 	{
 		private $dbconn;
@@ -15,7 +16,7 @@
             $stmt = $this->dbconn->prepare( $sql );
             $stmt->execute();
             $entry =  $stmt->fetchAll(PDO::FETCH_ASSOC);
-            echo json_encode($entry)
+            echo json_encode($entry);
         }
 
     }

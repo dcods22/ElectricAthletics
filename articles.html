@@ -3,7 +3,7 @@
 <div class="articlePreview" ng-repeat="blog in blogs">
     <a href="/#/articles/id/{{blog.id}}"><div class="articleTitle">{{blog.title}}</div></a><br/>
     <a href="/#/type/{{blog.typeID}}"><div class="type">{{blog.typeID | getType}}</div></a>
-    <div class="articleTime">{{blog.time | dateToISO | date:'MMM-d-yyyy h:m a'}}</div>
+    <div class="articleTime">{{blog.time | dateToISO | date:'MMM d, yyyy h:m a'}}</div>
     <img src="{{blog.pic}}" alt="Article Photo" class="articlePhoto" height="200px" width="300px"/>
     <div class="articleDesc">{{blog.article | limitTo:530}}...</div>
     <a href="/#/articles/id/{{blog.id}}" class="readMore">Read More...</a>

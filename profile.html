@@ -1,0 +1,28 @@
+<div class="articleHolder">
+    <div class="title">{{user.username}}</div>
+
+
+    <br/>
+    <img src="{{user.avatar}}"/>
+    Email: {{user.email}}
+    <br/>
+
+    <a href='addPost.php'>Add Post</a><br/>
+    <a href='changePassword.php'>Change Password</a><br/>
+    <a href='logout.php'>Logout</a>"
+
+
+    <div class="profileRecentComments">
+
+        <div class="commentTitle">Recent Comments:</div>
+
+        <div class="profileComment" ng-repeat="comment in comments">
+            <a href="/#/article/{{comment.articleID}}" class="commentArticleTitle">{{comment.articleID}}</a>
+            {{comment.time | dateToISO | date:'MMM d, yyyy h:m a'}}
+            {{comment.comment}}
+            <br/>
+        </div>
+
+    </div>
+
+</div>

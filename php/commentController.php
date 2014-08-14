@@ -61,7 +61,14 @@ class CommentController
 }
 
 $ID = $_GET['id'];
+$type = $_GET['type'];
+
 $commentController = new CommentController('comments');
-$commentController->getArticleComments($ID);
+
+if($type == "article"){
+    $commentController->getArticleComments($ID);
+}else if($type == "profile"){
+    $commentController->getUserComments($ID);
+}
 
 ?>
