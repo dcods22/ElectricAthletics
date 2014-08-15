@@ -5,21 +5,25 @@
     <ignored path="Blog.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/index.php" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1407509877323" ignored="false" />
-    <file path="/blogApp.js" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1407864540425" ignored="false" />
-    <file path="/index.html" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1408027181562" ignored="false" />
+    <file path="/blogApp.js" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1408030484938" ignored="false" />
+    <file path="/index.html" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1408028372598" ignored="false" />
     <file path="/index1.php" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1407510808268" ignored="false" />
     <file path="/home.html" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1407516748582" ignored="false" />
     <file path="/style.css" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1407859166202" ignored="false" />
-    <file path="/controllers.js" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1408027061477" ignored="false" />
+    <file path="/controllers.js" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1408114492504" ignored="false" />
     <file path="/blogFetch.php" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1407519435444" ignored="false" />
     <file path="/articles.html" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1407943518875" ignored="false" />
-    <file path="/article.html" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1407942810612" ignored="false" />
-    <file path="/tagController.php" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1407522892813" ignored="false" />
+    <file path="/article.html" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1408036449286" ignored="false" />
+    <file path="/tagController.php" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1408030962091" ignored="false" />
     <file path="/commentController.php" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1407869913090" ignored="false" />
     <file path="/postComment.php" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1407523596039" ignored="false" />
     <file path="/tagNames.php" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1407862953390" ignored="false" />
     <file path="/profile.html" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1407870845334" ignored="false" />
     <file path="/profileController.php" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1407935639954" ignored="false" />
+    <file path="/changed.html" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1408030418226" ignored="false" />
+    <file path="/validate.html" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1408030607579" ignored="false" />
+    <file path="/addPost.html" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1408030760178" ignored="false" />
+    <file path="/editArticle.html" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1408039858199" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,38 +84,25 @@
       <file leaf-file-name="blogApp.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/blogApp.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="43" selection-start="1398" selection-end="1398" vertical-scroll-proportion="0.0">
+            <state line="4" column="19" selection-start="142" selection-end="142" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="20" selection-start="52" selection-end="52" vertical-scroll-proportion="-0.17613636">
-              <folding>
-                <element signature="n#style#0;n#input#0;n#form#0;n#div#0;n#div#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="article.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/article.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="40" selection-start="123" selection-end="123" vertical-scroll-proportion="-1.1428572">
-              <folding>
-                <element signature="n#style#0;n#span#0;n#div#4;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="controllers.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="controllers.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="19" selection-start="471" selection-end="471" vertical-scroll-proportion="0.0">
+            <state line="174" column="74" selection-start="4710" selection-end="4710" vertical-scroll-proportion="0.47034484">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="editArticle.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/editArticle.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="82" selection-start="1453" selection-end="1453" vertical-scroll-proportion="-9.714286">
               <folding />
             </state>
           </provider>
@@ -127,21 +118,21 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/php/blogFetch.php" />
-        <option value="$PROJECT_DIR$/php/postComment.php" />
-        <option value="$PROJECT_DIR$/about.html" />
-        <option value="$PROJECT_DIR$/contact.html" />
-        <option value="$PROJECT_DIR$/thanks.html" />
-        <option value="$PROJECT_DIR$/css/style.css" />
-        <option value="$PROJECT_DIR$/php/tagController.php" />
         <option value="$PROJECT_DIR$/php/tagNames.php" />
-        <option value="$PROJECT_DIR$/js/blogApp.js" />
         <option value="$PROJECT_DIR$/php/commentController.php" />
         <option value="$PROJECT_DIR$/profile.html" />
         <option value="$PROJECT_DIR$/php/profileController.php" />
-        <option value="$PROJECT_DIR$/article.html" />
         <option value="$PROJECT_DIR$/articles.html" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/changePassword.php" />
+        <option value="$PROJECT_DIR$/changed.html" />
+        <option value="$PROJECT_DIR$/validate.html" />
+        <option value="$PROJECT_DIR$/addPost.html" />
+        <option value="$PROJECT_DIR$/php/tagController.php" />
+        <option value="$PROJECT_DIR$/resendValidation.php" />
+        <option value="$PROJECT_DIR$/js/blogApp.js" />
+        <option value="$PROJECT_DIR$/article.html" />
+        <option value="$PROJECT_DIR$/editArticle.html" />
         <option value="$PROJECT_DIR$/js/controllers.js" />
       </list>
     </option>
@@ -559,119 +550,112 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/signuporin.html">
+    <entry file="file://$PROJECT_DIR$/php/changePassword.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="9" column="67" selection-start="255" selection-end="255" vertical-scroll-proportion="0.14896552">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
+    <entry file="file://$PROJECT_DIR$/changed.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="33" selection-start="263" selection-end="263" vertical-scroll-proportion="0.16853933">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="302" column="14" selection-start="5326" selection-end="5326" vertical-scroll-proportion="-9.423077">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/tagController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="66" selection-start="5" selection-end="5" vertical-scroll-proportion="0.0">
+        <state line="2" column="4" selection-start="33" selection-end="33" vertical-scroll-proportion="0.03409091">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/php/tagNames.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="47" selection-start="716" selection-end="716" vertical-scroll-proportion="0.44689655">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/blogFetch.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="12" selection-start="674" selection-end="690" vertical-scroll-proportion="0.3475862">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/commentController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="10" selection-start="2262" selection-end="2262" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/userInfo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/profile.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="64" selection-start="2185" selection-end="2185" vertical-scroll-proportion="-0.41573033">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/profile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="12" selection-start="655" selection-end="655" vertical-scroll-proportion="0.35795453">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/profileController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="6" selection-start="780" selection-end="780" vertical-scroll-proportion="0.41379312">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/articles.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="27" selection-start="27" selection-end="27" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/blogApp.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="43" selection-start="1398" selection-end="1398" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/article.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="40" selection-start="123" selection-end="123" vertical-scroll-proportion="-1.1428572">
-          <folding>
-            <element signature="n#style#0;n#span#0;n#div#4;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/controllers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="19" selection-start="471" selection-end="471" vertical-scroll-proportion="0.0">
+        <state line="27" column="34" selection-start="716" selection-end="716" vertical-scroll-proportion="0.44689655">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="20" selection-start="52" selection-end="52" vertical-scroll-proportion="-0.17613636">
+        <state line="3" column="10" selection-start="42" selection-end="42" vertical-scroll-proportion="0.028409092">
           <folding>
             <element signature="n#style#0;n#input#0;n#form#0;n#div#0;n#div#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/validate.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="14" selection-start="125" selection-end="125" vertical-scroll-proportion="0.10227273">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resendValidation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="46" selection-start="766" selection-end="766" vertical-scroll-proportion="0.39724138">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/changePassword.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="39" selection-start="194" selection-end="234" vertical-scroll-proportion="0.13241379">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addPost.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="28" selection-start="1185" selection-end="1208" vertical-scroll-proportion="0.27272728">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/validation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/search.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="47" selection-start="685" selection-end="685" vertical-scroll-proportion="0.016853932">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/blogApp.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="19" selection-start="142" selection-end="142" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/tagController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="39" selection-start="1377" selection-end="1377" vertical-scroll-proportion="0.74482757">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/article.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="56" selection-start="612" selection-end="612" vertical-scroll-proportion="0.17045455">
+          <folding>
+            <element signature="n#style#0;n#span#0;n#div#4;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/editArticle.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="82" selection-start="1453" selection-end="1453" vertical-scroll-proportion="-9.714286">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/controllers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="174" column="74" selection-start="4710" selection-end="4710" vertical-scroll-proportion="0.47034484">
+          <folding />
         </state>
       </provider>
     </entry>

@@ -23,6 +23,6 @@
 
     mail($to, $subject, $message, $headers);
 
-    header("Location: http://electricathletics.com/changed.php?page=1");
+    header("Location: http://electricathletics.com/#/changed/1");
 
 ?>

@@ -1,0 +1,26 @@
+<div class="articleHolder">
+    <div class="title">Add Post</div>
+
+    <div class="addPostDiv">
+        <form method="POST" action="php/addPost.php" class="addPostForm">
+            <formset>
+                <input type="radio" name="addType" id="addType" class="addType" value="2"/> Sports
+                <input type="radio" name="addType" id="addType" class="addType" value="1"/>Technology<br/>
+                <input type="text" name="addTitle" placeholder="Title"><br/>
+                <textarea type="text" name="addDesc" id="addDesc" class="addDesc" placeholder="Description"></textarea><br/>
+                <input type="text" name="addPic" id="addPic" class="addPic" placeholder="Picture Link"><br/>
+                <input type="text" name="addPicDesc" id="addPicDesc" class="addPicDesc" placeholder="Picture Description"/><br/>
+                <input type="text" name="addPicSrc" id="addPicSrc" class="addPicSrc" placeholder="Picture Source"/><br/>
+                <textarea placeholder="Article" name="addArticle" id="addArticle" class="addArticle"></textarea>
+                <select multiple="multiple" size="5" name="tags[]" class="tagList">
+
+                    <option ng-repeat="tag in tags" value="{{tag.tagID}}" class="tags" name="tags[]">{{tag.tag}}</option>
+
+                </select>
+                <input type="text" name="tagOther" id="tagOther" class="tagOther" placeholder="Other Tags seperated by ,"/><br/>
+                <input type="submit" name="sendArticle" class="sendArticle" id="sendArticle" >
+            </formset>
+        </form>
+    </div>
+    <br/>
+</div>

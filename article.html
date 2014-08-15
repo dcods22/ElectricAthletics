@@ -8,7 +8,7 @@
 
             <div class="tag" ng-repeat="tag in tags"><a href="/#/tags/{{tag.tagID}}">{{ getTagName(tag.tagID) }},</a></div>
         </div>
-        <br/> <div class="editLink"><a href="">Edit Article</a></div>
+        <br/> <div class="editLink"><a href="/#/editpost/{{id}}">Edit Article</a></div>
 
         <img src="{{article.pic}}" alt="Blog Photo" class="blogPhoto"/>
         <div class="picDesc">{{article.picDesc}}</div>

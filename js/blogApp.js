@@ -20,16 +20,32 @@ blogApp.config(['$routeProvider',
                 controller: 'articleController'
             }).
             when('/type/:type', {
-                templateUrl: 'type.html',
-                controller: 'typeController'
+                templateUrl: 'articles.html',
+                controller: 'articlesController'
             }).
             when('/profile/:id', {
                 templateUrl: 'profile.html',
                 controller: 'profileController'
             }).
+            when('/changed/:id', {
+                templateUrl: 'changed.html',
+                controller: 'changeController'
+            }).
             when('/signuporin', {
                 templateUrl: 'signuporin.html',
                 controller: 'signinController'
+            }).
+            when('/addpost', {
+                templateUrl: 'addPost.html',
+                controller: 'addPostController'
+            }).
+            when('/validate/:id', {
+                templateUrl: 'validate.html',
+                controller: 'validateController'
+            }).
+            when('/editpost/:id', {
+                templateUrl: 'editArticle.html',
+                controller: 'editController'
             }).
             when('/about', {
                 templateUrl: 'about.html'
@@ -40,6 +56,7 @@ blogApp.config(['$routeProvider',
             when('/thanks', {
                 templateUrl: 'thanks.html'
             }).
+
             otherwise({
                 redirectTo: '/'
             });

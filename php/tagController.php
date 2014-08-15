@@ -41,6 +41,8 @@ class tagController
 $ID = $_GET['id'];
 
 $tagController = new TagController('tag');
-$tagController->getArticleTag($ID);
+
+if(isset($ID))
+    $tagController->getArticleTag($ID);
 
 ?>
