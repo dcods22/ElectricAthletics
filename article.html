@@ -10,7 +10,7 @@
         </div>
         <br/> <div class="editLink"><a href="/#/editpost/{{id}}">Edit Article</a></div>
 
-        <img src="{{article.pic}}" alt="Blog Photo" class="blogPhoto"/>
+        <img ng-src="{{article.pic}}" alt="Blog Photo" class="blogPhoto"/>
         <div class="picDesc">{{article.picDesc}}</div>
         <div class="blogArticle">
             <pre>{{article.article}}</pre>
@@ -31,7 +31,7 @@
             <div class="comment" ng-repeat="comment in comments">
 
 
-                <a href="/#/user/{{comment.userID}}" class="commUser">{{ getUserName(comment.userID) }}:</a>
+                <a href="/#/profile/{{comment.userID}}" class="commUser"><img class="commentAvatar" ng-src="{{ getUserAvatar(comment.userID) }}" />{{ getUserName(comment.userID) }}:</a>
                 <div class="commTime">{{comment.time | dateToISO | date:'MMM-d-yyyy h:m a'}}</div>
                 <div class="commText">{{comment.comment}}</div>
             </div>

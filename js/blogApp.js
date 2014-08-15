@@ -47,6 +47,10 @@ blogApp.config(['$routeProvider',
                 templateUrl: 'editArticle.html',
                 controller: 'editController'
             }).
+            when('/search/:query', {
+                templateUrl: 'search.html',
+                controller: 'searchController'
+            }).
             when('/about', {
                 templateUrl: 'about.html'
             }).

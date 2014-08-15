@@ -80,14 +80,29 @@ blogApp.controller('articleController', function($scope, $routeParams, $http){
         }
     };
 
-    $scope.getUserName = function(userID){
-        var username;
-        //$http.get("../php/profileController.php?id=" + id).success(function(data){
-            //username = data.username;
-        //});
+    $http.get("../php/profileController.php").success(function(data){
+        var newData = new Object();
+        for(var i=0; i < data.length; i++){
+            var ID = data[i].ID;
+            var info = {'username': data[i].username, 'avatar': data[i].avatar};
+            newData[ID] = info;
+        }
 
-        return userID;
+        $scope.userinfo = newData;
+
+    });
+
+    $scope.getUserName = function(userID){
+        if(userID && $scope.userinfo){
+            return $scope.userinfo[userID].username;
+        }
     };
+
+    $scope.getUserAvatar = function(userID){
+        if(userID && $scope.userinfo){
+            return $scope.userinfo[userID].avatar;
+        }
+    }
 
 
 
@@ -173,7 +188,6 @@ blogApp.controller('editController', function($scope, $routeParams, $http){
         if($scope.tagList){
             if($scope.tagList[tagID]){
                 angular.element("#tag" + tagID).attr("selected", "selected");
-                console.log(tagID);
             }
         }
 
@@ -197,6 +211,27 @@ blogApp.controller('addPostController', function($scope, $routeParams, $http){
 
     $http.get("../php/tagNames.php").success(function(data){
         $scope.tags = data;
+    });
+
+    angular.element('title').html("Electric Athletics - " + $scope.title);
+
+});
+
+blogApp.controller('searchController', function($scope, $routeParams, $http){
+    var query = $routeParams.query;
+
+    $scope.title = "Search";
+
+    $http.get("../php/search.php?type=article&query=" + query).success(function(data){
+        $scope.articles = data;
+    });
+
+    $http.get("../php/search.php?type=tag&query=" + query).success(function(data){
+        $scope.tags = data;
+    });
+
+    $http.get("../php/search.php?type=user&query=" + query).success(function(data){
+        $scope.users = data;
     });
 
     angular.element('title').html("Electric Athletics - " + $scope.title);

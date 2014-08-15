@@ -20,11 +20,25 @@
             $entry =  $stmt->fetch(PDO::FETCH_ASSOC);
             echo json_encode($entry);
         }
+
+        function getCommentInfo(){
+            $sql = 'SELECT ID, username, avatar FROM Users';
+
+            $stmt = $this->dbconn->prepare( $sql );
+            $stmt->execute();
+            $entry =  $stmt->fetchall(PDO::FETCH_ASSOC);
+            echo json_encode($entry);
+        }
+
     }
 
     $ID = $_GET['id'];
 
     $profileController = new ProfileController('Users');
-    $profileController->getProfileInfo($ID);
 
+    if(isset($ID)){
+        $profileController->getProfileInfo($ID);
+    }else{
+        $profileController->getCommentInfo();
+    }
 ?>

@@ -18,7 +18,7 @@ class SearchController
 		$statement->bindValue(':search', $search);
 		$statement->execute();
 		$entry = $statement->fetchall(PDO::FETCH_ASSOC);
-		return($entry);
+		echo json_encode($entry);
     }
 
     function searchTags($search){
@@ -38,7 +38,7 @@ class SearchController
             array_push($entry, $articles);    
 		endforeach;
 
-		return($entry);
+		echo json_encode($entry);
     }
 
     function searchUsers($search){
@@ -48,11 +48,23 @@ class SearchController
 		$statement->bindValue(':search', $search);
 		$statement->execute();
 		$entry = $statement->fetchall(PDO::FETCH_ASSOC);
-		return($entry);
+		echo json_encode($entry);
     }
 
 }
 
+$type = $_GET['type'];
+$query = $_GET['query'];
+
+$searchController = new SearchController('Users');
+
+if($type == "article"){
+    $searchController->searchArticles($query);
+}else if($type == "tag"){
+    $searchController->searchTags($query);
+}else if($type == "user"){
+    $searchController->searchUsers($query);
+}
 
 
 
