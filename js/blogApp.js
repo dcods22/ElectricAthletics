@@ -51,6 +51,10 @@ blogApp.config(['$routeProvider',
                 templateUrl: 'search.html',
                 controller: 'searchController'
             }).
+            when('/tags/:tag', {
+                templateUrl: 'tags.html',
+                controller: 'tagController'
+            }).
             when('/about', {
                 templateUrl: 'about.html'
             }).

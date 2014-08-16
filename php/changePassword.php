@@ -9,6 +9,6 @@
     $password = crypt($password);
     $changeController->changePass($id, $password);
 
-    header("Location: http://electricathletics.com/changed.php?page=2");
+    header("Location: http://electricathletics.com/#/changed/2");
 
 ?>

@@ -108,6 +108,6 @@ if(!empty($_POST['tagOther'])) {
 }
 
 $blogUpdate->updatePost($ID, $typeID, $title, $desc, $article, $pic, $picDesc, $picSrc);
-header('Location: http://www.electricathletics.com/article.php?id=' . $ID);
+header('Location: http://www.electricathletics.com/#/article/' . $ID);
 
 ?>

@@ -12,8 +12,8 @@ class SearchController
     }
 
     function searchArticles($search){
-    	$search = '%' + $search + '%';
-    	$sql = "SELECT * FROM `blogs` WHERE `title` LIKE :search";
+    	$search = '%' . $search . '%';
+    	$sql = "SELECT `id`, `typeID`, `pic`, `title` FROM `blogs` WHERE `title` LIKE :search";
     	$statement = $this->dbconn->prepare($sql);
 		$statement->bindValue(':search', $search);
 		$statement->execute();
@@ -22,7 +22,10 @@ class SearchController
     }
 
     function searchTags($search){
-    	$search = '%' + $search + '%';
+        $articles = array();
+        $article = array();
+
+    	$search = '%' . $search . '%';
     	$sql = "SELECT `tagID` FROM `tagList` WHERE `tag` LIKE :search";
     	$statement = $this->dbconn->prepare($sql);
 		$statement->bindValue(':search', $search);
@@ -31,19 +34,28 @@ class SearchController
 
 		foreach($IDs as $ID):
             $sql2 = "SELECT `articleID` FROM `tags` WHERE tagID=:ID";
-            $stmt = $this->dbconn->prepare($sql);
-            $stmt->bindValue(':search', $search);
+            $stmt = $this->dbconn->prepare($sql2);
+            $stmt->bindValue(':ID', $ID[tagID]);
             $stmt->execute();
-            $articles = $stmt->fetchall(PDO::FETCH_ASSOC);
-            array_push($entry, $articles);    
-		endforeach;
+            $entry = $stmt->fetchall(PDO::FETCH_ASSOC);
+            $articles = array_merge($articles, $entry);
+	    endforeach;
 
-		echo json_encode($entry);
+        foreach($articles as $artID):
+            $sql3 = "SELECT `id`,`typeID`, `title`, `pic` FROM `blogs` WHERE id=:artID";
+            $stmt = $this->dbconn->prepare($sql3);
+            $stmt->bindValue(':artID', $artID[articleID]);
+            $stmt->execute();
+            $art = $stmt->fetch(PDO::FETCH_ASSOC);
+            $article = array_merge($article, $art);
+        endforeach;
+
+		echo json_encode($article);
     }
 
     function searchUsers($search){
-    	$search = '%' + $search + '%';
-    	$sql = "SELECT * FROM `Users` WHERE `username` LIKE :search";
+    	$search = '%' . $search . '%';
+    	$sql = "SELECT `id`, `email`, `username`, `avatar` FROM `Users` WHERE `username` LIKE :search";
     	$statement = $this->dbconn->prepare($sql);
 		$statement->bindValue(':search', $search);
 		$statement->execute();

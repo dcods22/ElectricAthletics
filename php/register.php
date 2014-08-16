@@ -68,5 +68,5 @@ class Register
     $newID = $register->getUserID($email);
     $emailMessage = 'Click on the link to validate your Electric Athletics account.  <html><head></head><body><a href="http://electricathletics.com/validation.php?id=' . $newID .'">Click Here</a></body></html>';
     mail($email, $subject, $emailMessage, $headers);
-    header('Location: http://electricathletics.com/validate.php?id=' . $newID);
+    header('Location: http://electricathletics.com/#/validate/' . $newID);
 ?>
