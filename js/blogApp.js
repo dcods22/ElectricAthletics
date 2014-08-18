@@ -64,7 +64,6 @@ blogApp.config(['$routeProvider',
             when('/thanks', {
                 templateUrl: 'thanks.html'
             }).
-
             otherwise({
                 redirectTo: '/'
             });

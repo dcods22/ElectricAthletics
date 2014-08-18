@@ -1,3 +1,22 @@
+blogApp.controller('loginController', function($scope, $routeParams, $http){
+
+
+    $scope.login = function(username, password){
+        $http.get("../php/login.php?user=" + username + "&pass=" + password).success(function(data){
+            $scope.logggedin = "false";
+            $scope.ID = 12;
+            console.log(data);
+        });
+
+        if($scope.loggedin == true){
+            $scope.logURL = "notloggedin.html";
+        }else{
+            $scope.logURL = "loggedin.html";
+        }
+    };
+
+});
+
 blogApp.controller('articlesController', function($scope, $routeParams, $http){
     var type = $routeParams.type || "all";
     var id = $routeParams.type || 0;
@@ -218,22 +237,51 @@ blogApp.controller('addPostController', function($scope, $routeParams, $http){
 });
 
 blogApp.controller('searchController', function($scope, $routeParams, $http){
+    angular.element("#loading").show();
+
     var query = $routeParams.query;
 
     $scope.title = "Search";
 
+    $scope.progess = 25;
+
+    angular.element('title').html("Electric Athletics - " + $scope.title);
+
     $http.get("../php/search.php?type=article&query=" + query).success(function(data){
         $scope.articles = data;
+        $scope.progess += 25;
+
+        if($scope.articles.length == 0){
+            angular.element("#searchArticlesError").html("No Articles Found");
+        }
     });
 
     $http.get("../php/search.php?type=tag&query=" + query).success(function(data){
         $scope.tags = data;
+        $scope.progess += 25;
+
+        if($scope.tags.length == 0){
+            angular.element("#searchTagsError").html("No Tags Found");
+        }
     });
 
     $http.get("../php/search.php?type=user&query=" + query).success(function(data){
         $scope.users = data;
+        $scope.progess += 25;
+
+        if($scope.users.length == 0){
+            angular.element("#searchUsersError").html("No Users Found");
+        }
     });
 
-    angular.element('title').html("Electric Athletics - " + $scope.title);
+    $scope.getType = function(ID){
+        if(ID == 2){
+            return "Sports";
+        }else if(ID == 1){
+            return "Technology";
+        }
+    };
+
+    //angular.element("#loading").hide();
 
 });

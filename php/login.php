@@ -33,7 +33,7 @@ class Login
 
     function getUserName($username){
         // SQL Query gets the user's password via there email
-        $sql = 'SELECT username FROM Users WHERE email=:username OR username=:username1';
+        $sql = 'SELECT `id`, `username` FROM Users WHERE email=:username OR username=:username1';
         $result = $this->dbconn->prepare($sql);
         $result->bindValue(':username', $username);
         $result->bindValue(':username1', $username);
@@ -53,30 +53,20 @@ class Login
         return ($entry[validated] == 1);
     }
 }
-    $username = $_POST['loginUsername'];
-    $password = $_POST['loginPassword'];
+    $username = $_GET['user'];
+    $password = $_GET['pass'];
     $login = new Login('Users');
+
     if($login->validate_login($username, $password)){
         if($login->checkActive($username)){
             // starts the user's session
-            session_save_path("/home/users/web/b2834/ipg.electricathleticscom/sessions");
-            session_start();
-            $UN = $login->getUserName($username);
-            $_SESSION['loggedin'] = "yes";
-            $_SESSION['username'] = $UN;
+            $info = $login->getUserName($username);
+            echo json_encode("Test3");
 
-            // if the user checked the remember me, this adds a cookie to save the user's session id
-            if(isset($_POST['remember'])){
-                $timeLength = 86400 * 365;
-                setcookie('remember_me', session_id(), time()+$timeLength, '/', 'electricathletics.com');
-                setcookie('username', $username, time()+$timeLength, '/', 'electricathletics.com');
-            }
-
-            header('Location: http://electricathletics.com/');
         }
         else
-            header('Location: http://electricathletics.com/signuporin.php?error=2');
+            echo json_encode("test");
     }else
-        header('Location: http://electricathletics.com/signuporin.php?error=1');
+        echo json_encode("test2");
 
 ?>

@@ -23,7 +23,7 @@ class SearchController
 
     function searchTags($search){
         $articles = array();
-        $article = array();
+        $articlesFinal = array();
 
     	$search = '%' . $search . '%';
     	$sql = "SELECT `tagID` FROM `tagList` WHERE `tag` LIKE :search";
@@ -32,25 +32,25 @@ class SearchController
 		$statement->execute();
 		$IDs = $statement->fetchall(PDO::FETCH_ASSOC);
 
-		foreach($IDs as $ID):
+		foreach($IDs as $ID){
             $sql2 = "SELECT `articleID` FROM `tags` WHERE tagID=:ID";
             $stmt = $this->dbconn->prepare($sql2);
             $stmt->bindValue(':ID', $ID[tagID]);
             $stmt->execute();
             $entry = $stmt->fetchall(PDO::FETCH_ASSOC);
             $articles = array_merge($articles, $entry);
-	    endforeach;
+	    }
 
-        foreach($articles as $artID):
-            $sql3 = "SELECT `id`,`typeID`, `title`, `pic` FROM `blogs` WHERE id=:artID";
-            $stmt = $this->dbconn->prepare($sql3);
-            $stmt->bindValue(':artID', $artID[articleID]);
-            $stmt->execute();
-            $art = $stmt->fetch(PDO::FETCH_ASSOC);
-            $article = array_merge($article, $art);
-        endforeach;
+        foreach($articles as $artID){
+            $sql3 = "SELECT `id`, `typeID`,`pic`, `title` FROM `blogs` WHERE id=:artID";
+            $stmt2 = $this->dbconn->prepare($sql3);
+            $stmt2->bindValue(':artID', $artID[articleID]);
+            $stmt2->execute();
+            $art = $stmt2->fetchall(PDO::FETCH_ASSOC);
+            $articlesFinal = array_merge($articlesFinal, $art);
+        }
 
-		echo json_encode($article);
+		echo json_encode($articlesFinal);
     }
 
     function searchUsers($search){
