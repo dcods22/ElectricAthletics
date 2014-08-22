@@ -31,10 +31,6 @@ blogApp.config(['$routeProvider',
                 templateUrl: 'changed.html',
                 controller: 'changeController'
             }).
-            when('/signuporin', {
-                templateUrl: 'signuporin.html',
-                controller: 'signinController'
-            }).
             when('/addpost', {
                 templateUrl: 'addPost.html',
                 controller: 'addPostController'

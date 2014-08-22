@@ -1,17 +1,29 @@
 blogApp.controller('loginController', function($scope, $routeParams, $http){
 
+    $scope.loginNow = function(){
+        console.log("Test");
+        /*$http.get("../php/login.php?user=" + login.username + "&pass=" + login.password).success(function(data){
+            if(data.error){
+                $scope.loggedin = false;
+            }else if(data.id){
+                $scope.logggedin = true;
+                $scope.ID = data.id;
+                $scope.username = data.username;
+            }
+        });*/
 
-    $scope.login = function(username, password){
-        $http.get("../php/login.php?user=" + username + "&pass=" + password).success(function(data){
-            $scope.logggedin = "false";
-            $scope.ID = 12;
-            console.log(data);
-        });
 
+    };
+
+    $scope.registerNow = function(){
+        console.log("test");
+    };
+
+    $scope.loginCheck = function(){
         if($scope.loggedin == true){
-            $scope.logURL = "notloggedin.html";
-        }else{
             $scope.logURL = "loggedin.html";
+        }else{
+            $scope.logURL = "notloggedin.html";
         }
     };
 

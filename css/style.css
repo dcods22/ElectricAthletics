@@ -240,6 +240,17 @@ nav{
     background-color: #f7f7f7;
     overflow: auto;
 }
+
+#loginSpan:hover{
+    cursor: pointer;
+    color: 858535;
+}
+
+#registerSpan:hover{
+    cursor: pointer;
+    color: 858535;
+}
+
 /*************************** Home Page ***************************/
 
 .title{

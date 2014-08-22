@@ -6,15 +6,12 @@
     <meta name="Description" CONTENT="Sports and Technology blog">
     <meta name="keywords" context="Sports, Technology" >
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css href=" href="css/jquery-ui.min.css"/>
     <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
 </head>
 
 <body>
 <nav>
-    <div class="LR" id="loginController" ng-controller="loginController" ng-init="login('dcods22', 'tino24')">
-       <div ng-include="logURL"></div>
-    </div>
-
     <div class="navHolder">
         <div class="searchUsername">
             <div class="search">
@@ -23,9 +20,9 @@
                     <input type="text" placeholder="Search..." name="search" class="searchBar"/>
                 </form>
             </div>
-            <div class="LR">
-
-        </div>
+            <div class="LR" id="loginController" ng-controller="loginController" ng-init="loginCheck()">
+                <div ng-include="logURL"></div>
+            </div>
     </div>
     <div class="navlinks">
         <div class="logo"><a href="/#/">LOGO</a></div>
@@ -63,7 +60,7 @@
 
 <script src="js/jquery-1.11.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script src="js/angular.min.js"></script>
+<script src="js/jquery-ui.min.js"></script><script src="js/angular.min.js"></script>
 <script src="js/angular-route.js"></script>
 <script src="js/ui-bootstrap-tpls-0.11.0.min.js"></script>
 <script src="js/blogApp.js"></script>

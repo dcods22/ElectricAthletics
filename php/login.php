@@ -39,7 +39,7 @@ class Login
         $result->bindValue(':username1', $username);
         $result->execute();
         $entry = $result->fetch();
-        return $entry[username];
+        return $entry;
     }
 
     function checkActive($email)
@@ -61,12 +61,14 @@ class Login
         if($login->checkActive($username)){
             // starts the user's session
             $info = $login->getUserName($username);
-            echo json_encode("Test3");
+            $response = array($info);
 
         }
         else
-            echo json_encode("test");
+            $response = array('error' => 'Not Active');
     }else
-        echo json_encode("test2");
+        $response = array('error' => 'Invalid Credentials');
+
+    echo json_encode($response);
 
 ?>
