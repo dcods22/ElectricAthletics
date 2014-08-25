@@ -5,9 +5,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <meta name="Description" CONTENT="Sports and Technology blog">
     <meta name="keywords" context="Sports, Technology" >
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" >
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <link rel="stylesheet" type="text/css href=" href="css/jquery-ui.min.css"/>
-    <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css"/>
 </head>
 
 <body>
@@ -20,7 +20,7 @@
                     <input type="text" placeholder="Search..." name="search" class="searchBar"/>
                 </form>
             </div>
-            <div class="LR" id="loginController" ng-controller="loginController" ng-init="loginCheck()">
+            <div class="LR" id="modalController" ng-controller="modalController" ng-init="setLoggedIn()">
                 <div ng-include="logURL"></div>
             </div>
     </div>
@@ -60,7 +60,8 @@
 
 <script src="js/jquery-1.11.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script src="js/jquery-ui.min.js"></script><script src="js/angular.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/angular.min.js"></script>
 <script src="js/angular-route.js"></script>
 <script src="js/ui-bootstrap-tpls-0.11.0.min.js"></script>
 <script src="js/blogApp.js"></script>

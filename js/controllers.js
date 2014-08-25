@@ -1,30 +1,63 @@
-blogApp.controller('loginController', function($scope, $routeParams, $http){
+blogApp.controller('modalController', function($scope, $modal){
+    $scope.openLogin = function(){
+        window.loginModal = $modal.open({
+            templateUrl: 'loginForm.html',
+            controller: 'loginController',
+            size: 'lg'
+        });
+    };
 
-    $scope.loginNow = function(){
-        console.log("Test");
-        /*$http.get("../php/login.php?user=" + login.username + "&pass=" + login.password).success(function(data){
+    $scope.openRegister = function(){
+        window.registerModal = $modal.open({
+            templateUrl: 'registerForm.html',
+            controller: 'loginController',
+            size: 'lg'
+        });
+    };
+
+    $scope.setLoggedIn = function(){
+        $scope.logURL = 'notloggedin.html';
+        window.logURL = 'notloggedin.html';
+    };
+
+    setInterval(function(){
+        $scope.loggedin = window.loggedin;
+        $scope.logURL = window.logURL;
+        $scope.username = window.username;
+        $scope.avatar = window.avatar;
+        $scope.ID = window.ID;
+    }, 1000)
+});
+
+blogApp.controller('loginController', function($scope, $http){
+
+    $scope.loginNow = function(login){
+
+        $http.get("../php/login.php?user=" + login.username + "&pass=" + login.password).success(function(data){
             if(data.error){
                 $scope.loggedin = false;
-            }else if(data.id){
-                $scope.logggedin = true;
-                $scope.ID = data.id;
-                $scope.username = data.username;
+                $scope.error = data.error;
+            }else if(data[0].id){
+                window.loggedin = true;
+                window.ID = data[0].id;
+                window.username = data[0].username;
+                window.logURL = 'loggedin.html';
+                window.avatar = data[0].avatar;
+                window.loginModal.dismiss();
             }
-        });*/
+        });
+
+//        window.logURL = 'loggedin.html';
+//
+//        window.loginModal.dismiss();
+//
+//        return window.logURL;
 
 
     };
 
-    $scope.registerNow = function(){
-        console.log("test");
-    };
-
-    $scope.loginCheck = function(){
-        if($scope.loggedin == true){
-            $scope.logURL = "loggedin.html";
-        }else{
-            $scope.logURL = "notloggedin.html";
-        }
+    $scope.registerNow = function(register){
+        console.log(register);
     };
 
 });

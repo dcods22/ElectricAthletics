@@ -1,0 +1,15 @@
+<div class="modal-header">
+    <h3 class="modal-title">Login Now!</h3>
+</div>
+
+<div id="loginError">{{error}}</div>
+
+<div id="loginModal" title="Login" >
+    <form class="loginForm" id="loginForm" name="loginForm">
+        <input type="text" name="loginUsername" ng-model="login.username" class="loginUsername" id="loginUsername" placeholder="Username/Email"/>
+        <input type="password" name="loginPassword" ng-model="login.password" class="loginPassword" id="loginPassword" placeholder="Password"/>
+        <input type="checkbox" name="remember" ng-model="login.remember" class="remember" id="remember"/>Remember Me<br/>
+        <button ng-click="loginNow(login)" class="loginSend" id="loginSend">Sign In!</button>
+    </form>
+
+</div>

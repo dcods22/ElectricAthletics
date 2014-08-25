@@ -33,7 +33,7 @@ class Login
 
     function getUserName($username){
         // SQL Query gets the user's password via there email
-        $sql = 'SELECT `id`, `username` FROM Users WHERE email=:username OR username=:username1';
+        $sql = 'SELECT `id`, `username`, `avatar` FROM Users WHERE email=:username OR username=:username1';
         $result = $this->dbconn->prepare($sql);
         $result->bindValue(':username', $username);
         $result->bindValue(':username1', $username);
