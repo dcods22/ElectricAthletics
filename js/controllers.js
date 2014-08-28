@@ -246,6 +246,12 @@ blogApp.controller('profileController', function($scope, $routeParams, $http){
         }
     }
 
+    $scope.addpostCheck = function(){
+        if(window.ID == 1){
+            $scope.addPostURL = "addPostCheck.html";
+        }
+    }
+
 
 
 });
@@ -383,5 +389,24 @@ blogApp.controller('searchController', function($scope, $routeParams, $http){
             return "Technology";
         }
     };
+
+});
+
+blogApp.controller('logoutController', function($scope, $routeParams){
+
+    $scope.ID = $routeParams.id;
+
+    if($scope.ID == window.ID){
+        console.log("Logged Out");
+        window.loggedin = false;
+        window.ID = 0;
+        window.username = "";
+        window.logURL = 'notloggedin.html';
+        window.avatar = "";
+        $scope.message = "You have been successfully logged out!";
+    }else{
+        $scope.message = "An error happened when you tried to log out!";
+    }
+
 
 });

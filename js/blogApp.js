@@ -51,6 +51,10 @@ blogApp.config(['$routeProvider',
                 templateUrl: 'tags.html',
                 controller: 'tagController'
             }).
+            when('/logout/:id', {
+                templateUrl: 'logout.html',
+                controller: 'logoutController'
+            }).
             when('/about', {
                 templateUrl: 'about.html'
             }).
