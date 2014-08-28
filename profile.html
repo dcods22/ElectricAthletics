@@ -3,13 +3,13 @@
 
 
     <br/>
-    <img ng-src="{{user.avatar}}"/>
-    Email: {{user.email}}
+    <img class="profileAvatar" ng-src="{{user.avatar}}"/>
+    <a href="mailto:{{user.email}}">Email: {{user.email}}</a>
     <br/>
 
-    <a href='addPost.php'>Add Post</a><br/>
-    <a href='changePassword.php'>Change Password</a><br/>
-    <a href='logout.php'>Logout</a>"
+    <div class="profileCheck" ng-init="profileCheck()">
+        <div ng-include="profileURL"></div>
+    </div>
 
 
     <div class="profileRecentComments">

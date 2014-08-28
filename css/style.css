@@ -263,7 +263,7 @@ nav{
     border: 1px solid #000;
     border-radius: 20px;
     margin-top: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     background-color: white;
 }
 
@@ -481,10 +481,18 @@ nav{
     font-size:15px;
 }
 
+.commentAvatar{
+    width:50px;
+    height:50px;
+    float:left;
+    margin-right:5px;
+}
+
 .noComments{
     margin-top:20px;
     font-weight:bold;
-    font-size:15px;
+    font-size:20px;
+    text-align: center;
 }
 
 /***************** About Page ******************/
@@ -712,8 +720,17 @@ nav{
     font-size:15px;
 }
 
+/*********************** Login/Register *********************/
 
-/*********************** Login Page ********************/
+#formError{
+    color: red;
+    font-size: 20px;
+    font-weight:bold;
+    margin: 10px auto 10px auto;
+    text-align: center;
+}
+
+/*********************** Login Page ************************/
 
 .loginForm{
     width:500px;
@@ -722,7 +739,7 @@ nav{
     margin-right: auto;
 }
 
-.loginForm input[type="text"], .loginForm input[type="password"]{
+.loginForm input[type="text"], .loginForm input[type="password"], .loginForm input[type="email"]{
     overflow: hidden;
     width:500px;
     display: block;
@@ -809,7 +826,7 @@ nav{
     padding-bottom: 20px;
 }
 
-.registerForm input[type="text"], .registerForm input[type="password"]{
+.registerForm input[type="text"], .registerForm input[type="password"], .registerForm input[type="email"]{
     overflow: hidden;
     width:500px;
     display: block;
@@ -890,11 +907,19 @@ nav{
 
 /********************** Profile ********************/
 
+.profileAvatar{
+    height:100px;
+    width:100px;
+    margin-left:35px;
+    margin-right:20px;
+    float:left;
+}
+
 .profileRecentComments{
     width:600px;
     height:auto;
-    margin-top:20px;
-    margin-bottom:40px;
+    margin-top:40px;
+    margin-bottom:60px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -911,6 +936,11 @@ nav{
     font-weight:bold;
     font-size:15px;
     margin-bottom: 5px;
+}
+
+.profileCheck{
+    height:100px;
+    width:500px;
 }
 
 .profileComment{

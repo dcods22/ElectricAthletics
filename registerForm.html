@@ -2,13 +2,15 @@
     <h3 class="modal-title">Register Now!</h3>
 </div>
 
+<div id="formError">{{error}}</div>
+
 <div id="registerModal" title="Regiser">
     <form novalidate class="registerForm" id="registerForm" name="registerForm">
         <formset>
-            <input type="text" name="registerUsername" ng-model="register.username" class="registerUsername" id="registerUsername" placeholder="Username" !required/>
-            <input type="text" name="registerEmail" ng-model="register.email" class="registerEmail" id="registerEmail" placeholder="Email" !required/>
-            <input type="password" name="registerPassword" ng-model="register.password1" class="registerPassword" id="registerPassword" placeholder="Password" !required/>
-            <input type="password" name="registerPassword2" ng-model="register.password2" class="registerPassword2" id="registerPassword2" placeholder="Re-type Password" !required/>
+            <input type="text" ng-model="register.username" class="registerUsername" id="registerUsername" placeholder="Username" required/>
+            <input type="email" ng-model="register.email" class="registerEmail" id="registerEmail" placeholder="Email" required/>
+            <input type="password" ng-model="register.password1" class="registerPassword" id="registerPassword" placeholder="Password" required/>
+            <input type="password" ng-model="register.password2" class="registerPassword2" id="registerPassword2" placeholder="Re-type Password" !required/>
             <button ng-click="registerNow(register)" class="registerSend" id="registerSend">Regiser!</button>
         </formset>
     </form>

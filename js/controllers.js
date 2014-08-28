@@ -29,35 +29,69 @@ blogApp.controller('modalController', function($scope, $modal){
     }, 1000)
 });
 
-blogApp.controller('loginController', function($scope, $http){
+blogApp.controller('loginController', function($scope, $http, $location){
 
     $scope.loginNow = function(login){
 
-        $http.get("../php/login.php?user=" + login.username + "&pass=" + login.password).success(function(data){
-            if(data.error){
-                $scope.loggedin = false;
-                $scope.error = data.error;
-            }else if(data[0].id){
-                window.loggedin = true;
-                window.ID = data[0].id;
-                window.username = data[0].username;
-                window.logURL = 'loggedin.html';
-                window.avatar = data[0].avatar;
-                window.loginModal.dismiss();
+        if(!angular.isUndefined(login.username) && !angular.isUndefined(login.password)){
+            $http.get("../php/login.php?user=" + login.username + "&pass=" + login.password).success(function(data){
+                if(data.error){
+                    $scope.loggedin = false;
+                    $scope.error = data.error;
+                }else if(data[0].id){
+                    window.loggedin = true;
+                    window.ID = data[0].id;
+                    window.username = data[0].username;
+                    window.logURL = 'loggedin.html';
+                    window.avatar = data[0].avatar;
+                    window.loginModal.dismiss();
+                    $location.path("/profile/" + window.ID);
+                }
+            });
+        }else{
+            $scope.error = "Username or Password are not filled out";
+        }
+    };
+
+    $scope.registerNow = function(register){
+        if(!angular.isUndefined(register.username) && !angular.isUndefined(register.password1) && !angular.isUndefined(register.email)){
+            if( $scope.usernameCheck(register.username)){
+                $scope.error = "Username is taken";
+            }else if( $scope.emailCheck(register.email)){
+                $scope.error = "Email is already used";
+            }else if( register.password1 != register.password2){
+                $scope.error = "Passwords do not match";
+            }else{
+                console.log("entered");
+                $http.get("../php/register.php?user=" + register.username + "&pass=" + register.password1 + "&email=" + register.email).success(function(data){
+                    $scope.error = "";
+                    $scope.profileID = data.ID;
+                    window.ID = data.ID;
+                    window.username = data.username;
+                    window.logURL = "loggedin.html";
+                    window.avatar = data.avatar;
+                    window.registerModal.dismiss();
+                    $location.path("/validate/" + data.ID);
+                });
             }
+        }
+    };
+
+    $scope.usernameCheck = function(username){
+        $http.get("../php/usernameCheck.php?username=" + username).success(function(data){
+            if(data == false)
+                return true
+            else
+                return false;
         });
 
-//        window.logURL = 'loggedin.html';
-//
-//        window.loginModal.dismiss();
-//
-//        return window.logURL;
+        return false;
 
 
     };
 
-    $scope.registerNow = function(register){
-        console.log(register);
+    $scope.emailCheck = function(email){
+        return false;
     };
 
 });
@@ -105,8 +139,8 @@ blogApp.controller('articlesController', function($scope, $routeParams, $http){
 blogApp.controller('articleController', function($scope, $routeParams, $http){
     var id = $routeParams.id;
 
-    $scope.id = id;
-    $scope.userID = id;
+    $scope.ID = id;
+    $scope.userID = window.ID;
     $scope.article = {};
     $scope.tags = {};
     $scope.comments = {};
@@ -166,9 +200,26 @@ blogApp.controller('articleController', function($scope, $routeParams, $http){
         if(userID && $scope.userinfo){
             return $scope.userinfo[userID].avatar;
         }
-    }
+    };
+});
 
+blogApp.controller('comment', function($scope){
 
+    $scope.checkComment = function(){
+        if(window.loggedin == true){
+            $scope.commentURL = "comments.html";
+        }else{
+            $scope.commentURL = "nocomments.html";
+        }
+    };
+
+    setInterval(function(){
+        if(window.loggedin == true){
+            $scope.commentURL = "comments.html";
+        }else{
+            $scope.commentURL = "nocomments.html";
+        }
+    }, 1000);
 
 });
 
@@ -188,6 +239,12 @@ blogApp.controller('profileController', function($scope, $routeParams, $http){
     $http.get("../php/commentController.php?id=" + id).success(function(data){
         $scope.comments = data;
     });
+
+    $scope.profileCheck = function(){
+        if(window.ID == $scope.id){
+            $scope.profileURL = "profileControl.html";
+        }
+    }
 
 
 
@@ -326,7 +383,5 @@ blogApp.controller('searchController', function($scope, $routeParams, $http){
             return "Technology";
         }
     };
-
-    //angular.element("#loading").hide();
 
 });

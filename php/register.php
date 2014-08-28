@@ -54,9 +54,11 @@ class Register
     $subject = "Electric Athletics Validation";
     $headers = "From: noreply@electricathletics.com \r\n";
 
-    $username = $_POST['registerUsername'];
-    $email = $_POST['registerEmail'];
-    $password = $_POST['registerPassword'];
+    $username = $_GET['user'];
+    $email = $_GET['email'];
+    $password = $_GET['pass'];
+
+    $avatar = "http://electricathletics.com/images/no_avatar.png";
 
     $email = trim($email);
     $username = trim($username);
@@ -65,10 +67,13 @@ class Register
     if(!empty($username)){
         $register = new Register('Users');
         $password1 = crypt($password);
-        $registerScript = $register->addUser($email, $username, $password1);
+        $registerScript = $register->addUser($email, $username, $password);
         $newID = $register->getUserID($email);
-        $emailMessage = 'Click on the link to validate your Electric Athletics account.  <html><head></head><body><a href="http://electricathletics.com/validation.php?id=' . $newID .'">Click Here</a></body></html>';
+        $emailMessage = 'Click on the link to validate your Electric Athletics account.  http://electricathletics.com/validation.php?id=' . $newID;
         mail($email, $subject, $emailMessage, $headers);
-        header('Location: http://electricathletics.com/#/validate/' . $newID);
+        $response = array('ID' => $newID, 'username' => $username, 'avatar' => $avatar);
+        echo json_encode($response);
+    }else{
+        echo json_encode(array('error' => 'username is incorrect'));
     }
 ?>
