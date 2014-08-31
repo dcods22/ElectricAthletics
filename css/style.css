@@ -12,7 +12,6 @@ body, html{
 pre {
     white-space: pre-wrap;       /* css-3 */
     white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
-    white-space: -pre-wrap;      /* Opera 4-6 */
     white-space: -o-pre-wrap;    /* Opera 7 */
     word-wrap: break-word;       /* Internet Explorer 5.5+ */
     font-family: sans-serif;
@@ -54,7 +53,68 @@ nav{
     background: -moz-linear-gradient(center center, rgb(179, 155, 58) 30%, rgb(181, 170, 53) 49%, rgb(199, 180, 59) 70%);
     background: -o-linear-gradient(center center, rgb(179, 155, 58) 30%, rgb(181, 170, 53) 49%, rgb(199, 180, 59) 70%);
     background: -ms-linear-gradient(center center, rgb(179, 155, 58) 30%, rgb(181, 170, 53) 49%, rgb(199, 180, 59) 70%);
-    background: -linear-gradient(center center, rgb(179, 155, 58) 30%, rgb(181, 170, 53) 49%, rgb(199, 180, 59) 70%);
+}
+
+input[type="submit"]{
+    overflow: hidden;
+    width: 500px;
+    height:40px;
+    font-family: inherit;
+    font-size: 100%;
+    padding: .5em 1em;
+    color: #000000;
+    border: 0 rgba(0,0,0,0);
+    background-color: #C7B43B;
+    text-decoration: none;
+    border-radius: 2px;
+    display: inline-block;
+    zoom: 1;
+    line-height: normal;
+    white-space: nowrap;
+    vertical-align: baseline;
+    text-align: center;
+    cursor: pointer;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+input[type="submit"]:hover {
+    color: #C7B43B;
+    background-color: #000000;
+}
+
+button{
+    overflow: hidden;
+    width: 500px;
+    height:40px;
+    font-family: inherit;
+    font-size: 100%;
+    padding: .5em 1em;
+    color: #000000;
+    border: 0 rgba(0,0,0,0);
+    background-color: #C7B43B;
+    text-decoration: none;
+    border-radius: 2px;
+    display: inline-block;
+    zoom: 1;
+    line-height: normal;
+    white-space: nowrap;
+    vertical-align: baseline;
+    text-align: center;
+    cursor: pointer;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+button:hover {
+    color: #C7B43B;
+    background-color: #000000;
 }
 
 .navHolder{
@@ -236,12 +296,12 @@ nav{
 
 #loginSpan:hover{
     cursor: pointer;
-    color: 858535;
+    color: #858535;
 }
 
 #registerSpan:hover{
     cursor: pointer;
-    color: 858535;
+    color: #858535;
 }
 
 /*************************** Home Page ***************************/
@@ -999,4 +1059,94 @@ nav{
     margin-bottom:20px;
     font-size:18px;
     font-weight: bold;
+}
+
+/****************** Search ***********************/
+
+.query{
+    text-align:center;
+    font-size:25px;
+    font-weight:bold;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+.searchError{
+    margin-top:10px;
+    text-align: center;
+    font-size:15px;
+    font-weight: bold;
+}
+
+.searchBrands{
+    margin-bottom:20px;
+}
+
+.searchTable{
+    width:700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:20px;
+}
+
+.searchRow{
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+.searchTypeTitle{
+    font-size:20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.searchHolder{
+    height:75px;
+    width:700px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+.searchPic{
+    width:150px;
+    border-bottom: 1px solid #000;
+    text-align: center;
+}
+
+.searchType{
+    width:250px;
+    border-bottom: 1px solid #000;
+    text-align: center;
+}
+
+.searchTitle{
+    width:300px;
+    border-bottom: 1px solid #000;
+    text-align: center;
+}
+
+.searchImg{
+    height: 80px;
+    width:100px;
+    margin-right: auto;
+    margin-left:auto;
+    text-align: center;
+}
+
+.searchImgHolder{
+    text-align:center;
+}
+
+.searchTitles{
+    font-weight:bold;
+    font-size:15px;
+    text-align: center;
+}
+
+.searchTypes{
+    font-weight:bold;
+    font-size:15px;
+    text-align:center;
 }

@@ -1,29 +1,71 @@
 <div class="articleHolder">
-    <!--<div id="loading">
-        <progressbar class="progress-striped active" value="{{progress}}" type="success">{{progess}}%</progressbar>
-    </div>-->
 
-    <div class="searchArticle">
-        Articles:
-        <div class="searchArticles" ng-repeat="article in articles">
-            <a href="/#/article/{{article.id}}"><img class="searchArticleImg" ng-src="{{article.pic}}"/><div class="searchArticleType">{{article.typeID | getType}}</div><div class="searchArticleTitle">{{article.title}}</div></a>
-        </div>
-        <div id="searchArticlesError"></div>
+    <div class="query">Search for: {{query}}</div>
+
+    <div class="searchBrands">
+        <span class="searchTypeTitle">Articles:</span>
+
+        <table class="searchTable">
+            <thead>
+                <tr>
+                    <th class="searchPic">Picture</th>
+                    <th class="searchType">Type</th>
+                    <th class="searchTitle">Title</th>
+                </tr>
+            </thead>
+
+            <tr class="searchRow" ng-repeat="article in articles">
+                <td class="searchImgHolder"><a ng-href="/#/articles/id/{{article.id}}"><img class="searchImg" ng-src="{{article.pic}}"/></a></td>
+                <td class="searchTypes"><a ng-href="/#/articles/id/{{article.id}}">{{article.typeID | getType}}</a></td>
+                <td class="searchTitles"><a ng-href="/#/articles/id/{{article.id}}">{{article.title}}</a></td>
+            </tr>
+
+        </table>
+
+        <div class="searchError" id="searchArticlesError"></div>
     </div>
 
-    <div class="searchTag">
-        Tags:
-        <div class="searchTags" ng-repeat="tag in tags">
-            <a href="/#/article/{{tag.id}}"><img class="searchTagImg" ng-src="{{tag.pic}}"/><div class="searchTagType">{{tag.typeID | getType}}</div><div class="searchTagTitle">{{tag.title}}</div></a>
-        </div>
-        <div id="searchTagsError"></div>
+    <div class="searchBrands">
+        <span class="searchTypeTitle">Tags:</span>
+
+        <table class="searchTable">
+            <thead>
+            <tr>
+                <th class="searchPic">Picture</th>
+                <th class="searchType">Type</th>
+                <th class="searchTitle">Title</th>
+            </tr>
+            </thead>
+
+            <tr class="searchRow" ng-repeat="tag in tags">
+                <td class="searchImgHolder"><a ng-href="/#/articles/id/{{tag.id}}"><img class="searchImg" ng-src="{{tag.pic}}"/></a></td>
+                <td class="searchTypes"><a ng-href="/#/articles/id/{{tag.id}}" >{{tag.typeID | getType}}</a></td>
+                <td class="searchTitles"><a ng-href="/#/articles/id/{{tag.id}}">{{tag.title}}</a></td>
+            </tr>
+
+        </table>
+
+        <div class="searchError" id="searchTagsError"></div>
     </div>
 
-    <div class="searchUser">
-        Users:
-        <div class="searchUsers" ng-repeat="user in users">
-            <a href="/#/profile/{{user.id}}"><img class="searchUserImg" ng-src="{{user.avatar}}"/><div class="searchUserTitle">{{user.username}}</div></a>
-        </div>
-        <div id="searchUsersError"></div>
+    <div class="searchBrands">
+        <span class="searchTypeTitle">Users:</span>
+
+        <table class="searchTable">
+            <thead>
+            <tr>
+                <th class="searchPic">Avatar</th>
+                <th class="searchTitle">User</th>
+            </tr>
+            </thead>
+
+            <tr class="searchRow" ng-repeat="user in users">
+                <td class="searchImgHolder"><a ng-href="/#/profile/{{user.id}}"><img class="searchImg" ng-src="{{user.avatar}}"/></a></td>
+                <td class="searchTitles"><a ng-href="/#/profile/{{user.id}}" class="searchTitles">{{user.username}}</a></td>
+            </tr>
+
+        </table>
+
+        <div class="searchError" id="searchUsersError"></div>
     </div>
 </div>

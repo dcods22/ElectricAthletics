@@ -2,17 +2,16 @@
     <div class="title">Update Article - {{blog.title}}</div>
 
     <div class="addPostDiv">
-        <form method="POST" action="php/updatePost.php" class="addPostForm">
+        <form method="POST" ng-submit="updateArticle(article)" class="addPostForm">
             <formset>
-                <input type="hidden" name='id' value="{{id}}"/>
-                <input type="radio" name="addType" id="addSports" class="addType" value="2"/> Sports
-                <input type="radio" name="addType" id="addTech" class="addType" value="1"/>Technology<br/>
-                <input type="text" name="addTitle" placeholder="Title" value="{{blog.title}}"><br/>
-                <textarea type="text" name="addDesc" id="addDesc" class="addDesc" placeholder="Description">{{blog.desc}}</textarea><br/>
-                <input type="text" name="addPic" id="addPic" class="addPic" placeholder="Picture Link" value="{{blog.pic}}"><br/>
-                <input type="text" name="addPicDesc" id="addPicDesc" class="addPicDesc" placeholder="Picture Description" value="{{blog.picDesc}}"/><br/>
-                <input type="text" name="addPicSrc" id="addPicSrc" class="addPicSrc" placeholder="Picture Source" value="{{blog.picSrc}}"/><br/>
-                <textarea placeholder="Article" name="addArticle" id="addArticle" class="addArticle">{{blog.article}}</textarea>
+                <input type="radio" name="addType" ng-model="blog.type" id="addSports" class="addType" value="2"/> Sports
+                <input type="radio" name="addType" ng-model="blog.type" id="addTech" class="addType" value="1"/>Technology<br/>
+                <input type="text" name="addTitle" ng-model="blog.title" placeholder="Title"><br/>
+                <textarea type="text" name="addDesc" ng-model="blog.desc" id="addDesc" class="addDesc" placeholder="Description"></textarea><br/>
+                <input type="text" name="addPic" ng-model="blog.pic" id="addPic" class="addPic" placeholder="Picture Link"><br/>
+                <input type="text" name="addPicDesc" ng-model="blog.picDesc" id="addPicDesc" class="addPicDesc" placeholder="Picture Description"/><br/>
+                <input type="text" name="addPicSrc" ng-model="blog.picSrc" id="addPicSrc" class="addPicSrc" placeholder="Picture Source"/><br/>
+                <textarea placeholder="Article" ng-model="blog.article" name="addArticle" id="addArticle" class="addArticle"></textarea>
                 <select multiple="multiple" size="5" name="tags[]" class="tagList">
 
                     <option ng-repeat="tag in tags" value="{{ tagCheck(tag.tagID) }}" id="tag{{tag.tagID}}" class="tags" name="tags[]">{{tag.tag}}</option>

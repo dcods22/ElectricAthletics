@@ -67,7 +67,7 @@ class Register
     if(!empty($username)){
         $register = new Register('Users');
         $password1 = crypt($password);
-        $registerScript = $register->addUser($email, $username, $password);
+        $registerScript = $register->addUser($email, $username, $password1);
         $newID = $register->getUserID($email);
         $emailMessage = 'Click on the link to validate your Electric Athletics account.  http://electricathletics.com/validation.php?id=' . $newID;
         mail($email, $subject, $emailMessage, $headers);

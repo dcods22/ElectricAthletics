@@ -8,7 +8,7 @@
 
             <div class="tag" ng-repeat="tag in tags"><a href="/#/tags/{{tag.tagID}}">{{ getTagName(tag.tagID) }},</a></div>
         </div>
-        <br/> <div class="editLink"><a href="/#/editpost/{{id}}">Edit Article</a></div>
+        <!--<br/> <div class="editLink"><a href="/#/editpost/{{id}}">Edit Article</a></div>-->
 
         <img ng-src="{{article.pic}}" alt="Blog Photo" class="blogPhoto"/>
         <div class="picDesc">{{article.picDesc}}</div>
@@ -16,7 +16,7 @@
             <pre>{{article.article}}</pre>
         </div>
 
-        <div class="commentFormDiv" ng-controller="comment" ng-init="checkComment()">
+        <div class="commentFormDiv" ng-controller="commentController" ng-init="checkComment()">
             <div ng-include="commentURL"></div>
         </div>
 

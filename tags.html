@@ -1,0 +1,10 @@
+<div class="title">Tag: {{tagName}}</div>
+
+<div class="articlePreview" ng-repeat="article in articles track by $index">
+    <a href="/#/articles/id/{{article.id}}"><div class="articleTitle">{{article.title}}</div></a><br/>
+    <a href="/#/type/{{article.typeID}}"><div class="type">{{article.typeID | getType}}</div></a>
+    <div class="articleTime">{{article.time | dateToISO | date:'MMM d, yyyy h:m a'}}</div>
+    <img ng-src="{{article.pic}}" alt="Article Photo" class="articlePhoto" height="200px" width="300px"/>
+    <div class="articleDesc">{{article.article | limitTo:530}}...</div>
+    <a href="/#/articles/id/{{blog.id}}" class="readMore">Read More...</a>
+</div>

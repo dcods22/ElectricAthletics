@@ -55,14 +55,25 @@ blogApp.config(['$routeProvider',
                 templateUrl: 'logout.html',
                 controller: 'logoutController'
             }).
+            when('/editprofile/:id', {
+                templateUrl: 'editProfile.html',
+                controller: 'editProfileController'
+            }).
+            when('/changepassword', {
+                templateUrl: 'changePasword.html',
+                controller: 'changeController'
+            }).
             when('/about', {
-                templateUrl: 'about.html'
+                templateUrl: 'about.html',
+                controller: 'aboutController'
             }).
             when('/contact', {
-                templateUrl: 'contact.html'
+                templateUrl: 'contact.html',
+                controller: 'contactController'
             }).
             when('/thanks', {
-                templateUrl: 'thanks.html'
+                templateUrl: 'thanks.html',
+                controller: 'thanksController'
             }).
             otherwise({
                 redirectTo: '/'

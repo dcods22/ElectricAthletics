@@ -80,7 +80,7 @@ blogApp.controller('loginController', function($scope, $http, $location){
     $scope.usernameCheck = function(username){
         $http.get("../php/usernameCheck.php?username=" + username).success(function(data){
             if(data == false)
-                return true
+                return true;
             else
                 return false;
         });
@@ -172,6 +172,12 @@ blogApp.controller('articleController', function($scope, $routeParams, $http){
         $scope.comments = data;
     });
 
+    $scope.getComments = function(){
+        $http.get("../php/commentController.php?type=article&id=" + id).success(function(data){
+            $scope.comments = data;
+        });
+    };
+
     $scope.getTagName = function(tagID){
         if($scope.tagList){
             return $scope.tagList[tagID];
@@ -201,9 +207,16 @@ blogApp.controller('articleController', function($scope, $routeParams, $http){
             return $scope.userinfo[userID].avatar;
         }
     };
+
+    setInterval(function(){
+        $scope.getComments();
+    }, 1000);
 });
 
-blogApp.controller('comment', function($scope){
+blogApp.controller('commentController', function($scope, $http, $routeParams){
+
+    $scope.ID = window.ID;
+    $scope.articleID = $routeParams.id;
 
     $scope.checkComment = function(){
         if(window.loggedin == true){
@@ -211,6 +224,19 @@ blogApp.controller('comment', function($scope){
         }else{
             $scope.commentURL = "nocomments.html";
         }
+    };
+
+    $scope.addComment = function(comment){
+
+        var commentData = {
+            'userID' : $scope.ID,
+            'articleID' : $scope.articleID,
+            'comment' : comment.commentText
+        };
+
+        $http.post('../php/addComment.php', commentData).success(function(data){
+            angular.element("#commentText").val('');
+        });
     };
 
     setInterval(function(){
@@ -221,6 +247,41 @@ blogApp.controller('comment', function($scope){
         }
     }, 1000);
 
+});
+
+blogApp.controller('aboutController', function($scope){
+    $scope.title = "About Us";
+
+    angular.element('title').html("Electric Athletics - " + $scope.title);
+});
+
+blogApp.controller('contactController', function($scope, $http, $location){
+    $scope.title = "Contact Us";
+
+    angular.element('title').html("Electric Athletics - " + $scope.title);
+
+    $scope.sendEmail = function(email){
+
+        var emailObject = {
+            'name' : email.name,
+            'email' : email.email,
+            'message' : email.message
+        };
+
+        $http.post('../php/sendEmail.php', emailObject).success(function(data){
+            angular.element("#contactEmail").val('');
+            angular.element("#contactName").val('');
+            angular.element("#contactMessage").val('');
+            $location.path("/thanks");
+        });
+
+    };
+});
+
+blogApp.controller('thanksController', function($scope){
+    $scope.title = "Thank You";
+
+    angular.element('title').html("Electric Athletics - " + $scope.title);
 });
 
 blogApp.controller('profileController', function($scope, $routeParams, $http){
@@ -244,15 +305,13 @@ blogApp.controller('profileController', function($scope, $routeParams, $http){
         if(window.ID == $scope.id){
             $scope.profileURL = "profileControl.html";
         }
-    }
+    };
 
     $scope.addpostCheck = function(){
         if(window.ID == 1){
             $scope.addPostURL = "addPostCheck.html";
         }
-    }
-
-
+    };
 
 });
 
@@ -319,7 +378,15 @@ blogApp.controller('editController', function($scope, $routeParams, $http){
         }
 
         return tagID;
-    }
+    };
+
+    $scope.updateArticle = function(article){
+        var articleObject = {
+
+        };
+
+
+    };
 
 });
 
@@ -349,7 +416,9 @@ blogApp.controller('searchController', function($scope, $routeParams, $http){
 
     var query = $routeParams.query;
 
-    $scope.title = "Search";
+    $scope.query = $routeParams.query;
+
+    $scope.title = "Search for" + query;
 
     $scope.progess = 25;
 
@@ -397,7 +466,6 @@ blogApp.controller('logoutController', function($scope, $routeParams){
     $scope.ID = $routeParams.id;
 
     if($scope.ID == window.ID){
-        console.log("Logged Out");
         window.loggedin = false;
         window.ID = 0;
         window.username = "";
@@ -408,5 +476,27 @@ blogApp.controller('logoutController', function($scope, $routeParams){
         $scope.message = "An error happened when you tried to log out!";
     }
 
+    $scope.title = "Log Out"
+
+    angular.element('title').html("Electric Athletics - " + $scope.title);
 
 });
+
+blogApp.controller('tagController', function($scope, $routeParams, $http){
+
+    $scope.tag = $routeParams.tag;
+
+    $http.get("../php/getTagName.php?id=" + $scope.tag).success(function(data){
+        $scope.tagName = data.tag;
+
+        angular.element('title').html("Electric Athletics - " + $scope.tagName);
+    });
+
+    $http.get("../php/getTagArticles.php?id=" + $scope.tag).success(function(data){
+        $scope.articles = data;
+        console.log(data);
+    });
+
+});
+
+

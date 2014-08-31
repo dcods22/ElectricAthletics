@@ -1,6 +1,6 @@
 <?php
 
-class tagController
+class TagController
 {
     private $dbconn;
     private $tablename;

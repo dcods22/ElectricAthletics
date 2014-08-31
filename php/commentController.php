@@ -32,7 +32,7 @@ class CommentController
     }
 
     function getArticleComments($articleID){
-        $sql = 'SELECT * FROM comments WHERE articleID=:articleID';
+        $sql = 'SELECT * FROM comments WHERE articleID=:articleID ORDER BY `time` DESC';
         $stmt = $this->dbconn->prepare( $sql );
         $stmt->bindValue(':articleID', $articleID);
         $stmt->execute();
