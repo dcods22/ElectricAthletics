@@ -338,10 +338,10 @@ blogApp.controller('changeController', function($scope, $routeParams, $http){
 
 });
 
-blogApp.controller('editController', function($scope, $routeParams, $http){
-    var id = $routeParams.id;
+blogApp.controller('editController', function($scope, $routeParams, $http, $location){
+    $scope.ID = $routeParams.id;
 
-    $http.get("../php/blogFetch.php?type=article&id=" + id).success(function(data){
+    $http.get("../php/blogFetch.php?type=article&id=" + $scope.ID).success(function(data){
         $scope.blog = data;
 
         $scope.title = "Edit" + $scope.blog.title;
@@ -360,30 +360,21 @@ blogApp.controller('editController', function($scope, $routeParams, $http){
         $scope.tags = data;
     });
 
-    $http.get("../php/tagController.php?id=" + id).success(function(data){
-        var newData = new Object();
-        for(var i=0; i < data.length; i++){
-            var tagID = data[i].tagID;
-            newData[tagID] = data[i].tagID;
-        }
-        $scope.tagList = newData;
+    $http.get("../php/tags.php?id=" + $scope.ID).success(function(data){
+        $scope.tagList = data;
+
+        console.log(data);
     });
 
-    $scope.tagCheck = function(tagID){
+    $scope.updateArticle = function(article, articleTags, newTags){
 
-        if($scope.tagList){
-            if($scope.tagList[tagID]){
-                angular.element("#tag" + tagID).attr("selected", "selected");
-            }
-        }
+        console.log(articleTags, newTags);
 
-        return tagID;
-    };
-
-    $scope.updateArticle = function(article){
         var articleObject = {
 
         };
+
+        //$location.path("/article/" + $scope.ID);
 
 
     };

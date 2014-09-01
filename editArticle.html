@@ -2,7 +2,7 @@
     <div class="title">Update Article - {{blog.title}}</div>
 
     <div class="addPostDiv">
-        <form method="POST" ng-submit="updateArticle(article)" class="addPostForm">
+        <form method="POST" ng-submit="updateArticle(blog, articleTags, newTags)" class="addPostForm">
             <formset>
                 <input type="radio" name="addType" ng-model="blog.type" id="addSports" class="addType" value="2"/> Sports
                 <input type="radio" name="addType" ng-model="blog.type" id="addTech" class="addType" value="1"/>Technology<br/>
@@ -12,12 +12,8 @@
                 <input type="text" name="addPicDesc" ng-model="blog.picDesc" id="addPicDesc" class="addPicDesc" placeholder="Picture Description"/><br/>
                 <input type="text" name="addPicSrc" ng-model="blog.picSrc" id="addPicSrc" class="addPicSrc" placeholder="Picture Source"/><br/>
                 <textarea placeholder="Article" ng-model="blog.article" name="addArticle" id="addArticle" class="addArticle"></textarea>
-                <select multiple="multiple" size="5" name="tags[]" class="tagList">
-
-                    <option ng-repeat="tag in tags" value="{{ tagCheck(tag.tagID) }}" id="tag{{tag.tagID}}" class="tags" name="tags[]">{{tag.tag}}</option>
-
-                </select>
-                <input type="text" name="tagOther" id="tagOther" class="tagOther" placeholder="Other Tags seperated by ,"/><br/>
+                <select multiple="multiple" ng-model="articleTags" ng-options="t.tag for t in tags" size="6" class="tagList"></select>
+                <input type="text" name="tagOther" ng-model="newTags" id="tagOther" class="tagOther" placeholder="Other Tags seperated by ,"/><br/>
                 <input type="submit" name="sendArticle" class="sendArticle" id="sendArticle" value="Update"/>
             </formset>
         </form>
