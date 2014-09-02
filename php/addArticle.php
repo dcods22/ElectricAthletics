@@ -34,7 +34,7 @@
             $stmt->bindValue(':title', $title);
             $stmt->execute();
             $entry =  $stmt->fetch(PDO::FETCH_ASSOC);
-            echo json_encode($entry[id]);
+            echo ($entry[id]);
         }
     }
 

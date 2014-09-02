@@ -409,17 +409,18 @@ blogApp.controller('addPostController', function($scope, $routeParams, $http, $l
     $scope.addArticle = function(article, articleTags, newTags){
 
         $http.post("../php/addArticle.php", article).success(function(data){
+
             $scope.ID = data;
 
             var newTag = {
-                'ID' : $scope.ID,
+                'ID' : data,
                 'tags' : newTags
             };
 
             $http.post("../php/addNewTags.php", newTag);
 
             var articleTag = {
-                'ID' : $scope.ID,
+                'ID' : data,
                 'tags' : articleTags
             };
 
