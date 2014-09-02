@@ -362,19 +362,27 @@ blogApp.controller('editController', function($scope, $routeParams, $http, $loca
 
     $http.get("../php/tags.php?id=" + $scope.ID).success(function(data){
         $scope.tagList = data;
-
-        console.log(data);
     });
 
     $scope.updateArticle = function(article, articleTags, newTags){
 
-        console.log(articleTags, newTags);
+        $http.post("../php/updateArticle.php", article);
 
-        var articleObject = {
-
+        var newTag = {
+            'ID' : $scope.ID,
+            'tags' : newTags
         };
 
-        //$location.path("/article/" + $scope.ID);
+        $http.post("../php/addNewTags.php", newTag);
+
+        var articleTag = {
+            'ID' : $scope.ID,
+            'tags' : articleTags
+        };
+
+        $http.post("../php/updateTags.php", articleTag);
+
+        $location.path("/article/id/" + $scope.ID);
 
 
     };
@@ -390,13 +398,40 @@ blogApp.controller('validateController', function($scope, $routeParams, $http){
 
 });
 
-blogApp.controller('addPostController', function($scope, $routeParams, $http){
+blogApp.controller('addPostController', function($scope, $routeParams, $http, $location){
 
     $scope.title = "Add Post";
 
     $http.get("../php/tagNames.php").success(function(data){
         $scope.tags = data;
     });
+
+    $scope.addArticle = function(article, articleTags, newTags){
+
+        $http.post("../php/addArticle.php", article).success(function(data){
+            $scope.ID = data;
+
+            var newTag = {
+                'ID' : $scope.ID,
+                'tags' : newTags
+            };
+
+            $http.post("../php/addNewTags.php", newTag);
+
+            var articleTag = {
+                'ID' : $scope.ID,
+                'tags' : articleTags
+            };
+
+            $http.post("../php/addTags.php", articleTag);
+
+            $location.path("/article/id/" + $scope.ID);
+        });
+
+
+
+
+    };
 
     angular.element('title').html("Electric Athletics - " + $scope.title);
 

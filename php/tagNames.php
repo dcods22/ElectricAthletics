@@ -12,7 +12,7 @@
 		}
 
 		function getTagList(){
-            $sql = 'SELECT * FROM tagList';
+            $sql = 'SELECT * FROM tagList ORDER BY tag ASC';
             $stmt = $this->dbconn->prepare( $sql );
             $stmt->execute();
             $entry =  $stmt->fetchAll(PDO::FETCH_ASSOC);

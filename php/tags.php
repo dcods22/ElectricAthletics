@@ -21,11 +21,11 @@ class TagsController
         $tagIDs =  $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         foreach($tagIDs as $tagID){
-            $sql1 = 'SELECT `tag` FROM tagList WHERE tagID=:tagID';
+            $sql1 = 'SELECT `tag`, `tagID` FROM `tagList` WHERE tagID=:tagID';
             $stmt1 = $this->dbconn->prepare( $sql1 );
-            $stmt1->bindValue(':tagID', $tagID);
+            $stmt1->bindValue(':tagID', $tagID[tagID]);
             $stmt1->execute();
-            $tag =  $stmt1->fetch(PDO::FETCH_ASSOC);
+            $tag =  $stmt1->fetchall(PDO::FETCH_ASSOC);
             $tags = array_merge($tags, $tag);
         }
 
