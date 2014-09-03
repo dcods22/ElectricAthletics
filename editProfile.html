@@ -1,0 +1,14 @@
+<div class="articleHolder">
+
+    <div class="title">Edit Profile {{user.username}}</div>
+
+    <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+
+    <form method="POST" ng-submit="updateProfile(user)" class="editProfile">
+        <label for="upA" class="formLabel">Avatar: </label><input type="text" ng-model="user.avatar" placeholder="Avatar" id="upA" class="name"/><br/>
+        <label for="upU" class="formLabel">Username: </label><input type="text" ng-model="user.username" placeholder="Username" id="upU" class="name"/><br/>
+        <label for="upE" class="formLabel">Email: </label><input type="text" ng-model="user.email" placeholder="Email" id="upE" class="email"/><br/>
+        <input type="submit" style="margin-left:135px;"/>
+    </form>
+
+</div>

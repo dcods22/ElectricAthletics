@@ -2,7 +2,7 @@
     <h3 class="modal-title">Login Now!</h3>
 </div>
 
-<div id="formError">{{error}}</div>
+<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
 
 <div id="loginModal" title="Login" >
     <form class="loginForm" id="loginForm" name="loginForm">

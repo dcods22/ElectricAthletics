@@ -1,4 +1,18 @@
-blogApp.controller('modalController', function($scope, $modal){
+blogApp.controller('modalController', function($scope, $modal, $cookies){
+
+    console.log("Cookie Present: " + $cookies.loggedin);
+
+    if($cookies.loggedin){
+        window.loggedin = true;
+        window.ID = $cookies.ID;
+        window.username = $cookies.username;
+        window.logURL = 'loggedin.html';
+        window.avatar = $cookies.avatar;
+    }else{
+        $scope.logURL = 'notloggedin.html';
+        window.logURL = 'notloggedin.html';
+    }
+
     $scope.openLogin = function(){
         window.loginModal = $modal.open({
             templateUrl: 'loginForm.html',
@@ -15,11 +29,6 @@ blogApp.controller('modalController', function($scope, $modal){
         });
     };
 
-    $scope.setLoggedIn = function(){
-        $scope.logURL = 'notloggedin.html';
-        window.logURL = 'notloggedin.html';
-    };
-
     setInterval(function(){
         $scope.loggedin = window.loggedin;
         $scope.logURL = window.logURL;
@@ -29,7 +38,9 @@ blogApp.controller('modalController', function($scope, $modal){
     }, 1000)
 });
 
-blogApp.controller('loginController', function($scope, $http, $location){
+blogApp.controller('loginController', function($scope, $http, $location, $cookies){
+
+    $scope.alerts = [];
 
     $scope.loginNow = function(login){
 
@@ -37,7 +48,7 @@ blogApp.controller('loginController', function($scope, $http, $location){
             $http.get("../php/login.php?user=" + login.username + "&pass=" + login.password).success(function(data){
                 if(data.error){
                     $scope.loggedin = false;
-                    $scope.error = data.error;
+                    $scope.alerts.push({type: 'danger', msg: data.error});
                 }else if(data[0].id){
                     window.loggedin = true;
                     window.ID = data[0].id;
@@ -47,22 +58,30 @@ blogApp.controller('loginController', function($scope, $http, $location){
                     window.loginModal.dismiss();
                     $location.path("/profile/" + window.ID);
                 }
+
+                if(login.remember){
+                    console.log("entered");
+                    $cookies.loggedin = true;
+                    $cookies.ID = data[0].id;
+                    $cookies.username = data[0].username;
+                    $cookies.avatar = data[0].avatar;
+                    console.log($cookies.loggedin);
+                }
             });
         }else{
-            $scope.error = "Username or Password are not filled out";
+            $scope.alerts.push({type: 'danger', msg: 'Username or Password are not filled out!'});
         }
     };
 
     $scope.registerNow = function(register){
         if(!angular.isUndefined(register.username) && !angular.isUndefined(register.password1) && !angular.isUndefined(register.email)){
             if( $scope.usernameCheck(register.username)){
-                $scope.error = "Username is taken";
+                $scope.alerts.push({type: 'danger', msg: 'Username is taken!'});
             }else if( $scope.emailCheck(register.email)){
-                $scope.error = "Email is already used";
+                $scope.alerts.push({type: 'danger', msg: 'Email has already been used!'});
             }else if( register.password1 != register.password2){
-                $scope.error = "Passwords do not match";
+                $scope.alerts.push({type: 'danger', msg: 'Passwords do not match!'});
             }else{
-                console.log("entered");
                 $http.get("../php/register.php?user=" + register.username + "&pass=" + register.password1 + "&email=" + register.email).success(function(data){
                     $scope.error = "";
                     $scope.profileID = data.ID;
@@ -79,6 +98,7 @@ blogApp.controller('loginController', function($scope, $http, $location){
 
     $scope.usernameCheck = function(username){
         $http.get("../php/usernameCheck.php?username=" + username).success(function(data){
+            console.log(data);
             if(data == false)
                 return true;
             else
@@ -86,12 +106,14 @@ blogApp.controller('loginController', function($scope, $http, $location){
         });
 
         return false;
-
-
     };
 
     $scope.emailCheck = function(email){
         return false;
+    };
+
+    $scope.closeAlert = function(index) {
+        $scope.alerts.splice(index, 1);
     };
 
 });
@@ -171,6 +193,20 @@ blogApp.controller('articleController', function($scope, $routeParams, $http){
     $http.get("../php/commentController.php?type=article&id=" + id).success(function(data){
         $scope.comments = data;
     });
+
+    $scope.delete = function(ID, userID){
+
+        if(window.loggedin && window.ID == userID){
+            $http.get("../php/deleteComment.php?id=" + ID);
+            $scope.getComments();
+        }
+
+    };
+
+    $scope.edit = function(ID){
+
+        $scope.getComments();
+    };
 
     $scope.getComments = function(){
         $http.get("../php/commentController.php?type=article&id=" + id).success(function(data){
@@ -428,14 +464,17 @@ blogApp.controller('addPostController', function($scope, $routeParams, $http, $l
 
             $location.path("/article/id/" + $scope.ID);
         });
-
-
-
-
     };
 
     angular.element('title').html("Electric Athletics - " + $scope.title);
 
+});
+
+blogApp.controller('searchFixController', function($scope, $location){
+    $scope.search = function(query){
+        $location.path("/search/" + query.search);
+        angular.element("#searchBar").val('');
+    };
 });
 
 blogApp.controller('searchController', function($scope, $routeParams, $http){
@@ -488,7 +527,7 @@ blogApp.controller('searchController', function($scope, $routeParams, $http){
 
 });
 
-blogApp.controller('logoutController', function($scope, $routeParams){
+blogApp.controller('logoutController', function($scope, $routeParams, $cookies){
 
     $scope.ID = $routeParams.id;
 
@@ -498,12 +537,16 @@ blogApp.controller('logoutController', function($scope, $routeParams){
         window.username = "";
         window.logURL = 'notloggedin.html';
         window.avatar = "";
+        $cookies.loggedin = false;
+        $cookies.ID = "";
+        $cookies.username = "";
+        $cookies.avatar = "";
         $scope.message = "You have been successfully logged out!";
     }else{
         $scope.message = "An error happened when you tried to log out!";
     }
 
-    $scope.title = "Log Out"
+    $scope.title = "Log Out";
 
     angular.element('title').html("Electric Athletics - " + $scope.title);
 
@@ -521,9 +564,74 @@ blogApp.controller('tagController', function($scope, $routeParams, $http){
 
     $http.get("../php/getTagArticles.php?id=" + $scope.tag).success(function(data){
         $scope.articles = data;
-        console.log(data);
     });
 
+});
+
+blogApp.controller('editProfileController' , function($scope, $routeParams, $http, $location, $cookies){
+
+    $scope.ID = $routeParams.id;
+
+    if(window.loggedin && window.ID == $scope.ID){
+
+        $http.get("../php/profileController.php?id=" + $scope.ID).success(function(data){
+            $scope.user = data;
+        });
+
+    }else{
+        $location.path("/profile/" + $scope.ID);
+    }
+
+    $scope.updateProfile = function(user){
+
+        $scope.alerts = [];
+
+        window.username = user.username;
+        window.avatar = user.avatar;
+        window.email = user.email;
+
+        if($cookies.loggedin){
+            $cookies.ID = user.id;
+            $cookies.username = user.username;
+            $cookies.avatar = user.avatar;
+        }
+
+        var finalUser = {
+            'ID' : $scope.ID,
+            'email' : user.email,
+            'avatar' : user.avatar,
+            'username' : user.username
+        };
+        if($scope.usernameCheck(user.username)){
+            $scope.alerts.push({type: 'danger', msg: 'Username has already been used!'});
+        }else if($scope.emailCheck(user.email)){
+            $scope.alerts.push({type: 'danger', msg: 'Email has already been used!'});
+        }else{
+            $http.post("../php/updateProfile.php", finalUser).success(function(data){
+                $scope.alerts.push({type: 'success', msg: 'Profile Successfully Changed!'});
+            });
+        }
+    };
+
+    $scope.usernameCheck = function(username){
+        $http.get("../php/usernameCheck.php?username=" + username).success(function(data){
+            console.log(data);
+            if(data == false)
+                return true;
+            else
+                return false;
+        });
+
+        return false;
+    };
+
+    $scope.emailCheck = function(email){
+        return false;
+    };
+
+    $scope.closeAlert = function(index) {
+        $scope.alerts.splice(index, 1);
+    };
 });
 
 

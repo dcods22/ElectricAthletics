@@ -14,13 +14,13 @@
 <nav>
     <div class="navHolder">
         <div class="searchUsername">
-            <div class="search">
-                <form method="GET" action="php/fixSearch.php" class="searchForm">
+            <div class="search" ng-controller="searchFixController">
+                <form method="POST" ng-submit="search(query)" class="searchForm">
                     <input type="submit" value="Search" style="display: none; float:left;" />
-                    <input type="text" placeholder="Search..." name="search" class="searchBar"/>
+                    <input type="text" placeholder="Search..." ng-model="query.search" id="searchBar" name="search" class="searchBar"/>
                 </form>
             </div>
-            <div class="LR" id="loginController" ng-controller="modalController" ng-init="setLoggedIn()">
+            <div class="LR" id="loginController" ng-controller="modalController">
                 <div ng-include="logURL"></div>
             </div>
     </div>
@@ -40,7 +40,7 @@
 
 <div class="container">
     <div class="holder">
-        <div ng-view>
+        <div ng-view autoscroll="true">
 
         </div>
 
@@ -63,6 +63,7 @@
 <script src="js/jquery-ui.min.js"></script>
 <script src="js/angular.min.js"></script>
 <script src="js/angular-route.js"></script>
+<script src="js/cookies.js"></script>
 <script src="js/ui-bootstrap-tpls-0.11.0.min.js"></script>
 <script src="js/blogApp.js"></script>
 <script src="js/controllers.js"></script>

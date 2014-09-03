@@ -1,7 +1,7 @@
 <div class="articleHolder">
         <div class="blogTitle">{{article.title}}</div>
         <div class="blogType"><a ng-href="/#/type/{{article.typeID}}">{{article.typeID | getType}}</a></div>
-        <div class="blogTime">{{article.time | dateToISO | date:'MMM d-yyyy h:m a'}}</div>
+        <div class="blogTime">{{article.time | dateToISO | date:'MMM d-yyyy h:mm a'}}</div>
         <div class="blogDesc">{{article.desc}}</div>
         <div class="tagHolder">
             <span style="float:left;">Tags:</span>
@@ -27,8 +27,8 @@
             <div class="comment" ng-repeat="comment in comments">
 
 
-                <a ng-href="/#/profile/{{comment.userID}}" class="commUser"><img class="commentAvatar" ng-src="{{ getUserAvatar(comment.userID) }}" />{{ getUserName(comment.userID) }}:</a>
-                <div class="commTime">{{comment.time | dateToISO | date:'MMM-d-yyyy h:m a'}}</div>
+                <a ng-href="/#/profile/{{comment.userID}}" class="commUser"><img class="commentAvatar" ng-src="{{ getUserAvatar(comment.userID) }}" />{{ getUserName(comment.userID) }}:</a><!--<img src="images/edit.png" ng-click="edit(comment.commentID, comment.userID)" class="commentButton"/>--><img src="images/delete.png" ng-click="delete(comment.commentID, comment.userID)" class="commentButton"/>
+                <div class="commTime">{{comment.time | dateToISO | date:'MMM-d-yyyy h:mm a'}}</div>
                 <div class="commText">{{comment.comment}}</div>
             </div>
 

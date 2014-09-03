@@ -2,7 +2,7 @@
     <h3 class="modal-title">Register Now!</h3>
 </div>
 
-<div id="formError">{{error}}</div>
+<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
 
 <div id="registerModal" title="Regiser">
     <form novalidate class="registerForm" id="registerForm" name="registerForm">
