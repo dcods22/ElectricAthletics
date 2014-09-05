@@ -8,7 +8,7 @@
     <form class="loginForm" id="loginForm" name="loginForm">
         <input type="text" name="loginUsername" ng-model="login.username" class="loginUsername" id="loginUsername" placeholder="Username/Email" required/>
         <input type="password" name="loginPassword" ng-model="login.password" class="loginPassword" id="loginPassword" placeholder="Password" required/>
-        <input type="checkbox" name="remember" ng-model="login.remember" class="remember" id="remember"/>Remember Me<br/>
+        <input type="checkbox" name="remember" ng-model="login.remember" class="remember" id="remember"/><span style="float:left; margin-left: 5px;">Remember Me</span><div class="note">**Page Referesh Logs You Out So Remember Me Is Reccomended</div><br/>
         <button ng-click="loginNow(login)" class="loginSend" id="loginSend">Sign In!</button>
     </form>
 

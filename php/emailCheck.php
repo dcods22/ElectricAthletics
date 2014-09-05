@@ -1,6 +1,6 @@
 <?php
 
-    class emailController
+    class UsernameController
     {
         private $dbconn;
         private $tablename;
@@ -11,8 +11,8 @@
             $this->tablename = $tablename;
         }
 
-        function checkUsername(){
-            $sql = 'SELECT `username` FROM Users';
+        function emailUsername(){
+            $sql = 'SELECT `email` FROM Users';
             $stmt = $this->dbconn->prepare( $sql );
             $stmt->execute();
             $entry =  $stmt->fetchall(PDO::FETCH_ASSOC);
@@ -20,7 +20,7 @@
         }
     }
 
-    $emailController = new emailController('Users');
-    $emailController->checkUsername();
+    $usernameController = new UsernameController('Users');
+    $usernameController->emailUsername();
 
 ?>

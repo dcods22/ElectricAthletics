@@ -31,7 +31,8 @@ hr{
 }
 
 textarea {
-    resize: vertical;
+    overflow-y: scroll;
+    resize: none;
 }
 
 fieldset {
@@ -53,6 +54,9 @@ nav{
     background: -moz-linear-gradient(center center, rgb(179, 155, 58) 30%, rgb(181, 170, 53) 49%, rgb(199, 180, 59) 70%);
     background: -o-linear-gradient(center center, rgb(179, 155, 58) 30%, rgb(181, 170, 53) 49%, rgb(199, 180, 59) 70%);
     background: -ms-linear-gradient(center center, rgb(179, 155, 58) 30%, rgb(181, 170, 53) 49%, rgb(199, 180, 59) 70%);
+    -webkit-box-shadow: 0px 0px 8px 2px #808080;
+    -moz-box-shadow: 0px 0px 8px 2px #808080;
+    box-shadow: 0px 0px 8px 2px #808080;
 }
 
 input[type="submit"]{
@@ -124,7 +128,7 @@ input[type="submit"]:hover {
 }
 
 .rNav {
-    padding-top: 55px;
+    padding-top: 52px;
     width:600px;
 }
 
@@ -143,7 +147,6 @@ input[type="submit"]:hover {
 }
 
 .logo {
-    margin-bottom: 10px;
     margin-top:10px;
     width:100px;
     height:35px;
@@ -153,10 +156,10 @@ input[type="submit"]:hover {
 .search{
     float:right;
     overflow:hidden;
-    height:30px;
-    width:300px;
-    margin-top: 10px;
-    margin-right: 60px;
+    height:40px;
+    width:270px;
+    margin-right:30px;
+    margin-top: 7px;
 }
 
 .searchForm{
@@ -164,20 +167,31 @@ input[type="submit"]:hover {
     float:right;
 }
 
+.note{
+    font-style: italic;
+    font-size:10px;
+    color: grey;
+    float:left;
+    margin-top:3px;
+    margin-left:7px;
+}
+
 .searchBar{
-    width:100px;
-    height:30px;
+    width:140px;
+    height:40px;
     border-radius: 20px;
     background-image: url(http://electricathletics.com/images/search.png);
-    background-size: 12px 10px;
-    background-position: 6px 8px;
+    background-size: 15px 15px;
+    background-position: 6px 10px;
     background-repeat: no-repeat;
-    padding: 6px 4px 4px 23px;
-
+    padding: 6px 4px 4px 27px;
+    box-shadow: inset 0 1px 3px #ddd;
+    border: 3px solid rgba(0,0,0,0);
+    font-size:15px;
 }
 
 .searchBar:focus{
-    width:240px;
+    width:270px;
 }
 
 .container{
@@ -201,7 +215,7 @@ input[type="submit"]:hover {
 .LR{
     float: right;
     font-size:20px;
-    margin-top: 25px;
+    margin-top: 18px;
 }
 
 .hrGap{
@@ -217,13 +231,14 @@ input[type="submit"]:hover {
 .signinAvatar{
     width:30px;
     height:30px;
-    float:left;
+    float:right;
     margin-right:5px;
 }
 
 .usernameholder{
     height: 25px;
-    width: 250px;
+    width: 270px;
+    margin-right:30px;
     margin-top: -10px;
     font-size: 25px;
 }
@@ -455,6 +470,8 @@ input[type="submit"]:hover {
     margin-right: auto;
     margin-top: 10px;
     font-size:13px;
+    overflow-y: scroll;
+    resize: none;
 }
 
 .commentFormDiv input[type="submit"]{
@@ -734,7 +751,8 @@ input[type="submit"]:hover {
     font-family: Helvetica, Arial, sans-serif;
     font-weight: 500;
     font-size: 18px;
-
+    overflow-y: scroll;
+    resize: none;
 }
 
 .addDesc{
@@ -847,6 +865,7 @@ input[type="submit"]:hover {
 
 .remember{
     margin-bottom: 10px;
+    float:left;
 }
 
 .loginSend{

@@ -79,6 +79,7 @@ blogApp.config(['$routeProvider',
                 redirectTo: '/'
             });
 
+
 }]);
 
 blogApp.filter('dateToISO', function() {

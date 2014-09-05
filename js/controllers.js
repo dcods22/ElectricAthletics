@@ -1,13 +1,17 @@
 blogApp.controller('modalController', function($scope, $modal, $cookies){
 
-    console.log("Cookie Present: " + $cookies.loggedin);
-
-    if($cookies.loggedin){
+    if($cookies.loggedin == true){
         window.loggedin = true;
+        $scope.loggedin = true;
         window.ID = $cookies.ID;
+        $scope.ID = $cookies.ID;
         window.username = $cookies.username;
+        $scope.username = $cookies.username;
         window.logURL = 'loggedin.html';
+        $scope.logURL = 'loggedin.html';
         window.avatar = $cookies.avatar;
+        $scope.avatar = $cookies.avatar;
+        console.log($cookies);
     }else{
         $scope.logURL = 'notloggedin.html';
         window.logURL = 'notloggedin.html';
@@ -29,12 +33,18 @@ blogApp.controller('modalController', function($scope, $modal, $cookies){
         });
     };
 
+    $scope.setLoggedIn = function(){
+        $scope.logURL = 'notloggedin.html';
+        window.logURL = 'notloggedin.html';
+    };
+
     setInterval(function(){
         $scope.loggedin = window.loggedin;
         $scope.logURL = window.logURL;
         $scope.username = window.username;
         $scope.avatar = window.avatar;
-        $scope.ID = window.ID;
+        $scope.ID = window.ID
+        $scope.$apply();
     }, 1000)
 });
 
@@ -43,7 +53,7 @@ blogApp.controller('loginController', function($scope, $http, $location, $cookie
     $scope.alerts = [];
 
     $scope.loginNow = function(login){
-
+        $scope.alerts = [];
         if(!angular.isUndefined(login.username) && !angular.isUndefined(login.password)){
             $http.get("../php/login.php?user=" + login.username + "&pass=" + login.password).success(function(data){
                 if(data.error){
@@ -56,16 +66,13 @@ blogApp.controller('loginController', function($scope, $http, $location, $cookie
                     window.logURL = 'loggedin.html';
                     window.avatar = data[0].avatar;
                     window.loginModal.dismiss();
-                    $location.path("/profile/" + window.ID);
                 }
 
                 if(login.remember){
-                    console.log("entered");
                     $cookies.loggedin = true;
                     $cookies.ID = data[0].id;
                     $cookies.username = data[0].username;
                     $cookies.avatar = data[0].avatar;
-                    console.log($cookies.loggedin);
                 }
             });
         }else{
@@ -74,13 +81,18 @@ blogApp.controller('loginController', function($scope, $http, $location, $cookie
     };
 
     $scope.registerNow = function(register){
+        $scope.alerts = [];
         if(!angular.isUndefined(register.username) && !angular.isUndefined(register.password1) && !angular.isUndefined(register.email)){
             if( $scope.usernameCheck(register.username)){
                 $scope.alerts.push({type: 'danger', msg: 'Username is taken!'});
+            }else if( $scope.emailTest(register.email)){
+                $scope.alerts.push({type: 'danger', msg: 'Email is not valid!'});
             }else if( $scope.emailCheck(register.email)){
                 $scope.alerts.push({type: 'danger', msg: 'Email has already been used!'});
             }else if( register.password1 != register.password2){
                 $scope.alerts.push({type: 'danger', msg: 'Passwords do not match!'});
+            }else if( register.password1.length < 6 || $scope.passwordTest(register.password1)){
+                $scope.alerts.push({type: 'danger', msg: 'Passwords is not valid, it must contain 6 letters and atleast 1 number!'});
             }else{
                 $http.get("../php/register.php?user=" + register.username + "&pass=" + register.password1 + "&email=" + register.email).success(function(data){
                     $scope.error = "";
@@ -96,20 +108,42 @@ blogApp.controller('loginController', function($scope, $http, $location, $cookie
         }
     };
 
+    $http.get("../php/usernameCheck.php").success(function(data){
+        $scope.usernames = data;
+    });
+
+    $http.get("../php/emailCheck.php").success(function(data){
+        $scope.emails = data;
+        console.log(data);
+    });
+
     $scope.usernameCheck = function(username){
-        $http.get("../php/usernameCheck.php?username=" + username).success(function(data){
-            console.log(data);
-            if(data == false)
+        for(var x=0; x < $scope.usernames.length; x++){
+            if($scope.usernames[x].username == username)
                 return true;
-            else
-                return false;
-        });
+        }
 
         return false;
     };
 
     $scope.emailCheck = function(email){
+        for(var x=0; x < $scope.emails.length; x++){
+            if($scope.emails[x].email == email)
+                return true;
+        }
+
         return false;
+    };
+
+    $scope.emailTest = function(email) {
+        var regExp = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return !regExp.test(email);
+    };
+
+    $scope.passwordTest = function(password){
+        var regExp = "/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/";
+        var rE = new RegExp(regExp);
+        return rE.test(password);
     };
 
     $scope.closeAlert = function(index) {
@@ -296,21 +330,38 @@ blogApp.controller('contactController', function($scope, $http, $location){
 
     angular.element('title').html("Electric Athletics - " + $scope.title);
 
+    $scope.alerts = [];
+
     $scope.sendEmail = function(email){
 
-        var emailObject = {
-            'name' : email.name,
-            'email' : email.email,
-            'message' : email.message
-        };
+        $scope.alerts = [];
 
-        $http.post('../php/sendEmail.php', emailObject).success(function(data){
-            angular.element("#contactEmail").val('');
-            angular.element("#contactName").val('');
-            angular.element("#contactMessage").val('');
-            $location.path("/thanks");
-        });
+        if( $scope.emailTest(email.email)){
+            $scope.alerts.push({type: 'danger', msg: 'Email is not valid!'});
+        }else{
+            var emailObject = {
+                'name' : email.name,
+                'email' : email.email,
+                'message' : email.message
+            };
 
+            $http.post('../php/sendEmail.php', emailObject).success(function(data){
+                angular.element("#contactEmail").val('');
+                angular.element("#contactName").val('');
+                angular.element("#contactMessage").val('');
+                $location.path("/thanks");
+            });
+        }
+
+    };
+
+    $scope.emailTest = function(email) {
+        var regExp = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return !regExp.test(email);
+    };
+
+    $scope.closeAlert = function(index) {
+        $scope.alerts.splice(index, 1);
     };
 });
 
@@ -613,19 +664,30 @@ blogApp.controller('editProfileController' , function($scope, $routeParams, $htt
         }
     };
 
+    $http.get("../php/usernameCheck.php").success(function(data){
+        $scope.usernames = data;
+    });
+
+    $http.get("../php/emailCheck.php").success(function(data){
+        $scope.emails = data;
+        console.log(data);
+    });
+
     $scope.usernameCheck = function(username){
-        $http.get("../php/usernameCheck.php?username=" + username).success(function(data){
-            console.log(data);
-            if(data == false)
+        for(var x=0; x < $scope.usernames.length; x++){
+            if($scope.usernames[x].username == username)
                 return true;
-            else
-                return false;
-        });
+        }
 
         return false;
     };
 
     $scope.emailCheck = function(email){
+        for(var x=0; x < $scope.emails.length; x++){
+            if($scope.emails[x].email == email)
+                return true;
+        }
+
         return false;
     };
 

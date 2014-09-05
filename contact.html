@@ -6,6 +6,8 @@
     If you have any questions or concerns they will be responded too very shortly.
                 </pre>
 
+        <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+
         <div class="contactDiv">
             <form method="POST" ng-submit="sendEmail(email)" class="formContact" name="formEmail">
                 <fieldset class="formGroup">
