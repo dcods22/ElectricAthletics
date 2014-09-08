@@ -1,6 +1,6 @@
-/************************ Desktop Template ***********************/
+/************************ Mobile Template ***********************/
 
-@media(min-width:800px){
+@media(max-width:960px){
     body, html{
         height:100%;
         width:100%;
@@ -115,8 +115,6 @@
     }
 
     .navHolder{
-        min-width:800px;
-        width:900px;
         margin: auto auto auto auto;
         padding-left: 20px;
         font-size: 30px;
@@ -197,9 +195,12 @@
         width:270px;
     }
 
+    .readMore{
+        padding-left: 15px;;
+    }
+
     .containerHolder{
-        min-width: 800px;
-        width:auto;
+        width:100%;
         height: auto;
         margin-left: auto;
         margin-right: auto;
@@ -233,7 +234,7 @@
         font-size:13px;
         font-color:grey;
         padding-bottom:10px;
-        width: 800px;
+        width: 100%;
         margin: auto auto auto auto;
     }
 
@@ -298,8 +299,7 @@
     }
 
     .articleHolder{
-        width:800px;
-        min-width: 800px;
+        width:100%;
         height:auto;
         margin: auto auto auto auto;
         line-height: 20px;
@@ -337,8 +337,7 @@
     }
 
     .articlePreview{
-        width:800px;
-        min-width: 800px;
+        width:100%;
         margin:auto auto auto auto;
         min-height: 300px;
         height:auto;
@@ -370,18 +369,14 @@
         margin-left: 20px;
         margin-right: 20px;
         border-radius: 20px;
-        height:200;
-        width:300px;
+        height:150;
+        width:240px;
     }
 
     .articleDesc{
         margin-left: 10px;
         margin-right: 10px;
         margin-bottom: 10px;
-    }
-
-    .readMore{
-
     }
 
     .type{

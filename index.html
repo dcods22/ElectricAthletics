@@ -6,44 +6,53 @@
     <meta name="Description" CONTENT="Sports and Technology blog">
     <meta name="keywords" context="Sports, Technology" >
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css" >
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/mobileStyle.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 
 <body>
-<nav>
-    <div class="navHolder">
-        <div class="searchUsername">
-            <div class="search" ng-controller="searchFixController">
-                <form method="POST" ng-submit="search(query)" class="searchForm">
-                    <input type="submit" value="Search" style="display: none; float:left;" />
-                    <input type="text" placeholder="Search..." ng-model="query.search" id="searchBar" name="search" class="searchBar"/>
-                </form>
-            </div>
-            <div class="LR" id="loginController" ng-controller="modalController">
-                <div ng-include="logURL"></div>
-            </div>
-    </div>
-    <div class="navlinks">
-        <div class="logo"><a href="/#/">LOGO</a></div>
+<!-- Fixed navbar -->
+<div class="navbar navStyle navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
 
-        <div class="rNav">
-            <a href="/#/">Home</a>
-            <a href="/#/articles/sports">Sports</a>
-            <a href="/#/articles/technology">Technology</a>
-            <a href="/#/about">About</a>
-            <a href="/#/contact">Contact</a>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand logo" href="/#/">Logo</a>
         </div>
+        <div class="navbar-collapse collapse">
+            <div class="searchUsername">
+                <div class="search" ng-controller="searchFixController">
+                    <form method="POST" ng-submit="search(query)" class="searchForm">
+                        <input type="submit" value="Search" style="display: none; float:left;" />
+                        <input type="text" placeholder="Search..." ng-model="query.search" id="searchBar" name="search" class="searchBar"/>
+                    </form>
+                </div>
+                <div class="LR" id="loginController" ng-controller="modalController">
+                    <div ng-include="logURL"></div>
+                </div>
+            </div>
+            <ul class="navbar-nav navLinks">
+                <li><a href="/#/">Home</a></li>
+                <li><a href="/#/articles/sports">Sports</a></li>
+                <li><a href="/#/articles/technology">Technology</a></li>
+                <li><a href="/#/about">About</a></li>
+                <li><a href="/#/contact">Contact</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
     </div>
-    </div>
-</nav>
+</div>
 
-<div class="container">
+<div class="containerHolder">
     <div class="holder">
         <div ng-view autoscroll="true">
 
         </div>
-
 
         <div class="hrGap"></div>
         <hr/>
