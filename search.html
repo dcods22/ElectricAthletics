@@ -9,43 +9,24 @@
             <thead>
                 <tr>
                     <th class="searchPic">Picture</th>
-                    <th class="searchType">Type</th>
                     <th class="searchTitle">Title</th>
+                    <th class="searchType">Type</th>
                 </tr>
             </thead>
 
             <tr class="searchRow" ng-repeat="article in articles">
                 <td class="searchImgHolder"><a ng-href="/#/articles/id/{{article.id}}"><img class="searchImg" ng-src="{{article.pic}}"/></a></td>
-                <td class="searchTypes"><a ng-href="/#/articles/id/{{article.id}}">{{article.typeID | getType}}</a></td>
                 <td class="searchTitles"><a ng-href="/#/articles/id/{{article.id}}">{{article.title}}</a></td>
+                <td class="searchTypes"><a ng-href="/#/articles/id/{{article.id}}">{{article.typeID | getType}}</a></td>
             </tr>
-
-        </table>
-
-        <div class="searchError" id="searchArticlesError"></div>
-    </div>
-
-    <div class="searchBrands">
-        <span class="searchTypeTitle">Tags:</span>
-
-        <table class="searchTable">
-            <thead>
-            <tr>
-                <th class="searchPic">Picture</th>
-                <th class="searchType">Type</th>
-                <th class="searchTitle">Title</th>
-            </tr>
-            </thead>
 
             <tr class="searchRow" ng-repeat="tag in tags">
                 <td class="searchImgHolder"><a ng-href="/#/articles/id/{{tag.id}}"><img class="searchImg" ng-src="{{tag.pic}}"/></a></td>
-                <td class="searchTypes"><a ng-href="/#/articles/id/{{tag.id}}" >{{tag.typeID | getType}}</a></td>
                 <td class="searchTitles"><a ng-href="/#/articles/id/{{tag.id}}">{{tag.title}}</a></td>
+                <td class="searchTypes"><a ng-href="/#/articles/id/{{tag.id}}" >{{tag.typeID | getType}}</a></td>
             </tr>
 
         </table>
-
-        <div class="searchError" id="searchTagsError"></div>
     </div>
 
     <div class="searchBrands">

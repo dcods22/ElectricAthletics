@@ -82,10 +82,9 @@ blogApp.config(['$routeProvider',
 
 }]);
 
-blogApp.filter('dateToISO', function() {
+blogApp.filter('dateFormat', function() {
     return function(input) {
-        input = new Date(input);
-        return input;
+        return new Date(input.replace(/-/g, "/"));
     };
 });
 

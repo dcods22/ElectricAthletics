@@ -543,6 +543,7 @@ blogApp.controller('searchController', function($scope, $routeParams, $http){
 
     $http.get("../php/search.php?type=article&query=" + query).success(function(data){
         $scope.articles = data;
+
         $scope.progess += 25;
 
         if($scope.articles.length == 0){
@@ -556,15 +557,6 @@ blogApp.controller('searchController', function($scope, $routeParams, $http){
 
         if($scope.tags.length == 0){
             angular.element("#searchTagsError").html("No Tags Found");
-        }
-    });
-
-    $http.get("../php/search.php?type=user&query=" + query).success(function(data){
-        $scope.users = data;
-        $scope.progess += 25;
-
-        if($scope.users.length == 0){
-            angular.element("#searchUsersError").html("No Users Found");
         }
     });
 

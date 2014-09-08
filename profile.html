@@ -18,7 +18,7 @@
 
         <div class="profileComment" ng-repeat="comment in comments">
             <a href="/#/article/{{comment.articleID}}" class="commentArticleTitle">{{comment.articleID}}</a>
-            {{comment.time | dateToISO | date:'MMM d, yyyy h:m a'}}
+            {{comment.time | dateFormat | date:'MMM d, yyyy h:m a'}}
             {{comment.comment}}
             <br/>
         </div>

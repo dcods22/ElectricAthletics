@@ -5,20 +5,20 @@
     <ignored path="Blog.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/index.php" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1407509877323" ignored="false" />
-    <file path="/blogApp.js" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1409843113065" ignored="false" />
+    <file path="/blogApp.js" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1410190114483" ignored="false" />
     <file path="/index.html" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1409857430574" ignored="false" />
     <file path="/index1.php" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1407510808268" ignored="false" />
     <file path="/home.html" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1407516748582" ignored="false" />
     <file path="/style.css" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1409921393733" ignored="false" />
     <file path="/controllers.js" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1409856936794" ignored="false" />
     <file path="/blogFetch.php" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1407519435444" ignored="false" />
-    <file path="/articles.html" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1409768979626" ignored="false" />
-    <file path="/article.html" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1409769071226" ignored="false" />
+    <file path="/articles.html" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1410188976174" ignored="false" />
+    <file path="/article.html" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1410189928012" ignored="false" />
     <file path="/tagController.php" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1409686178021" ignored="false" />
     <file path="/commentController.php" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1409498946893" ignored="false" />
     <file path="/postComment.php" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1407523596039" ignored="false" />
     <file path="/tagNames.php" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1409678721928" ignored="false" />
-    <file path="/profile.html" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1409187160241" ignored="false" />
+    <file path="/profile.html" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1410189938746" ignored="false" />
     <file path="/profileController.php" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1408116826253" ignored="false" />
     <file path="/changed.html" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1408030418226" ignored="false" />
     <file path="/validate.html" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1408030607579" ignored="false" />
@@ -121,37 +121,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="130" column="19" selection-start="3041" selection-end="3041" vertical-scroll-proportion="0.059310343">
+            <state line="159" column="16" selection-start="3369" selection-end="3369" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.html">
+      <file leaf-file-name="controllers.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="70" column="32" selection-start="2576" selection-end="2576" vertical-scroll-proportion="-28.380953">
+            <state line="560" column="7" selection-start="16527" selection-end="16527" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="registerForm.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/registerForm.html">
+      <file leaf-file-name="blogApp.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/blogApp.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="23" selection-start="212" selection-end="212" vertical-scroll-proportion="-3.4285715">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="generalFeel.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/generalFeel.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="25" selection-start="74" selection-end="74" vertical-scroll-proportion="0.0">
+            <state line="85" column="28" selection-start="2905" selection-end="2905" vertical-scroll-proportion="0.63586205">
               <folding />
             </state>
           </provider>
@@ -167,22 +158,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/editProfile.html" />
-        <option value="$PROJECT_DIR$/article.html" />
-        <option value="$PROJECT_DIR$/loginForm.html" />
-        <option value="$PROJECT_DIR$/js/blogApp.js" />
-        <option value="$PROJECT_DIR$/loggedin.html" />
-        <option value="$PROJECT_DIR$/articles.html" />
         <option value="$PROJECT_DIR$/tags.html" />
         <option value="$PROJECT_DIR$/js/scroll.js" />
         <option value="$PROJECT_DIR$/php/usernameCheck.php" />
         <option value="$PROJECT_DIR$/php/emailCheck.php" />
         <option value="$PROJECT_DIR$/contact.html" />
-        <option value="$PROJECT_DIR$/js/controllers.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/generalFeel.js" />
         <option value="$PROJECT_DIR$/registerForm.html" />
         <option value="$PROJECT_DIR$/css/style.css" />
+        <option value="$PROJECT_DIR$/search.html" />
+        <option value="$PROJECT_DIR$/js/controllers.js" />
+        <option value="$PROJECT_DIR$/loginForm.html" />
+        <option value="$PROJECT_DIR$/articles.html" />
+        <option value="$PROJECT_DIR$/profile.html" />
+        <option value="$PROJECT_DIR$/article.html" />
+        <option value="$PROJECT_DIR$/js/blogApp.js" />
       </list>
     </option>
   </component>
@@ -240,20 +231,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Blog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Blog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -272,11 +249,11 @@
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/Dan/Documents/Web Development/Blog/signuporin.php" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="FullScreen" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
+    <property name="FullScreen" value="false" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -629,48 +606,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/comments.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="76" selection-start="319" selection-end="319" vertical-scroll-proportion="0.051136363">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/article.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="88" selection-start="1684" selection-end="1684" vertical-scroll-proportion="0.52098405">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/addArticle.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="28" selection-start="565" selection-end="565" vertical-scroll-proportion="0.252809">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tags.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="59" selection-start="577" selection-end="577" vertical-scroll-proportion="0.11931818">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/articles.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="56" selection-start="527" selection-end="527" vertical-scroll-proportion="-4.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/blogApp.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="31" selection-start="2936" selection-end="2936" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/loggedin.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="52" selection-start="52" selection-end="52" vertical-scroll-proportion="0.0">
@@ -682,65 +617,101 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/php/usernameCheck.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="32" selection-start="717" selection-end="717" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="22" column="32" selection-start="717" selection-end="717" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/php/emailCheck.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="33" selection-start="476" selection-end="476" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="14" column="33" selection-start="476" selection-end="476" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/loginForm.html">
+    <entry file="file://$PROJECT_DIR$/js/generalFeel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="79" selection-end="184" vertical-scroll-proportion="0.06946454">
-          <folding>
-            <element signature="n#style#0;n#span#0;n#form#0;n#div#1;n#!!top" expanded="true" />
-          </folding>
-        </state>
+        <state line="4" column="25" selection-start="74" selection-end="74" vertical-scroll-proportion="0.066206895" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/contact.html">
+    <entry file="file://$PROJECT_DIR$/registerForm.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="113" selection-start="460" selection-end="460" vertical-scroll-proportion="-4.571429">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/controllers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="364" column="6" selection-start="11327" selection-end="11327" vertical-scroll-proportion="0.85714287">
+        <state line="6" column="23" selection-start="212" selection-end="212" vertical-scroll-proportion="0.10419682">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="32" selection-start="2576" selection-end="2576" vertical-scroll-proportion="-28.380953">
+        <state line="70" column="32" selection-start="2576" selection-end="2576" vertical-scroll-proportion="0.87215906">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/generalFeel.js">
+    <entry file="file://$PROJECT_DIR$/loginForm.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="25" selection-start="74" selection-end="74" vertical-scroll-proportion="0.0">
+        <state line="6" column="20" selection-start="206" selection-end="206" vertical-scroll-proportion="0.10419682">
+          <folding>
+            <element signature="n#style#0;n#span#0;n#form#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/controllers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="560" column="7" selection-start="16527" selection-end="16527" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/registerForm.html">
+    <entry file="file://$PROJECT_DIR$/search.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="23" selection-start="212" selection-end="212" vertical-scroll-proportion="-3.4285715">
+        <state line="12" column="52" selection-start="407" selection-end="407" vertical-scroll-proportion="0.20454545">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contact.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="113" selection-start="460" selection-end="460" vertical-scroll-proportion="0.13892908">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comments.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="39" selection-start="647" selection-end="647" vertical-scroll-proportion="0.3409091">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="130" column="19" selection-start="3041" selection-end="3041" vertical-scroll-proportion="0.059310343">
+        <state line="159" column="16" selection-start="3369" selection-end="3369" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/articles.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="54" selection-start="333" selection-end="359" vertical-scroll-proportion="-2.857143">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/article.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="92" selection-start="1689" selection-end="1689" vertical-scroll-proportion="0.52098405">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/blogApp.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="85" column="28" selection-start="2905" selection-end="2905" vertical-scroll-proportion="0.63586205">
           <folding />
         </state>
       </provider>

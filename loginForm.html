@@ -4,7 +4,7 @@
 
 <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
 
-<div id="loginModal" title="Login" >
+<div id="loginModal">
     <form class="loginForm" id="loginForm" name="loginForm">
         <input type="text" name="loginUsername" ng-model="login.username" class="loginUsername" id="loginUsername" placeholder="Username/Email" required/>
         <input type="password" name="loginPassword" ng-model="login.password" class="loginPassword" id="loginPassword" placeholder="Password" required/>
