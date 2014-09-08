@@ -8,7 +8,6 @@
 
             <div class="tag" ng-repeat="tag in tags"><a href="/#/tags/{{tag.tagID}}">{{ getTagName(tag.tagID) }},</a></div>
         </div>
-        <!--<br/> <div class="editLink"><a href="/#/editpost/{{id}}">Edit Article</a></div>-->
 
         <img ng-src="{{article.pic}}" alt="Blog Photo" class="blogPhoto"/>
         <div class="picDesc">{{article.picDesc}}</div>
@@ -22,11 +21,9 @@
 
         <div class="comments">
 
-
             <div class="commentTitle">Comments:</div>
+            <div class="noComments">{{commentError}}</div>
             <div class="comment" ng-repeat="comment in comments">
-
-
                 <a ng-href="/#/profile/{{comment.userID}}" class="commUser"><img class="commentAvatar" ng-src="{{ getUserAvatar(comment.userID) }}" />{{ getUserName(comment.userID) }}:</a><!--<img src="images/edit.png" ng-click="edit(comment.commentID, comment.userID)" class="commentButton"/>--><img src="images/delete.png" ng-click="delete(comment.commentID, comment.userID)" class="commentButton"/>
                 <div class="commTime">{{comment.time | dateFormat | date:'MMM d-yyyy h:mm a'}}</div>
                 <div class="commText">{{comment.comment}}</div>

@@ -200,6 +200,7 @@ blogApp.controller('articleController', function($scope, $routeParams, $http){
     $scope.article = {};
     $scope.tags = {};
     $scope.comments = {};
+    $scope.alerts = [];
 
 
     $http.get("../php/blogFetch.php?type=article&id=" + id).success(function(data){
@@ -226,6 +227,9 @@ blogApp.controller('articleController', function($scope, $routeParams, $http){
 
     $http.get("../php/commentController.php?type=article&id=" + id).success(function(data){
         $scope.comments = data;
+        if(data){
+            $scope.commentError = "There are no comments";
+        }
     });
 
     $scope.delete = function(ID, userID){
@@ -233,12 +237,14 @@ blogApp.controller('articleController', function($scope, $routeParams, $http){
         if(window.loggedin && window.ID == userID){
             $http.get("../php/deleteComment.php?id=" + ID);
             $scope.getComments();
+        }else{
+            $scope.alerts = [];
+            $scope.alerts.push({type: 'danger', msg: 'This is not your comment!'});
         }
 
     };
 
     $scope.edit = function(ID){
-
         $scope.getComments();
     };
 
@@ -276,6 +282,10 @@ blogApp.controller('articleController', function($scope, $routeParams, $http){
         if(userID && $scope.userinfo){
             return $scope.userinfo[userID].avatar;
         }
+    };
+
+    $scope.closeAlert = function(index) {
+        $scope.alerts.splice(index, 1);
     };
 
     setInterval(function(){
