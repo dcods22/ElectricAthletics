@@ -9,7 +9,7 @@
     <file path="/index.html" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1410209399753" ignored="false" />
     <file path="/index1.php" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1407510808268" ignored="false" />
     <file path="/home.html" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1407516748582" ignored="false" />
-    <file path="/style.css" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1410210160066" ignored="false" />
+    <file path="/style.css" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1410214110049" ignored="false" />
     <file path="/controllers.js" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1410191040039" ignored="false" />
     <file path="/blogFetch.php" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1407519435444" ignored="false" />
     <file path="/articles.html" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1410188976174" ignored="false" />
@@ -57,9 +57,9 @@
     <file path="/editProfile.html" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1409763944086" ignored="false" />
     <file path="/updateProfile.php" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1409759879916" ignored="false" />
     <file path="/emailCheck.php" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1409855083208" ignored="false" />
-    <file path="/generalFeel.js" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1409857456599" ignored="false" />
+    <file path="/generalFeel.js" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1410213736541" ignored="false" />
     <file path="/bootstrap.css" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1410207993803" ignored="false" />
-    <file path="/mobileStyle.css" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1410210382757" ignored="false" />
+    <file path="/mobileStyle.css" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1410212473323" ignored="false" />
     <file path="/tabletStyle.css" changelist="46cd2839-0430-4077-8e40-77c287c1c7b2" time="1410210437425" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -124,19 +124,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="393" column="4" selection-start="8601" selection-end="27613" vertical-scroll-proportion="-23.192308">
+            <state line="427" column="14" selection-start="9204" selection-end="9213" vertical-scroll-proportion="0.33333334">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mobileStyle.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="mobileStyle.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/mobileStyle.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1225" column="5" selection-start="27513" selection-end="27513" vertical-scroll-proportion="0.9656652">
+            <state line="3" column="62" selection-start="118" selection-end="149" vertical-scroll-proportion="-1.3846154">
               <folding />
             </state>
           </provider>
@@ -145,7 +145,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="72" selection-start="487" selection-end="487" vertical-scroll-proportion="-5.142857">
+            <state line="9" column="72" selection-start="487" selection-end="487" vertical-scroll-proportion="-2.2857144">
               <folding>
                 <element signature="n#style#0;n#input#0;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -163,7 +163,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/loginForm.html" />
         <option value="$PROJECT_DIR$/profile.html" />
         <option value="$PROJECT_DIR$/js/blogApp.js" />
         <option value="$PROJECT_DIR$/comments.html" />
@@ -175,10 +174,11 @@
         <option value="$PROJECT_DIR$/css/bootstrap.css" />
         <option value="$PROJECT_DIR$/css/mobileStyle.css.html" />
         <option value="$PROJECT_DIR$/articles.html" />
-        <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/css/tabletStyle.css" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/css/mobileStyle.css" />
+        <option value="$PROJECT_DIR$/js/generalFeel.js" />
+        <option value="$PROJECT_DIR$/css/style.css" />
       </list>
     </option>
   </component>
@@ -233,6 +233,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Blog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Blog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Blog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -697,23 +711,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="72" selection-start="487" selection-end="487" vertical-scroll-proportion="-5.142857">
+        <state line="9" column="72" selection-start="487" selection-end="487" vertical-scroll-proportion="-2.2857144">
           <folding>
             <element signature="n#style#0;n#input#0;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/style.css">
+    <entry file="file://$PROJECT_DIR$/js/generalFeel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="393" column="4" selection-start="8601" selection-end="27613" vertical-scroll-proportion="-23.192308">
+        <state line="7" column="121" selection-start="240" selection-end="240" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/mobileStyle.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1225" column="5" selection-start="27513" selection-end="27513" vertical-scroll-proportion="0.9656652">
+        <state line="3" column="62" selection-start="118" selection-end="149" vertical-scroll-proportion="-1.3846154">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="427" column="14" selection-start="9204" selection-end="9213" vertical-scroll-proportion="0.33333334">
           <folding />
         </state>
       </provider>
