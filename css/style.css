@@ -1234,9 +1234,9 @@
     }
 }
 
-/************************ Small Screen Template ***********************/
+/************************ Mobile Template ***********************/
 
-@media (max-width : 800px) {
+@media (max-width:800px){
     body, html{
         height:100%;
         width:100%;
@@ -1467,7 +1467,7 @@
     }
 
     .footer{
-        font-size:13px;
+        font-size:12px;
         font-color:grey;
         padding-bottom:10px;
         width: 100%;
@@ -1603,7 +1603,6 @@
         float:left;
         margin-left: 20px;
         margin-right: 20px;
-        margin-top:10px;
         border-radius: 20px;
         height:150;
         width:240px;
@@ -1659,7 +1658,6 @@
     .tagHolder{
         width:100%;
         height:auto;
-        margin-bottom:30px;
         font-size:11px;
         color:grey;
     }
@@ -1682,7 +1680,6 @@
         width: 400px;
         height: 300px;
         display:block;
-        margin-top:15px;
         border: 1px solid rgba(1, 1, 1, 0.33);
         margin: auto auto auto auto;
     }
@@ -2463,3 +2460,4 @@
         text-align:center;
     }
 }
+

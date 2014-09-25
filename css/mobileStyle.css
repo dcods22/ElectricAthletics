@@ -1,7 +1,8 @@
 /************************ Mobile Template ***********************/
 
 @media only screen
-and (min-device-width : 320px) and (max-device-width : 480px) {
+and (min-width : 321px)
+and (max-device-width : 480px) {
     body, html{
         height:100%;
         width:100%;
@@ -41,12 +42,13 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
         border:none;
     }
 
-    .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+    .nav, .pagination, .carousel, .panel-title a { cursor: pointer; width:320px; }
 
     .navStyle{
         z-index: 1;
         height: 90px;
-        width: 100%;
+        width: 320px;
+        min-width:320px;
         top: 0;
         border-bottom: 1px solid grey;
         position: fixed;
@@ -63,10 +65,10 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
 
     input[type="submit"]{
         overflow: hidden;
-        width: 500px;
+        width: 320px;
         height:40px;
         font-family: inherit;
-        font-size: 100%;
+        font-size: 18px;
         padding: .5em 1em;
         color: #000000;
         border: 0 rgba(0,0,0,0);
@@ -119,6 +121,7 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
         margin: auto auto auto auto;
         padding-left: 20px;
         font-size: 30px;
+        width:320px;
     }
 
     .searchUsername{
@@ -129,7 +132,7 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
 
     .rNav {
         padding-top: 52px;
-        width:100%;
+        width:320px;
     }
 
     .navLinks {
@@ -197,11 +200,12 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
     }
 
     .readMore{
-        padding-left: 15px;;
+        padding-left: 15px;
+        font-size:20px;
     }
 
     .containerHolder{
-        width:100%;
+        width:320px;
         height: auto;
         margin-left: auto;
         margin-right: auto;
@@ -218,7 +222,7 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
     }
 
     hr{
-        width:100%;
+        width:320px;
     }
 
     .LR{
@@ -232,10 +236,10 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
     }
 
     .footer{
-        font-size:13px;
+        font-size:18px;
         font-color:grey;
         padding-bottom:10px;
-        width: 100%;
+        width: 320px;
         margin: auto auto auto auto;
     }
 
@@ -264,10 +268,10 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
 
     .submit{
         overflow: hidden;
-        width: 500px;
+        width: 320px;
         height:40px;
         font-family: inherit;
-        font-size: 100%;
+        font-size: 18px;
         padding: .5em 1em;
         color: #000000;
         border: 0 rgba(0,0,0,0);
@@ -294,13 +298,13 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
     }
 
     .error{
-        font-size:30px;
+        font-size:20px;
         color:red;
         text-align:center;
     }
 
     .articleHolder{
-        width:100%;
+        width:320px;
         height:auto;
         margin: auto auto auto auto;
         line-height: 20px;
@@ -308,6 +312,7 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
         border-right: 1px solid rgba(186, 186, 186, 0.59);
         background-color: #f7f7f7;
         overflow: auto;
+        padding:2px 2px 2px 2px;
     }
 
     #loginSpan:hover{
@@ -322,14 +327,14 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
 
     .gridStyle {
         border: 1px solid rgb(212,212,212);
-        width: 400px;
+        width: 320px;
         height: 300px
     }
 
-    /*************************** Home Page ***************************/
+    /************************** Home Page ***************************/
 
     .title{
-        font-size: 30px;
+        font-size: 25px;
         font-weight: bold;
         text-align: center;
         padding-top: 25px;
@@ -337,7 +342,7 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
     }
 
     .articlePreview{
-        width:100%;
+        width:320px;
         margin:auto auto auto auto;
         min-height: 300px;
         height:auto;
@@ -350,7 +355,7 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
 
     .articleTime{
         font-style: italic;
-        font-size: 12px;
+        font-size: 25px;
         margin-left: 20px;
         margin-bottom: 10px;
         font-color:#bdbdbd;
@@ -360,28 +365,28 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
         margin-left: 20px;
         margin-top: 10px;
         font-weight: bold;
-        font-size: 20px;
+        font-size: 25px;
         float:left;
     }
 
     .articlePhoto{
-        float:left;
-        margin-left: 20px;
-        margin-right: 20px;
+        text-align:center;
+        margin-left: 30px;
+        margin-right: 60px;
+        margin-bottom: 10px;
         border-radius: 20px;
-        height:150;
-        width:240px;
     }
 
     .articleDesc{
         margin-left: 10px;
         margin-right: 10px;
         margin-bottom: 10px;
+        font-size:20px;
     }
 
     .type{
         padding-right: 135px;
-        font-size: 20px;
+        font-size: 25px;
         padding-left: 20px;
         padding-top: 16px;
     }
@@ -389,7 +394,7 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
     /***************** Article Page ****************/
 
     .blogTitle{
-        font-size:20px;
+        font-size:35px;
         font-weight: bold;
         padding-top: 20px;
         padding-bottom: 2px;
@@ -398,32 +403,33 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
 
     .blogType{
         font-style: italic;
-        font-size: 15px;
+        font-size: 30px;
         padding-bottom: 2px;
 
     }
     .blogTime{
         font-style: italic;
-        font-size: 15px;
+        font-size: 25px;
         padding-bottom: 2px;
     }
 
     .blogDesc{
         font-style: italic;
         color: #818181;
-        font-size:15px;
+        font-size:25px;
     }
 
     .blogArticle{
-        font-size: 18px;
+        font-size: 35px;
         font-family: sans-serif;
         line-height: 30px;
+        padding:4px 4px 4px 4px;
     }
 
     .tagHolder{
-        width:100%;
+        width:320px;
         height:auto;
-        font-size:11px;
+        font-size:15px;
         color:grey;
     }
 
@@ -431,6 +437,7 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
         float:left;
         color:grey;
         margin-left: 5px;
+        font-size:15px;
     }
 
     .tag a{
@@ -442,22 +449,22 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
     }
 
     .blogPhoto{
-        width: 400px;
-        height: 300px;
+        width: 280px;
+        height: 200px;
         display:block;
         border: 1px solid rgba(1, 1, 1, 0.33);
         margin: auto auto auto auto;
     }
 
     .picDesc{
-        font-size: 15px;
+        font-size: 18px;
         text-align: center;
 
     }
 
     .sources{
         margin-top: 20px;
-        font-size: 10px;
+        font-size: 15px;
         font-style: italic;
         padding-bottom:10px;
     }
@@ -467,7 +474,7 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
     }
 
     .commentFormDiv{
-        width:500px;
+        width:320px;
         margin-left: auto;
         margin-right: auto;
         margin-top: 10px;
@@ -476,7 +483,7 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
     }
 
     .commentFormDiv textarea{
-        width:500px;
+        width:320px;
         height: 100px;
         margin-left: auto;
         margin-right: auto;
@@ -491,19 +498,19 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
     }
 
     .comments{
-        width:100%;
+        width:320px;
         margin: auto auto auto auto;
     }
 
     .commentsTitle{
         font-size:20px;
         font-weight: bold;
-        width:100%;
+        width:320px;
         height:auto;
     }
 
     .comment{
-        width:100%;
+        width:320px;
         height:auto;
         margin-left:auto;
         margin-right:auto;
@@ -518,10 +525,10 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
 
     .commentForm input[type="submit"]{
         overflow: hidden;
-        width: 500px;
+        width: 320px;
         height:40px;
         font-family: inherit;
-        font-size: 100%;
+        font-size: 15px;
         padding: .5em 1em;
         color: #000000;
         border: 0 rgba(0,0,0,0);
@@ -574,6 +581,8 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
         font-weight:bold;
         font-size:20px;
         text-align: center;
+        width:320px;
+        display:none;
     }
 
     .comment .commentButton{
@@ -595,7 +604,7 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
     /***************** About Page ******************/
 
     .aboutContainer{
-        width:100%;
+        width:320px;
         height:auto;
         margin-bottom: 20px;
         margin-top: 20px;
@@ -605,7 +614,7 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
     /**************** Contact Page ****************/
 
     .formContact{
-        width:500px;
+        width:320px;
         height:auto;
         margin-right: auto;
         margin-left: auto;
@@ -616,7 +625,7 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
     .formName, .formEmail{
         float:left;
         overflow: hidden;
-        width:500px;
+        width:320px;
         margin-top: 5px;
         display: block;
         position: relative;
@@ -640,7 +649,7 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
     .formBody{
         float:left;
         overflow: hidden;
-        width:500px;
+        width:320px;
         margin-top: 5px;
         display: block;
         position: relative;
@@ -695,10 +704,10 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
     .formSend{
         float:left;
         overflow: hidden;
-        width: 500px;
+        width: 320px;
         height:40px;
         font-family: inherit;
-        font-size: 100%;
+        font-size: 320px;
         padding: .5em 1em;
         color: #000000;
         border: 0 rgba(0,0,0,0);
@@ -741,7 +750,7 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
         margin-right: auto;
         margin-top: 20px;
         overflow:hidden;
-        width:500px;
+        width:320px;
         height:auto;
         font-family: Helvetica, Arial, sans-serif;
         font-weight: 500;
@@ -750,7 +759,7 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
 
     .addPostDiv input[type="text"]{
         overflow:hidden;
-        width:500px;
+        width:320px;
         height:50px;
         font-family: Helvetica, Arial, sans-serif;
         font-weight: 500;
@@ -759,7 +768,7 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
 
     .addPostDiv textarea{
         overflow:hidden;
-        width:80%;
+        width:280px;
         font-family: Helvetica, Arial, sans-serif;
         font-weight: 500;
         font-size: 18px;
@@ -778,10 +787,10 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
     .sendArticle{
         float:left;
         overflow: hidden;
-        width: 80%;
+        width: 280px;
         height:40px;
         font-family: inherit;
-        font-size: 100%;
+        font-size: 320px;
         padding: .5em 1em;
         color: #000000;
         border: 0 rgba(0,0,0,0);
@@ -814,7 +823,7 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
     }
 
     .tags{
-        font-size:15px;
+        font-size:10px;
     }
 
     /*********************** Login/Register *********************/
@@ -830,7 +839,7 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
     /*********************** Login Page ************************/
 
     .loginForm{
-        width:80%;
+        width:280px;
         height:auto;
         margin-left: auto;
         margin-right: auto;
@@ -838,7 +847,7 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
 
     .loginForm input[type="text"], .loginForm input[type="password"], .loginForm input[type="email"]{
         overflow: hidden;
-        width:80%;
+        width:280px;
         display: block;
         position: relative;
         box-shadow: inset 0 1px 3px #ddd;
@@ -882,10 +891,10 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
 
     .loginSend{
         overflow: hidden;
-        width: 80%;
+        width: 280px;
         height:40px;
         font-family: inherit;
-        font-size: 100%;
+        font-size: 320px;
         padding: .5em 1em;
         color: #000000;
         border: 0 rgba(0,0,0,0);
@@ -917,7 +926,7 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
     /******************** Register Page **********************/
 
     .registerForm{
-        width:80%;
+        width:280px;
         height:auto;
         margin-left: auto;
         margin-right: auto;
@@ -926,7 +935,7 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
 
     .registerForm input[type="text"], .registerForm input[type="password"], .registerForm input[type="email"]{
         overflow: hidden;
-        width:80%;
+        width:280px;
         display: block;
         position: relative;
         box-shadow: inset 0 1px 3px #ddd;
@@ -972,10 +981,10 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
 
     .registerSend{
         overflow: hidden;
-        width: 80%;
+        width: 280px;
         height:40px;
         font-family: inherit;
-        font-size: 100%;
+        font-size: 18px;
         padding: .5em 1em;
         color: #000000;
         border: 0 rgba(0,0,0,0);
@@ -1014,7 +1023,7 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
     }
 
     .profileRecentComments{
-        width:100%;
+        width:320px;
         height:auto;
         margin-top:40px;
         margin-bottom:60px;
@@ -1026,7 +1035,7 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
         font-weight:bold;
         font-size:20px;
         border-bottom: 1px #bababa solid;
-        width:100%;
+        width:320px;
         margin-bottom:10px;
     }
 
@@ -1038,11 +1047,11 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
 
     .profileCheck{
         height:100px;
-        width:100%;
+        width:320px;
     }
 
     .profileComment{
-        width:100%;
+        width:320px;
         height:auto;
         border-bottom: 1px #bababa solid;
     }
@@ -1053,7 +1062,7 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
 
     .editProfile input[type="text"], .editProfile input[type="password"], .editProfile input[type="email"]{
         overflow: hidden;
-        width:80%;
+        width:280px;
         display: block;
         position: relative;
         box-shadow: inset 0 1px 3px #ddd;
@@ -1091,19 +1100,19 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
         margin-right: auto;
         margin-bottom: 40px;
         margin-top: 40px;
-        width:80%;
+        width:280px;
         height:auto;
     }
 
     #changePass{
-        width:80%;
+        width:280px;
         height:50px;
         margin-bottom: 20px;
     }
 
     .changeForm input[type="password"]{
         overflow: hidden;
-        width:80%;
+        width:280px;
         display: block;
         position: relative;
         box-shadow: inset 0 1px 3px #ddd;
@@ -1158,7 +1167,7 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
     }
 
     .searchTable{
-        width:100%;
+        width:320px;
         margin-left: auto;
         margin-right: auto;
         margin-top:20px;
@@ -1177,7 +1186,7 @@ and (min-device-width : 320px) and (max-device-width : 480px) {
 
     .searchHolder{
         height:75px;
-        width:700px;
+        width:320px;
         margin-left:auto;
         margin-right:auto;
         margin-top:10px;
