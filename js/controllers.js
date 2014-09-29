@@ -233,8 +233,7 @@ blogApp.controller('articleController', function($scope, $routeParams, $http){
 
     $scope.isThereComments = function(){
         $http.get("../php/commentController.php?type=article&id=" + id).success(function(data){
-            $scope.comments = data;
-            if($scope.comments.length == 0){
+            if(data.length == 0){
                 $scope.commentError = "There are no comments";
             }
         });
@@ -307,10 +306,9 @@ blogApp.controller('articleController', function($scope, $routeParams, $http){
     $scope.checkComments();
 
     setInterval(function(){
+        $scope.isThereComments();
         $scope.checkComments();
-        console.log(angular.equals($scope.comments, $scope.newComments));
         if(! angular.equals($scope.comments, $scope.newComments)){
-            console.log("Test");
             $scope.getComments();
         }
     }, 1000);

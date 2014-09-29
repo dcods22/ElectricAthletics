@@ -84,7 +84,9 @@ blogApp.config(['$routeProvider',
 
 blogApp.filter('dateFormat', function() {
     return function(input) {
-        return new Date(input.replace(/-/g, "/"));
+        if(input){
+            return new Date(input.replace(/-/g, "/"));
+        }
     };
 });
 
