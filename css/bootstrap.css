@@ -3606,8 +3606,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     background: -moz-linear-gradient(center center, rgb(179, 155, 58) 30%, rgb(181, 170, 53) 49%, rgb(199, 180, 59) 70%);
     background: -o-linear-gradient(center center, rgb(179, 155, 58) 30%, rgb(181, 170, 53) 49%, rgb(199, 180, 59) 70%);
     background: -ms-linear-gradient(center center, rgb(179, 155, 58) 30%, rgb(181, 170, 53) 49%, rgb(199, 180, 59) 70%);
-    -webkit-box-shadow: 0px 0px 8px 2px #808080;
-    -moz-box-shadow: 0px 0px 8px 2px #808080;
+    -webkit-box-shadow: 0px 4px 8px -2px #808080;
+    -moz-box-shadow: 0px 4px 8px -2px #808080;
 }
 @media (min-width: 960px) {
     .navbar-collapse {

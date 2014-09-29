@@ -6,5 +6,5 @@
     <div class="articleTime">{{blog.time | dateFormat | date:'MMM d-yyyy h:mm a'}}</div>
     <img ng-src="{{blog.pic}}" alt="Article Photo" class="articlePhoto"/>
     <div class="articleDesc">{{blog.article | limitTo:520}}...</div>
-    <a href="/#/articles/id/{{blog.id}}" class="readMore">Read More...</a>
+    <div class="readMoreHolder" style="margin-bottom: 10px;"><a href="/#/articles/id/{{blog.id}}" class="readMore">Read More...</a></div>
 </div>

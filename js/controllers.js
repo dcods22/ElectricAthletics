@@ -43,7 +43,7 @@ blogApp.controller('modalController', function($scope, $modal, $cookies){
         $scope.logURL = window.logURL;
         $scope.username = window.username;
         $scope.avatar = window.avatar;
-        $scope.ID = window.ID
+        $scope.ID = window.ID;
         $scope.$apply();
     }, 1000)
 });
@@ -114,7 +114,6 @@ blogApp.controller('loginController', function($scope, $http, $location, $cookie
 
     $http.get("../php/emailCheck.php").success(function(data){
         $scope.emails = data;
-        console.log(data);
     });
 
     $scope.usernameCheck = function(username){
@@ -227,10 +226,19 @@ blogApp.controller('articleController', function($scope, $routeParams, $http){
 
     $http.get("../php/commentController.php?type=article&id=" + id).success(function(data){
         $scope.comments = data;
-        if(data){
+        if($scope.comments.length == 0){
             $scope.commentError = "There are no comments";
         }
     });
+
+    $scope.isThereComments = function(){
+        $http.get("../php/commentController.php?type=article&id=" + id).success(function(data){
+            $scope.comments = data;
+            if($scope.comments.length == 0){
+                $scope.commentError = "There are no comments";
+            }
+        });
+    };
 
     $scope.delete = function(ID, userID){
 
@@ -251,6 +259,12 @@ blogApp.controller('articleController', function($scope, $routeParams, $http){
     $scope.getComments = function(){
         $http.get("../php/commentController.php?type=article&id=" + id).success(function(data){
             $scope.comments = data;
+        });
+    };
+
+    $scope.checkComments = function(){
+        $http.get("../php/commentController.php?type=article&id=" + id).success(function(data){
+            $scope.newComments = data;
         });
     };
 
@@ -288,8 +302,17 @@ blogApp.controller('articleController', function($scope, $routeParams, $http){
         $scope.alerts.splice(index, 1);
     };
 
+    $scope.isThereComments();
+    $scope.getComments();
+    $scope.checkComments();
+
     setInterval(function(){
-        $scope.getComments();
+        $scope.checkComments();
+        console.log(angular.equals($scope.comments, $scope.newComments));
+        if(! angular.equals($scope.comments, $scope.newComments)){
+            console.log("Test");
+            $scope.getComments();
+        }
     }, 1000);
 });
 
@@ -308,8 +331,10 @@ blogApp.controller('commentController', function($scope, $http, $routeParams){
 
     $scope.addComment = function(comment){
 
+        angular.element(".noComments").remove();
+
         var commentData = {
-            'userID' : $scope.ID,
+            'userID' : window.ID,
             'articleID' : $scope.articleID,
             'comment' : comment.commentText
         };
